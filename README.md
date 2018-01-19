@@ -1,7 +1,7 @@
 # Conoctium
 Atelier de production de jeux vidéo
 
---------------  Auteurs ----------------
+## --------------  Auteurs ----------------
 L'équipe de Conoctium est composée de 9 membres:
 
 - Florian Rumiel -- Scrum Master
@@ -15,7 +15,7 @@ L'équipe de Conoctium est composée de 9 membres:
 - Patrick Levesque
 
 
--------------- Contrôles ---------------
+## -------------- Contrôles ---------------
 Les contrôles du jeu sont désignés par rapport à une manette de XBOX360.
 Le jeu se joue à deux joueurs.
 
