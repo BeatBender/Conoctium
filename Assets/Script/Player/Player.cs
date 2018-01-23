@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
         //On récupère la vitesse actuel
         Vector3 actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
 
-        if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger1" + select) == 0)
+        if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger" + select) == 0)
         {
             if (isGrounded)
                 actualVelocity.x = (actualVelocity.x ) / solFriction;
@@ -65,25 +65,22 @@ public class Player : MonoBehaviour {
 		}
 
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
-		if (Input.GetAxis("Trigger1"+select) == 1)
-		{
+		if (Input.GetAxis ("Trigger" + select) >= .5) {
 			//Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
 			Vector3 otherPlayer;
-			if (select == "Player1") 
-			{
+			if (select == "Player1") {
 				otherPlayer = GameObject.FindGameObjectWithTag ("Player2").GetComponent<Transform> ().position;
-			}
-			else 
-			{
+			} else {
 				otherPlayer = GameObject.FindGameObjectWithTag ("Player1").GetComponent<Transform> ().position;
 			}
 			Vector3 mePlayer = gameObject.GetComponent<Transform> ().position;
-			Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
+			Vector3 inbetween = Vector3.Normalize (otherPlayer - mePlayer);
 			gameObject.GetComponent<Rigidbody> ().velocity += attractSpeed * inbetween * Time.deltaTime;
 			//gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
 		}
+			
 		//■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
-		if (Input.GetAxis("Trigger2"+select) == 1)
+		if (Input.GetAxis("Trigger"+select) <= -.5)
 		{
 			//Debug.Log (Input.GetAxis("Fire3"+select) + " Repulsion" + select);
 			if (!repulsion) 
