@@ -6,47 +6,63 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
 
-	public GameObject menuObject;
-	private bool isActive = false;
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if(isActive) 
-		{
-			menuObject.SetActive (true);
-			Cursor.visible = true;
-			//Cursor.lockstate - CursorLockMode.Confined;
-			Time.timeScale = 0; 
-			//GameObject.FindGameObjectWithTag("Resume_btn").GetComponent<Button>().Select();
+    public GameObject menuObject;
+    private bool isActive = false;
 
-		}
-		else {
-			menuObject.SetActive (false);
-			Cursor.visible = false;
-			//Cursor.lockstate - CursorLockMode.locked;
-			Time.timeScale = 1; 
-		}
+    // Update is called once per frame
+    void Update()
+    {
+        if (isActive)
+        {
+            menuObject.SetActive(true);
+            Cursor.visible = true;
+            //Cursor.lockstate - CursorLockMode.Confined;
+            Time.timeScale = 0;
+            //GameObject.FindGameObjectWithTag("Resume_btn").GetComponent<Button>().Select();
 
-		if(Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown("joystick button 7"))
-		{
-			Resume_btn ();
-		}
-	}
+        }
+        else {
+            menuObject.SetActive(false);
+            Cursor.visible = false;
+            //Cursor.lockstate - CursorLockMode.locked;
+            Time.timeScale = 1;
+        }
 
-	public void Resume_btn () 
-	{
-		isActive = !isActive; 
-	}
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
+        {
+            Resume_btn();
+        }
+    }
 
-	public void LoadSceneBtn(string level)
-	{
-		SceneManager.LoadScene(level);
-	}
+    public void Resume_btn()
+    {
+        isActive = !isActive;
+    }
 
-	public void ExitGameBtn()
-	{
-		Application.Quit();
-	}
+    public void LoadSceneBtn(string level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
+    public void ExitGameBtn()
+    {
+        Application.Quit();
+    }
+
+    public void SizeLittleBtn()
+    {
+
+    }
+
+    public void SizeMediumBtn()
+    {
+
+    }
+
+    public void SizeBigBtn()
+    {
+
+    }
+
 		
 }
