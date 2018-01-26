@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject menuObject;
     public GameObject box;
-    public GameObject grid;
     private bool isActive = false;
 
     // Update is called once per frame
@@ -54,19 +53,24 @@ public class PauseMenu : MonoBehaviour {
     public void SizeLittleBtn()
     {
         box.GetComponent<Transform>().localScale = new Vector3(24.6f, 0.31f, 1.4374f);
-        grid.GetComponent<LevelEditor>().resolution = 22;
+        box.GetComponent<Transform>().position = new Vector3(0f, -10.05f, -0.89f);
+        this.GetComponent<Transform>().position = new Vector3(0f, 1f, -29.56f);
     }
 
     public void SizeMediumBtn()
     {
-        box.GetComponent<Transform>().localScale = new Vector3(37f, 0.45f, 1.4374f);
-        grid.GetComponent<LevelEditor>().resolution = 24;
+        box.GetComponent<Transform>().localScale = new Vector3(32f, 0.39f, 1.4374f);
+        box.GetComponent<Transform>().position = new Vector3(-4.04f, -10.05f, -0.89f);
+        this.GetComponent<Transform>().position = new Vector3(-3.55f, 3f, -31f);
+
     }
 
     public void SizeBigBtn()
     {
         box.GetComponent<Transform>().localScale = new Vector3(37f, 0.45f, 1.4374f);
-        grid.GetComponent<LevelEditor>().resolution = 26;
+        box.GetComponent<Transform>().position = new Vector3(-4.04f, -10.05f, -0.89f);
+        this.GetComponent<Transform>().position = new Vector3(-3.35f, 2.8f, -38.63f);
+
     }
 
 		
