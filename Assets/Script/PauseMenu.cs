@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject menuObject;
+    public GameObject box;
+    public GameObject grid;
     private bool isActive = false;
 
     // Update is called once per frame
@@ -51,17 +53,20 @@ public class PauseMenu : MonoBehaviour {
 
     public void SizeLittleBtn()
     {
-
+        box.GetComponent<Transform>().localScale = new Vector3(24.6f, 0.31f, 1.4374f);
+        grid.GetComponent<LevelEditor>().resolution = 22;
     }
 
     public void SizeMediumBtn()
     {
-
+        box.GetComponent<Transform>().localScale = new Vector3(37f, 0.45f, 1.4374f);
+        grid.GetComponent<LevelEditor>().resolution = 24;
     }
 
     public void SizeBigBtn()
     {
-
+        box.GetComponent<Transform>().localScale = new Vector3(37f, 0.45f, 1.4374f);
+        grid.GetComponent<LevelEditor>().resolution = 26;
     }
 
 		

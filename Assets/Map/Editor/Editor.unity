@@ -214,6 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuObject: {fileID: 942710669}
+  box: {fileID: 261191719}
+  grid: {fileID: 753683093}
 --- !u!1 &235929760
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +581,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114244636810437724, guid: aa0276cd6b81dcf45bad94b21b624f02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224834097268252650, guid: aa0276cd6b81dcf45bad94b21b624f02,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -699,6 +706,43 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 176368160}
+    - target: {fileID: 1427934524273674, guid: aa0276cd6b81dcf45bad94b21b624f02, type: 2}
+      propertyPath: m_Name
+      value: Petit_btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805895661873902, guid: aa0276cd6b81dcf45bad94b21b624f02, type: 2}
+      propertyPath: m_Name
+      value: Moyen_btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760356085013114, guid: aa0276cd6b81dcf45bad94b21b624f02, type: 2}
+      propertyPath: m_Name
+      value: Grand_btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114244636810437724, guid: aa0276cd6b81dcf45bad94b21b624f02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SizeLittleBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114616484650138446, guid: aa0276cd6b81dcf45bad94b21b624f02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SizeMediumBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114269827357995962, guid: aa0276cd6b81dcf45bad94b21b624f02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SizeBigBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114244636810437724, guid: aa0276cd6b81dcf45bad94b21b624f02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114244636810437724, guid: aa0276cd6b81dcf45bad94b21b624f02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa0276cd6b81dcf45bad94b21b624f02, type: 2}
   m_IsPrefabParent: 0
