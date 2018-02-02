@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Map/LevelPortal/LevelPortal.unity
+=======
+- path: Assets/Map/MainMenu.unity
+>>>>>>> d3fdd45fed3513b0cae08740d0aeaff64007d188
   isLoaded: 1
   isActive: 1
