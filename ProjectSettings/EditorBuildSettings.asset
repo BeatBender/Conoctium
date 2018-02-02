@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Map/Level102.unity
     guid: 45a7ab7ea060c364a8cf8ed28299c7fe
+  - enabled: 1
+    path: Assets/Map/Editor/Editor.unity
+    guid: 83511c7fa0679504891885e5c2e27b8c
