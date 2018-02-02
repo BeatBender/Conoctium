@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sol
+  - Player1
+  - Resume_btn
+  - Portal
   layers:
   - Default
   - TransparentFX
