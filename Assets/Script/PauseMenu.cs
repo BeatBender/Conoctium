@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject menuObject;
     public GameObject box;
+    public GameObject player1;
+    public GameObject player2;
     private bool isActive = false;
 
     // Update is called once per frame
@@ -55,6 +57,8 @@ public class PauseMenu : MonoBehaviour {
         box.GetComponent<Transform>().localScale = new Vector3(24.6f, 0.31f, 1.4374f);
         box.GetComponent<Transform>().position = new Vector3(0f, -10.05f, -0.89f);
         this.GetComponent<Transform>().position = new Vector3(0f, 1f, -29.56f);
+        player1.GetComponent<Transform>().position = new Vector3(-8.024024f, -8.876052f, -0.500054f);
+        player2.GetComponent<Transform>().position = new Vector3(6.869448f, -8.790702f, -0.500010f);
     }
 
     public void SizeMediumBtn()
@@ -62,6 +66,8 @@ public class PauseMenu : MonoBehaviour {
         box.GetComponent<Transform>().localScale = new Vector3(32f, 0.39f, 1.4374f);
         box.GetComponent<Transform>().position = new Vector3(-4.04f, -10.05f, -0.89f);
         this.GetComponent<Transform>().position = new Vector3(-3.55f, 3f, -31f);
+        player1.GetComponent<Transform>().position = new Vector3(-8.024024f, -8.876052f, -0.500054f);
+        player2.GetComponent<Transform>().position = new Vector3(6.869448f, -8.790702f, -0.500010f);
 
     }
 
@@ -70,6 +76,8 @@ public class PauseMenu : MonoBehaviour {
         box.GetComponent<Transform>().localScale = new Vector3(37f, 0.45f, 1.4374f);
         box.GetComponent<Transform>().position = new Vector3(-4.04f, -10.05f, -0.89f);
         this.GetComponent<Transform>().position = new Vector3(-3.35f, 2.8f, -38.63f);
+        player1.GetComponent<Transform>().position = new Vector3(-8.024024f, -8.876052f, -0.500054f);
+        player2.GetComponent<Transform>().position = new Vector3(6.869448f, -8.790702f, -0.500010f);
 
     }
 

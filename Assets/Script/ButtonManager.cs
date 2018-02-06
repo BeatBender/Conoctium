@@ -120,6 +120,12 @@ public class ButtonManager : MonoBehaviour {
 
     }
 
+    public void EditorBtn()
+    {
+        SceneManager.LoadScene("Editor");
+
+    }
+
     public void ExitGameBtn()
     {
 
