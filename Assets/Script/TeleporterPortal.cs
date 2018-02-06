@@ -20,12 +20,18 @@ public class TeleporterPortal : MonoBehaviour {
 		if(other.tag == "Player1" && !jumpPlayer1) {
 		target.GetComponent<TeleporterPortal>().jumpPlayer1 = true;
 			other.gameObject.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + adjust, 0);
-			Debug.Log ("TP j1");
+            Rigidbody p1 = other.gameObject.GetComponent<Rigidbody>();
+            float vecNorm = p1.velocity.magnitude;
+            p1.velocity = new Vector3(vecNorm * Mathf.Sin(this.transform.localRotation.z), vecNorm * Mathf.Cos(this.transform.localRotation.z), 0f);
+            Debug.Log ("TP j1");
 		}
 		if(other.tag == "Player2"&& !jumpPlayer2) {
 		target.GetComponent<TeleporterPortal>().jumpPlayer2 = true;
 			other.gameObject.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + adjust, 0);
-			Debug.Log ("TP j2");
+            Rigidbody p2 = other.gameObject.GetComponent<Rigidbody>();
+            float vecNorm = p2.velocity.magnitude;
+            p2.velocity = new Vector3(vecNorm * Mathf.Sin(this.transform.localRotation.z), vecNorm * Mathf.Cos(this.transform.localRotation.z), 0f);
+            Debug.Log ("TP j2");
 		}
 	}
 

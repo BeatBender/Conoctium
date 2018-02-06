@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
+
     private float speed = 20.0f;
     private float jumpSpeed = 750f;
+
 	private bool repulsion = false;
 	private bool isGrounded;
+
 	private float maxSpeed = 30f;
 	private float attractSpeed = 100f;
 	private float repulSpeed = 1200f;
+
     private float solFriction = 1.1f;
     private float airFriction = 1.025f;
+
 	private Vector3 SpawnPos = new Vector3(0, 0, 0); 
+
 	// Use this for initialization
 	void Start ()
     {
@@ -23,6 +29,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        Debug.Log(this.GetComponent<Rigidbody>().velocity);
+        
 		IsGrounded();
         gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, -10f * Time.deltaTime, 0);            
         
