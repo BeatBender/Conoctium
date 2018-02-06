@@ -215,6 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuObject: {fileID: 942710669}
   box: {fileID: 261191719}
+  player1: {fileID: 1575957069}
+  player2: {fileID: 881030571}
 --- !u!1 &235929760
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +534,11 @@ Transform:
   m_Father: {fileID: 261191720}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &881030571 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1227738336800628, guid: 9780730077b318a42a032f9378a569c5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1376781625}
 --- !u!1001 &911108842
 Prefab:
   m_ObjectHideFlags: 0
@@ -993,6 +1000,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9780730077b318a42a032f9378a569c5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1575957069 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1713209453554524, guid: 58c679a4a6fb9334da544eee3e884d74,
+    type: 2}
+  m_PrefabInternal: {fileID: 911108842}
 --- !u!1 &1578546930
 GameObject:
   m_ObjectHideFlags: 0
