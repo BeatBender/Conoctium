@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1903184771}
-  m_IndirectSpecularColor: {r: 0.0040845815, g: 0.00022345585, b: 0.000000057015413,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -195,7 +194,6 @@ GameObject:
   - component: {fileID: 176368155}
   - component: {fileID: 176368160}
   - component: {fileID: 176368161}
-  - component: {fileID: 176368162}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -286,6 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuObject: {fileID: 1008257446}
   box: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &176368161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,23 +294,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 176368154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aae6d0868ca90bc48b8a7c61f2039632, type: 3}
+  m_Script: {fileID: 11500000, guid: 65dd60272b80d3e43b8ba604ad20a650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 2800000, guid: 3e7a608febb4af941841862b6b043537, type: 3}
-  fadeSpeed: 0.3
---- !u!114 &176368162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 176368154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36027f60db57f384fa122d1176903919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 2800000, guid: d3cda7f5b51eb484a83f927b5ddb6cbb, type: 3}
+  fadeOutTexture: {fileID: 2800000, guid: 4e8b6c87e256f9d4eb90d37e55ad5193, type: 3}
   fadeSpeed: 0.3
 --- !u!1 &232631071
 GameObject:
