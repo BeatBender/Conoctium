@@ -29,21 +29,15 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log(this.GetComponent<Rigidbody>().velocity);
         
 		IsGrounded();
         gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, -10f * Time.deltaTime, 0);            
         
         //Selection du joueur
         string select = "";
-        //if(gameObject.tag == "Player1")
-        //{
+        
         select = gameObject.tag;
-        //}
-        //else
-        //{
-        //   select = "Player2";
-        //}
+       
         //On récupère la vitesse actuel
         Vector3 actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
 
@@ -55,9 +49,9 @@ public class Player : MonoBehaviour {
                 actualVelocity.x = (actualVelocity.x) / airFriction;
         }
 
-        //On récupère la direction (normalisé) des joystick dans l'axe x et y
-//        float horizontalMoove = Input.GetAxis("Horizontal" + select);
-//        float verticalMoove = Input.GetAxis("Vertical" + select);
+        // On récupère la direction (normalisé) des joystick dans l'axe x et y
+        // float horizontalMoove = Input.GetAxis("Horizontal" + select);
+        // float verticalMoove = Input.GetAxis("Vertical" + select);
 
         //■■■■■■■■■■ MOOVE ■■■■■■■■■■■
         //On ajoute à la vitesse actuel sa propre vitesse plus celle du joystick * speed * temps entre deux frames
@@ -74,7 +68,7 @@ public class Player : MonoBehaviour {
 
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
 		if (Input.GetAxis ("Trigger" + select) >= .5) {
-			//Debug.Log (Input.GetAxis("Fire2"+select) + " Attraction" + select);
+
 			Vector3 otherPlayer;
 			if (select == "Player1") {
 				otherPlayer = GameObject.FindGameObjectWithTag ("Player2").GetComponent<Transform> ().position;
