@@ -8,6 +8,9 @@ TagManager:
   - Player1
   - Resume_btn
   - Portal
+  - Player2
+  - Radioactive
+  - NewGameButton
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Bille
+  - Player
   - 
   - 
   - 
