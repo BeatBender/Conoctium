@@ -68,7 +68,7 @@ public class SaveManager : MonoBehaviour
 
         foreach (Cube cubi in scene.cubes)
         {
-            GameObject block = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            GameObject block = Instantiate(Resources.Load("prefabCube") as GameObject);
             block.GetComponent<Transform>().localScale = cubi.scale;
             block.GetComponent<Transform>().eulerAngles = cubi.rotation;
             block.GetComponent<Transform>().position = cubi.position;
