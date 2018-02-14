@@ -1,0 +1,1 @@
+{"player1":{"position":{"x":0.0,"y":0.0,"z":0.0}},"player2":{"position":{"x":0.0,"y":0.0,"z":0.0}},"cubes":[{"rotation":{"x":7.0,"y":7.0,"z":7.0},"scale":{"x":8.0,"y":8.0,"z":8.0},"position":{"x":6.0,"y":6.0,"z":6.0}}],"checkpoints":[],"piques":[]}
