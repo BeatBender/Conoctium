@@ -22,9 +22,11 @@ GameObject:
   - component: {fileID: 33986437813106402}
   - component: {fileID: 135541636516382222}
   - component: {fileID: 23416747235770962}
+  - component: {fileID: 143304924278192488}
+  - component: {fileID: 114124254057672490}
   m_Layer: 0
   m_Name: P1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +85,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336958564135144}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114124254057672490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336958564135144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08479603c856a5142940c71b3b742d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IndexPlayer: 1
+  PlayerMoveSpeed: 0
+  PlayerFactorReductionSpeedInAir: 0
+  PlayerJumpSpeed: 0
 --- !u!135 &135541636516382222
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -94,4 +111,21 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &143304924278192488
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336958564135144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}

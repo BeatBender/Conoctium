@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    // The index of the player to differenciate both player
+    public int IndexPlayer = 0;
+
     protected CharacterController PlayerController;
 
     /** The speed of the player movement */
@@ -25,6 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Awake()
     {
+
         PlayerController = GetComponent<CharacterController>();
     }
 
@@ -40,33 +44,64 @@ public class PlayerMove : MonoBehaviour
         PlayerJumpSpeed = 2.50f;
         PlayerFactorReductionSpeedInAir = 0.5f;
     }
-    
+
 
     //--------------------------------------------------------------------------//
     //--------------------------------------------------------------------------//
     public void Update()
     {
-        // Handle the Jump input of the player 1
-        if(Input.GetButtonDown("JumpKP1"))
+        // Handle the Jump input of the players
+        switch(IndexPlayer)
         {
-            if(PlayerController.isGrounded)
-            {
-                Jump();
-            }
-        }
+            case 1:
+                // Handle the jump for the second player
+                if (Input.GetButtonDown("JumpKP1"))
+                        {
+                            if (PlayerController.isGrounded)
+                            {
+                                Jump();
+                            }
+                        }
+                // Handle the horizontal input of the player 1
+                if (PlayerController.isGrounded)
+                {
+                    // Call the moveright function with the value given by horizontalkp1 input
+                    MoveRight(Input.GetAxis("HorizontalKP1"));
+                }
+                else
+                {
+                    // In air the player can move with a reduction of movement
+                    MoveRight(Input.GetAxis("HorizontalKP1") * PlayerFactorReductionSpeedInAir);
+                }
+                break;
+            case 2:
+                // Handle the jump for the second player
+                if (Input.GetButtonDown("JumpKP2"))
+                        {
+                            if (PlayerController.isGrounded)
+                            {
+                                Jump();
+                            }
+                        }
 
-        // Handle the horizontal input of the player 1
-        if(PlayerController.isGrounded)
-        {
-            // Call the moveright function with the value given by horizontalkp1 input
-            MoveRight(Input.GetAxis("HorizontalKP1"));
+                // Handle the horizontal input of the player 1
+                if (PlayerController.isGrounded)
+                {
+                    // Call the moveright function with the value given by horizontalkp1 input
+                    MoveRight(Input.GetAxis("HorizontalKP2"));
+                }
+                else
+                {
+                    // In air the player can move with a reduction of movement
+                    MoveRight(Input.GetAxis("HorizontalKP2") * PlayerFactorReductionSpeedInAir);
+                }
+                break; 
+                
+            default:
+                Debug.Log("Player index non initialized !");
+                break;
         }
-        else
-        {
-            // In air the player can move with a reduction of movement
-            MoveRight(Input.GetAxis("HorizontalKP1") * PlayerFactorReductionSpeedInAir);
-        }
-
+   
         // Application of the gravity force passed by parameter
         ApplyGravity(CurrentGravity);
 

@@ -223,7 +223,7 @@ InputManager:
     altPositiveButton: joystick button 1
     gravity: 10
     dead: 0.001
-    sensitivity: 1000
+    sensitivity: 10
     snap: 0
     invert: 0
     type: 0
@@ -281,13 +281,13 @@ InputManager:
     m_Name: HorizontalKP2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 4
-    positiveButton: 6
+    negativeButton: j
+    positiveButton: l
     altNegativeButton: 
     altPositiveButton: 
     gravity: 10
     dead: 0.001
-    sensitivity: 1000
+    sensitivity: 10
     snap: 0
     invert: 0
     type: 0
@@ -298,7 +298,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: enter
+    positiveButton: right shift
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
@@ -314,7 +314,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 8
+    positiveButton: i
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
@@ -330,7 +330,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 5
+    positiveButton: k
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000

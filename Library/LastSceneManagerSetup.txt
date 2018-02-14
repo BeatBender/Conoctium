@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Map/Level0/Level0.unity
+  isLoaded: 1
+  isActive: 1
