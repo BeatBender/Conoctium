@@ -306,6 +306,8 @@
     <Compile Include="Assets\Script\PauseMenu.cs" />
     <Compile Include="Assets\Script\Player\Billes.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
+    <Compile Include="Assets\Script\Player\Player1Move.cs" />
+    <Compile Include="Assets\Script\Player\Player2Move.cs" />
     <Compile Include="Assets\Script\Player\PlayerAttract.cs" />
     <Compile Include="Assets\Script\Player\PlayerMove.cs" />
     <Compile Include="Assets\Script\Player\PlayerRepulse.cs" />
