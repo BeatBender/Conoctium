@@ -304,6 +304,7 @@
     <Compile Include="Assets\Script\LevelEditor.cs" />
     <Compile Include="Assets\Script\moving.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />
+    <Compile Include="Assets\Script\Player\Attract.cs" />
     <Compile Include="Assets\Script\Player\Billes.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerMove.cs" />

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This script aim to manage the input from the player and trigger the movement function.
+ * Do not forget to assign a player index in the editor when you add a player prefab to a level
+ */
+
 public class PlayerMove : MonoBehaviour
 {
     // The index of the player to differenciate both player
@@ -9,18 +13,18 @@ public class PlayerMove : MonoBehaviour
 
     protected CharacterController PlayerController;
 
-    /** The speed of the player movement */
+    // The speed of the player movement 
     public float PlayerMoveSpeed;
 
-    /** The player is allowed to move a little less in the air, this value tell how much the player is lowered */
+    // The player is allowed to move a little less in the air, this value tell how much the player is lowered 
     public float PlayerFactorReductionSpeedInAir;
 
     public float PlayerJumpSpeed;
 
-    /** The current gravity applied to the player*/
+    // The current gravity applied to the player*/
     public Vector3 CurrentGravity { get; set; }
 
-    /** The default value of the gravity pushing the player down*/
+    // The default value of the gravity pushing the player down
     protected float DefaultGravityIntensity;
 
     // The current direction movement of the player
@@ -35,7 +39,7 @@ public class PlayerMove : MonoBehaviour
     // Use this for initialization
     public void Start()
     {
-        /** Initializes the gravity and the direction of the movement for the character controller */
+        // Initializes the gravity and the direction of the movement for the character controller 
         PlayerMoveDirection = Vector3.zero;
         DefaultGravityIntensity = 10.0f;
         CurrentGravity = Vector3.down * DefaultGravityIntensity;
@@ -112,7 +116,7 @@ public class PlayerMove : MonoBehaviour
     //--------------------------------------------------------------------------//
     //--------------------------------------------------------------------------//
 
-    /** Function useful to change locally the gravity*/
+    // Function useful to change locally the gravity*/
     public void ApplyGravity(Vector3 GravityDirection)
     {
         PlayerMoveDirection += GravityDirection * Time.deltaTime;
@@ -136,4 +140,8 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveDirection.x = HorizontalValue;
     }
 
+    public CharacterController GetPlayerController(){ return PlayerController; }
+    public int GetPlayerIndex() { return IndexPlayer; }
+    public Vector3 GetPlayerMoveDirection() { return PlayerMoveDirection; }
+    public void SetPlayerMoveDirection (Vector3 NewDirection) { PlayerMoveDirection = NewDirection; }
 }
