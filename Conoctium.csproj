@@ -308,6 +308,7 @@
     <Compile Include="Assets\Script\Player\Billes.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerMove.cs" />
+    <Compile Include="Assets\Script\Player\Repulse.cs" />
     <Compile Include="Assets\Script\PortalCamera.cs" />
     <Compile Include="Assets\Script\PortalTetureSetup.cs" />
     <Compile Include="Assets\Script\RollingBox.cs" />

@@ -54,7 +54,6 @@ public class PlayerMove : MonoBehaviour
     //--------------------------------------------------------------------------//
     public void Update()
     {
-        // Handle the Jump input of the players
         switch(IndexPlayer)
         {
             case 1:
@@ -140,8 +139,6 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveDirection.x = HorizontalValue;
     }
 
-    public CharacterController GetPlayerController(){ return PlayerController; }
+    public CharacterController GetPlayerController(){ return GetComponent<CharacterController>(); }
     public int GetPlayerIndex() { return IndexPlayer; }
-    public Vector3 GetPlayerMoveDirection() { return PlayerMoveDirection; }
-    public void SetPlayerMoveDirection (Vector3 NewDirection) { PlayerMoveDirection = NewDirection; }
 }
