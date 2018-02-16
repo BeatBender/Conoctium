@@ -11,7 +11,7 @@ public class ButtonManager : MonoBehaviour {
 	Button NewGameButton;
 	bool inlevelmenu =false;
 	bool inoptionsmenu =false;
-
+    public  List<GameObject> ListLevel; 
 	void Awake()
 	{
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
@@ -106,6 +106,20 @@ public class ButtonManager : MonoBehaviour {
 
 	}
 
+
+    public void PageList(int nblevel)
+    { int i =0;
+        foreach (GameObject page in ListLevel)
+        {
+            page.SetActive(false);
+
+        }
+
+        ListLevel[nblevel].SetActive(true);
+
+
+
+    }
 
 	void Update ()
 	{
