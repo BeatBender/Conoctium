@@ -30,6 +30,8 @@ public class PlayerMove : MonoBehaviour
     // The current direction movement of the player
     protected Vector3 PlayerMoveDirection;
 
+    public AudioClip jump;
+
     public void Awake()
     {
 
@@ -127,6 +129,7 @@ public class PlayerMove : MonoBehaviour
     // The function used when player jump, modify the PlayerMoveDirection
     public void Jump()
     {
+        GetComponent<AudioSource>().PlayOneShot(jump);
         PlayerMoveDirection.y = PlayerJumpSpeed;
     }
 

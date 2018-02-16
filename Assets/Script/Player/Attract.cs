@@ -13,6 +13,8 @@ public class Attract : MonoBehaviour {
     // Attraction force intensity
     public float AttractionForceIntensity { get; set; }
 
+    public AudioClip swoosh;
+
     public void Awake()
     {
         Player = Target.GetComponent<PlayerMove>();
@@ -28,14 +30,22 @@ public class Attract : MonoBehaviour {
         switch(Player.GetPlayerIndex())
         {
             case 1:
-                if(Input.GetButton("AttractKP1"))
+                if (Input.GetButtonDown("AttractKP1"))
+                {
+                    PlaySound(swoosh);
+                }
+                else if (Input.GetButton("AttractKP1"))
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionTowardTarget() * AttractionForceIntensity * Time.deltaTime);
                 }
                 break;
             case 2:
-                if (Input.GetButton("AttractKP2"))
+                if (Input.GetButtonDown("AttractKP2"))
+                {
+                    PlaySound(swoosh);
+                }
+                else if(Input.GetButton("AttractKP2"))
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionTowardTarget() * AttractionForceIntensity * Time.deltaTime);
@@ -52,5 +62,10 @@ public class Attract : MonoBehaviour {
     private Vector3 GetDirectionTowardTarget()
     {
         return Vector3.Normalize(transform.position - Target.transform.position);
+    }
+
+    private void PlaySound(AudioClip audioClip)
+    {
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }

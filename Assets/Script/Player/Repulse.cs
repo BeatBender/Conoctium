@@ -13,6 +13,9 @@ public class Repulse : MonoBehaviour
     // Repulsion force intensity
     public float RepulsionForceIntensity { get; set; }
 
+
+    public AudioClip swoosh;
+
     public void Awake()
     {
         Player = Target.GetComponent<PlayerMove>();
@@ -30,14 +33,23 @@ public class Repulse : MonoBehaviour
         switch (Player.GetPlayerIndex())
         {
             case 1:
-                if (Input.GetButton("RepulseKP1"))
+                if (Input.GetButtonDown("RepulseKP1"))
+                {
+                    PlaySound(swoosh);
+                }
+                else if (Input.GetButton("RepulseKP1"))
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionOppositeTarget() * RepulsionForceIntensity * Time.deltaTime);
                 }
+                
                 break;
             case 2:
-                if (Input.GetButton("RepulseKP2"))
+                if (Input.GetButtonDown("RepulseKP2"))
+                {
+                    PlaySound(swoosh);
+                }
+                else if (Input.GetButton("RepulseKP2"))
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionOppositeTarget() * RepulsionForceIntensity * Time.deltaTime);
@@ -54,5 +66,10 @@ public class Repulse : MonoBehaviour
     private Vector3 GetDirectionOppositeTarget()
     {
         return Vector3.Normalize(transform.position - Target.transform.position);
+    }
+
+    private void PlaySound(AudioClip audioClip)
+    {
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }
