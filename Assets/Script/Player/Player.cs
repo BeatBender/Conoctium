@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         //On récupère la vitesse actuel
         Vector3 actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
 
-        if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger" + select) == 0)
+        if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger" + select) <= 0.015 && Input.GetAxis("Trigger" + select) >= -0.015)
         {
             if (isGrounded)
                 actualVelocity.x = (actualVelocity.x) / solFriction;
