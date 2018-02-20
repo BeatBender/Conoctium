@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SelectionBase]
-public class LevelEditor : MonoBehaviour {
+public class GrillageEditor : MonoBehaviour {
 
     public int resolution;
     public GameObject Carre_Prefab;
