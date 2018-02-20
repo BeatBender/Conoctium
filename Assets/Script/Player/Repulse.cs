@@ -14,7 +14,7 @@ public class Repulse : MonoBehaviour
     public float RepulsionForceIntensity { get; set; }
 
 
-    public AudioClip swoosh;
+    public AudioClip SwooshSound;
 
     public void Awake()
     {
@@ -35,7 +35,7 @@ public class Repulse : MonoBehaviour
             case 1:
                 if (Input.GetButtonDown("RepulseKP1"))
                 {
-                    PlaySound(swoosh);
+                    PlaySound(SwooshSound);
                 }
                 else if (Input.GetButton("RepulseKP1"))
                 {
@@ -47,7 +47,7 @@ public class Repulse : MonoBehaviour
             case 2:
                 if (Input.GetButtonDown("RepulseKP2"))
                 {
-                    PlaySound(swoosh);
+                    PlaySound(SwooshSound);
                 }
                 else if (Input.GetButton("RepulseKP2"))
                 {

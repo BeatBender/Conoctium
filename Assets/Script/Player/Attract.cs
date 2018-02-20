@@ -13,7 +13,7 @@ public class Attract : MonoBehaviour {
     // Attraction force intensity
     public float AttractionForceIntensity { get; set; }
 
-    public AudioClip swoosh;
+    public AudioClip SwooshSound;
 
     public void Awake()
     {
@@ -32,7 +32,7 @@ public class Attract : MonoBehaviour {
             case 1:
                 if (Input.GetButtonDown("AttractKP1"))
                 {
-                    PlaySound(swoosh);
+                    PlaySound(SwooshSound);
                 }
                 else if (Input.GetButton("AttractKP1"))
                 {
@@ -43,7 +43,7 @@ public class Attract : MonoBehaviour {
             case 2:
                 if (Input.GetButtonDown("AttractKP2"))
                 {
-                    PlaySound(swoosh);
+                    PlaySound(SwooshSound);
                 }
                 else if(Input.GetButton("AttractKP2"))
                 {
