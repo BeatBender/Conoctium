@@ -10,6 +10,7 @@ public class EditorBehavior : MonoBehaviour {
 	public ScrollRect selectionMenu;
 	public GameObject grid;
 	public EventSystem eventSystem;
+    public GameObject tuto;
 
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
@@ -20,6 +21,11 @@ public class EditorBehavior : MonoBehaviour {
 		if (Input.GetButtonDown ("EditorSwitchInterface")) {
 			switchStates ();
 		}
+
+        if(Input.GetButtonDown ("EnableTuto"))
+        {
+            tuto.SetActive(!tuto.activeInHierarchy);
+        }
 
 		if(currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
 			 

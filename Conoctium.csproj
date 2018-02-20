@@ -293,6 +293,7 @@
   <ItemGroup>
     <Compile Include="Assets\scrigneuneu.cs" />
     <Compile Include="Assets\Script\ButtonManager.cs" />
+    <Compile Include="Assets\Script\EditorBehavior.cs" />
     <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
     <Compile Include="Assets\Script\Fade.cs" />
     <Compile Include="Assets\Script\GrillageEditor.cs" />
