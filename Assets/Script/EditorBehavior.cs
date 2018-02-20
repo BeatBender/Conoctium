@@ -14,7 +14,8 @@ public class EditorBehavior : MonoBehaviour {
 
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
-	Vector2Int currentGridPosition = new Vector2Int(0, 0);
+	Vector3 currentGridPosition = new Vector3(0, 0, 0);
+	GameObject currentObj = null;
 
 	void Update () {
 		////Input Management
@@ -22,10 +23,24 @@ public class EditorBehavior : MonoBehaviour {
 			switchStates ();
 		}
 
-        if(Input.GetButtonDown ("EnableTuto"))
-        {
+        if(Input.GetButtonDown ("EnableTuto")){
             tuto.SetActive(!tuto.activeInHierarchy);
         }
+
+		if(Input.GetButtonDown ("Fire1Player1")){
+			if (currentObj) {
+				//if the cursor is holding an object
+
+
+				currentObj = null;
+			} else {
+			
+			}
+		}
+
+		if (Input.GetAxis ("ArrowRL") != 0 || Input.GetAxis ("ArrowUD") != 0) {
+			moveObject (Input.GetAxis ("ArrowRL"), Input.GetAxis ("ArrowUD"));
+		}
 
 		if(currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
 			 
@@ -46,8 +61,13 @@ public class EditorBehavior : MonoBehaviour {
 			
 	}
 
-	void selectGridSquare(){
-		int index = currentGridPosition.y * 22 + currentGridPosition.x;
-		grid.GetComponentsInChildren<Transform> () [index + 1].Translate(0, 0, -1);
+	void moveObject(float x, float y){
+		currentObj.GetComponent <Transform> ().position = new Vector3 (currentObj.GetComponent <Transform> ().position.x + x, currentObj.GetComponent <Transform> ().position.y + y, currentObj.GetComponent <Transform> ().position.z);
+	}
+
+	public void selectPrefab(GameObject prefab){
+		switchStates ();
+		currentObj = Instantiate (prefab);
+		currentObj.GetComponent <Transform> ().position = currentGridPosition;
 	}
 }
