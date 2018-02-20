@@ -14,8 +14,10 @@ public class EditorBehavior : MonoBehaviour {
 
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
-	Vector3 currentGridPosition = new Vector3(0, 0, 0);
+	Vector3 currentGridPosition = new Vector3(0, 0, -0.9f);
 	GameObject currentObj = null;
+	float actionTime = 0.0f;
+	float actionCoolDown = 0.1f;
 
 	void Update () {
 		////Input Management
@@ -38,8 +40,9 @@ public class EditorBehavior : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetAxis ("ArrowRL") != 0 || Input.GetAxis ("ArrowUD") != 0) {
+		if ((Input.GetAxis ("ArrowRL") != 0 || Input.GetAxis ("ArrowUD") != 0) && actionTime < Time.time) {
 			moveObject (Input.GetAxis ("ArrowRL"), Input.GetAxis ("ArrowUD"));
+			actionTime = Time.time + actionCoolDown;
 		}
 
 		if(currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
@@ -62,7 +65,9 @@ public class EditorBehavior : MonoBehaviour {
 	}
 
 	void moveObject(float x, float y){
-		currentObj.GetComponent <Transform> ().position = new Vector3 (currentObj.GetComponent <Transform> ().position.x + x, currentObj.GetComponent <Transform> ().position.y + y, currentObj.GetComponent <Transform> ().position.z);
+		currentGridPosition.x += x;
+		currentGridPosition.y += y; 
+		currentObj.GetComponent <Transform> ().position = currentGridPosition;
 	}
 
 	public void selectPrefab(GameObject prefab){
