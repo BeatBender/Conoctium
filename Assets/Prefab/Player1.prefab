@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23228079908158910}
   - component: {fileID: 54813450374405922}
   - component: {fileID: 153398175523929292}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 23888878712444714}
   - component: {fileID: 54463341207150280}
   - component: {fileID: 153679187813795282}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 23806679290129116}
   - component: {fileID: 54244147567512692}
   - component: {fileID: 153540419672735608}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 23720326756883388}
   - component: {fileID: 54500890390194926}
   - component: {fileID: 153213915994524810}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 23264478314560704}
   - component: {fileID: 54625924624209996}
   - component: {fileID: 153364362354301514}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 23463855118207906}
   - component: {fileID: 54379266171809668}
   - component: {fileID: 153250300994620746}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 23409197360298338}
   - component: {fileID: 54388583412686676}
   - component: {fileID: 153957920117751872}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 23469098864463352}
   - component: {fileID: 54193185648772170}
   - component: {fileID: 153893826063644002}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 23389832389069430}
   - component: {fileID: 54578251261674028}
   - component: {fileID: 153317731194831696}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737716287187108}
   - component: {fileID: 114839811268309678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Billes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 23580898279800776}
   - component: {fileID: 54899040113667818}
   - component: {fileID: 153855903364839166}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 23183343317788048}
   - component: {fileID: 54499683024685566}
   - component: {fileID: 153192579604254550}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 23622843494840226}
   - component: {fileID: 54311534260876918}
   - component: {fileID: 153556399008574130}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 23797140895537828}
   - component: {fileID: 54476910055073098}
   - component: {fileID: 153929533774448866}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 23403744253916970}
   - component: {fileID: 54394674505074912}
   - component: {fileID: 153503020489503762}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,8 +319,8 @@ GameObject:
   - component: {fileID: 135924288345755500}
   - component: {fileID: 23456767326878392}
   - component: {fileID: 54810212170493582}
-  - component: {fileID: 114841903963382250}
-  m_Layer: 9
+  - component: {fileID: 114310622503690508}
+  m_Layer: 8
   m_Name: Player1
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 23392551038501398}
   - component: {fileID: 54252895210815586}
   - component: {fileID: 153919863656651908}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 23754824685469962}
   - component: {fileID: 54760594659535768}
   - component: {fileID: 153178765996616262}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 23744332344720196}
   - component: {fileID: 54171829197411890}
   - component: {fileID: 153254587608804878}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 23937745452123226}
   - component: {fileID: 54810860781404672}
   - component: {fileID: 153491444145809784}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 23875929412837930}
   - component: {fileID: 54262544240155824}
   - component: {fileID: 153050668617963218}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 23297966185891336}
   - component: {fileID: 54191041074835572}
   - component: {fileID: 153729359492109700}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bille (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713209453554524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.734218, y: -4.328531, z: -0.50005406}
+  m_LocalPosition: {x: 4.5444875, y: 4.692808, z: -22.57432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4737716287187108}
@@ -1040,7 +1040,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 686a6fdb72a5e3846a65cc5faec36665, type: 2}
+  - {fileID: 2100000, guid: 602623fdaa926b743915871b8fe8eaa6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1930,6 +1930,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114310622503690508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713209453554524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae52d20320b6334cb04f5e0c7457e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114839811268309678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1939,17 +1950,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86197b7f0b9b9504a9c2dd7b07714e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114841903963382250
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1713209453554524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da53c4efdb8f09499f80a50eb5132bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135099522164587996
