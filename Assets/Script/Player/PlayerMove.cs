@@ -22,7 +22,8 @@ public class PlayerMove : MonoBehaviour
     public float PlayerJumpSpeed;
 
     // The current gravity applied to the player*/
-    public Vector3 CurrentGravity { get; set; }
+    [SerializeField]
+    private Vector3 CurrentGravity;
 
     // The default value of the gravity pushing the player down
     protected float DefaultGravityIntensity;
@@ -48,7 +49,7 @@ public class PlayerMove : MonoBehaviour
 
         PlayerMoveSpeed = 20.0f;
         PlayerJumpSpeed = 2.50f;
-        PlayerFactorReductionSpeedInAir = 0.5f;
+        PlayerFactorReductionSpeedInAir = 0.8f;
     }
 
 
@@ -56,17 +57,17 @@ public class PlayerMove : MonoBehaviour
     //--------------------------------------------------------------------------//
     public void Update()
     {
-        switch(IndexPlayer)
+        switch (IndexPlayer)
         {
             case 1:
                 // Handle the jump for the second player
                 if (Input.GetButtonDown("JumpKP1"))
-                        {
-                            if (PlayerController.isGrounded)
-                            {
-                                Jump();
-                            }
-                        }
+                {
+                    if (PlayerController.isGrounded)
+                    {
+                        Jump();
+                    }
+                }
                 // Handle the horizontal input of the player 1
                 if (PlayerController.isGrounded)
                 {
@@ -82,12 +83,12 @@ public class PlayerMove : MonoBehaviour
             case 2:
                 // Handle the jump for the second player
                 if (Input.GetButtonDown("JumpKP2"))
-                        {
-                            if (PlayerController.isGrounded)
-                            {
-                                Jump();
-                            }
-                        }
+                {
+                    if (PlayerController.isGrounded)
+                    {
+                        Jump();
+                    }
+                }
 
                 // Handle the horizontal input of the player 1
                 if (PlayerController.isGrounded)
@@ -100,18 +101,18 @@ public class PlayerMove : MonoBehaviour
                     // In air the player can move with a reduction of movement
                     MoveRight(Input.GetAxis("HorizontalKP2") * PlayerFactorReductionSpeedInAir);
                 }
-                break; 
-                
+                break;
+
             default:
                 Debug.Log("Player index non initialized !");
                 break;
         }
-   
+
         // Application of the gravity force passed by parameter
         ApplyGravity(CurrentGravity);
 
         // The function Move of the controller has to be the last function called
-        PlayerController.Move(PlayerMoveDirection * PlayerMoveSpeed * Time.deltaTime);
+        PlayerController.Move(ClampMoveDirection(PlayerMoveDirection) * PlayerMoveSpeed * Time.deltaTime);
     }
 
     //--------------------------------------------------------------------------//
@@ -120,7 +121,16 @@ public class PlayerMove : MonoBehaviour
     // Function useful to change locally the gravity*/
     public void ApplyGravity(Vector3 GravityDirection)
     {
-        PlayerMoveDirection += GravityDirection * Time.deltaTime;
+        PlayerMoveDirection.y += GravityDirection.y * Time.deltaTime;
+    }
+
+    private Vector3 ClampMoveDirection(Vector3 PlayerMoveDirectionUnclamped)
+    {
+        Vector3 ClampedMoveDirection = Vector3.zero;
+        ClampedMoveDirection.x = Mathf.Clamp(PlayerMoveDirection.x, -10, 10);
+        ClampedMoveDirection.y = Mathf.Clamp(PlayerMoveDirection.y, -1.5f, 10);
+        ClampedMoveDirection.z = 0f;
+        return ClampedMoveDirection;
     }
 
     //--------------------------------------------------------------------------//
@@ -131,6 +141,12 @@ public class PlayerMove : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(JumpSound);
         PlayerMoveDirection.y = PlayerJumpSpeed;
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
 
     //--------------------------------------------------------------------------//
@@ -142,6 +158,6 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveDirection.x = HorizontalValue;
     }
 
-    public CharacterController GetPlayerController(){ return GetComponent<CharacterController>(); }
+    public CharacterController GetPlayerController() { return GetComponent<CharacterController>(); }
     public int GetPlayerIndex() { return IndexPlayer; }
 }
