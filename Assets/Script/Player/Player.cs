@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private float jumpSpeed = 750f;
 
     private bool repulsion = false;
+    private bool attraction = false;
     private bool isGrounded;
 
     private float maxSpeed = 30f;
@@ -20,6 +21,10 @@ public class Player : MonoBehaviour
     private float airFriction = 1.025f;
 
     private Vector3 SpawnPos = new Vector3(0, 0, 0);
+
+
+    public AudioClip JumpSound;
+    public AudioClip SwooshSound;
 
     // Use this for initialization
     void Start()
@@ -64,26 +69,41 @@ public class Player : MonoBehaviour
         //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
         if (Input.GetButtonDown("Fire1" + select) && isGrounded)
         {
+            PlaySound(JumpSound);
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
         }
 
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
         if (Input.GetAxis("Trigger" + select) >= .5)
         {
-
+            
             Vector3 otherPlayer;
-            if (select == "Player1")
+            if (select == "Player1" )
             {
+                if (attraction==false)
+                {
+                    PlaySound(SwooshSound);
+                    attraction = true;
+                }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
             }
             else
             {
+                if (attraction == false)
+                {
+                    PlaySound(SwooshSound);
+                    attraction = true;
+                }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
             }
             Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
             Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
             gameObject.GetComponent<Rigidbody>().velocity += attractSpeed * inbetween * Time.deltaTime;
             //gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
+        }
+        else if (isGrounded)
+        {
+            attraction = false;
         }
 
         //■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
@@ -95,10 +115,12 @@ public class Player : MonoBehaviour
                 Vector3 otherPlayer;
                 if (select == "Player1")
                 {
+                    PlaySound(SwooshSound);
                     otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
                 }
                 else
                 {
+                    PlaySound(SwooshSound);
                     otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
                 }
                 Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
@@ -185,5 +207,10 @@ public class Player : MonoBehaviour
         }
         else
             isGrounded = false;
+    }
+
+    private void PlaySound(AudioClip audioClip)
+    {
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }
