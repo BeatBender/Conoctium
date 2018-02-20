@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Attract : MonoBehaviour {
+
+    // A reference to the player move script for the character controller use
     private PlayerMove Player;
 
     // The target to be atracted to
@@ -11,6 +13,8 @@ public class Attract : MonoBehaviour {
     // Attraction force intensity
     public float AttractionForceIntensity { get; set; }
 
+    public AudioClip swoosh;
+
     public void Awake()
     {
         Player = Target.GetComponent<PlayerMove>();
@@ -18,7 +22,7 @@ public class Attract : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        AttractionForceIntensity = 5.0f;
+        AttractionForceIntensity = 50.0f;
     }
 	
 	// Update is called once per frame
@@ -26,16 +30,25 @@ public class Attract : MonoBehaviour {
         switch(Player.GetPlayerIndex())
         {
             case 1:
-                if(Input.GetButtonDown("AttractKP1"))
+                if (Input.GetButtonDown("AttractKP1"))
                 {
-                    Debug.Log(GetDirectionTowardTarget());
-                    GetComponent<Rigidbody>().AddForce(GetDirectionTowardTarget() * AttractionForceIntensity * 100.0f);
+                    PlaySound(swoosh);
+                }
+                else if (Input.GetButton("AttractKP1"))
+                {
+                    // Use directly the move function of the character controller to priorize this movement
+                    Player.GetPlayerController().Move(GetDirectionTowardTarget() * AttractionForceIntensity * Time.deltaTime);
                 }
                 break;
             case 2:
                 if (Input.GetButtonDown("AttractKP2"))
                 {
-                    GetComponent<Rigidbody>().AddForce(GetDirectionTowardTarget() * AttractionForceIntensity);
+                    PlaySound(swoosh);
+                }
+                else if(Input.GetButton("AttractKP2"))
+                {
+                    // Use directly the move function of the character controller to priorize this movement
+                    Player.GetPlayerController().Move(GetDirectionTowardTarget() * AttractionForceIntensity * Time.deltaTime);
                 }
                 break;
 
@@ -45,8 +58,14 @@ public class Attract : MonoBehaviour {
         }
 	}
 
+    // Calculate the direction toward the target
     private Vector3 GetDirectionTowardTarget()
     {
         return Vector3.Normalize(transform.position - Target.transform.position);
+    }
+
+    private void PlaySound(AudioClip audioClip)
+    {
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }
