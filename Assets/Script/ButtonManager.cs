@@ -59,8 +59,8 @@ public class ButtonManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true;
-		yield return new WaitForSeconds (2);
+		
+		yield return new WaitForSeconds (2); 
 
 		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=false;
@@ -77,12 +77,12 @@ public class ButtonManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
+		/*GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false; */
 		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
 
