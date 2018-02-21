@@ -23,7 +23,13 @@ public class Portal : MonoBehaviour {
                 // modify its transform
                 other.gameObject.transform.position = Target.transform.position;
                 other.gameObject.transform.rotation = Target.transform.rotation;
-                yield return new WaitForSeconds(0.5f);
+
+                PlayerMove CurrentPlayer = other.GetComponent<PlayerMove>();
+                Vector3 ImpulseDirection = Rotate2DVector(CurrentPlayer.PlayerMoveDirection, Target.transform.eulerAngles.z);
+
+                CurrentPlayer.GiveImpulsion(ImpulseDirection);
+
+                yield return new WaitForSeconds(0.2f);
                 bJustTP = true;
             }
         }
@@ -34,8 +40,14 @@ public class Portal : MonoBehaviour {
         if (bJustTP)
         {
             bJustTP = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             bJustTP = false;
         }
+    }
+
+    private Vector3 Rotate2DVector(Vector3 Vector, float Angle)
+    {
+        float VectorMagnitude = Vector.magnitude;
+        return new Vector3(VectorMagnitude * Mathf.Cos(Angle), VectorMagnitude * Mathf.Sin(Angle), Vector.z);
     }
 }

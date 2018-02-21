@@ -110,9 +110,9 @@ public class PlayerMove : MonoBehaviour
 
         // Application of the gravity force passed by parameter
         ApplyGravity(CurrentGravity);
-
         // The function Move of the controller has to be the last function called
-        PlayerController.Move(ClampMoveDirection(PlayerMoveDirection) * PlayerMoveSpeed * Time.deltaTime);
+        ClampMoveDirection();
+        PlayerController.Move(PlayerMoveDirection * PlayerMoveSpeed * Time.deltaTime);
     }
 
     //--------------------------------------------------------------------------//
@@ -121,16 +121,15 @@ public class PlayerMove : MonoBehaviour
     // Function useful to change locally the gravity*/
     public void ApplyGravity(Vector3 GravityDirection)
     {
-        PlayerMoveDirection.y += GravityDirection.y * Time.deltaTime;
+        PlayerMoveDirection.y += GravityDirection.y;
     }
-
-    private Vector3 ClampMoveDirection(Vector3 PlayerMoveDirectionUnclamped)
+    //--------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------//
+    private void ClampMoveDirection()
     {
-        Vector3 ClampedMoveDirection = Vector3.zero;
-        ClampedMoveDirection.x = Mathf.Clamp(PlayerMoveDirection.x, -10, 10);
-        ClampedMoveDirection.y = Mathf.Clamp(PlayerMoveDirection.y, -1.5f, 10);
-        ClampedMoveDirection.z = 0f;
-        return ClampedMoveDirection;
+        PlayerMoveDirection.x = Mathf.Clamp(PlayerMoveDirection.x, -10, 10);
+        PlayerMoveDirection.y = Mathf.Clamp(PlayerMoveDirection.y, -1.5f, 10);
+        PlayerMoveDirection.z = 0f;
     }
 
     //--------------------------------------------------------------------------//
@@ -144,11 +143,6 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-    }
-
     //--------------------------------------------------------------------------//
     //--------------------------------------------------------------------------//
 
@@ -157,7 +151,21 @@ public class PlayerMove : MonoBehaviour
     {
         PlayerMoveDirection.x = HorizontalValue;
     }
+    //--------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------//
 
     public CharacterController GetPlayerController() { return GetComponent<CharacterController>(); }
     public int GetPlayerIndex() { return IndexPlayer; }
+
+    //--------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------//
+    public void GiveImpulsion(Vector3 ImpulsionDirection)
+    {
+        Debug.Log("Impulsion given : " + ImpulsionDirection);
+        PlayerMoveDirection = ImpulsionDirection;
+        Debug.Log("Player move direction" + PlayerMoveDirection);
+    }
+
 }
+
+
