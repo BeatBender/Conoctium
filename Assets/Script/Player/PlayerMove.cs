@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     protected float DefaultGravityIntensity;
 
     // The current direction movement of the player
-    protected Vector3 PlayerMoveDirection;
+    public Vector3 PlayerMoveDirection;
 
     public AudioClip JumpSound;
 
