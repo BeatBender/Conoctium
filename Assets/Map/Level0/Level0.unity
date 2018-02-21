@@ -412,6 +412,21 @@ Prefab:
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[9].outSlope
       value: -0.002000801
       objectReference: {fileID: 0}
+    - target: {fileID: 114578289256925510, guid: 45f1d135f53ee0f41b9da794d3448e9c,
+        type: 2}
+      propertyPath: SwooshSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e7b69d8cf51539a47b1bac66aa523537, type: 3}
+    - target: {fileID: 114231716987350778, guid: 45f1d135f53ee0f41b9da794d3448e9c,
+        type: 2}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: aebfc82ef0e6c644ba4acbcb81a08b12, type: 3}
+    - target: {fileID: 114157446973722292, guid: 45f1d135f53ee0f41b9da794d3448e9c,
+        type: 2}
+      propertyPath: SwooshSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e7b69d8cf51539a47b1bac66aa523537, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45f1d135f53ee0f41b9da794d3448e9c, type: 2}
   m_IsPrefabParent: 0
@@ -698,7 +713,7 @@ Transform:
   - {fileID: 1276925620}
   - {fileID: 1762301250}
   - {fileID: 2137735635}
-  - {fileID: 605797498}
+  - {fileID: 1573524177}
   - {fileID: 2140729077}
   - {fileID: 671544262}
   - {fileID: 150929261}
@@ -818,11 +833,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1387936611198044, guid: 45f1d135f53ee0f41b9da794d3448e9c,
     type: 2}
   m_PrefabInternal: {fileID: 1510206706}
---- !u!4 &605797498 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4920262876179184, guid: 6a9e68457d645ec4d9fb7fe047c9b4d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1573524176}
 --- !u!1 &619138539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 803633173}
-  swoosh: {fileID: 0}
+  SwooshSound: {fileID: 0}
 --- !u!1 &803633173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 782425541}
-  swoosh: {fileID: 0}
+  SwooshSound: {fileID: 0}
 --- !u!1001 &942710668
 Prefab:
   m_ObjectHideFlags: 0
@@ -1677,6 +1687,21 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1058682039}
+    - target: {fileID: 114231716987350778, guid: 45f1d135f53ee0f41b9da794d3448e9c,
+        type: 2}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: aebfc82ef0e6c644ba4acbcb81a08b12, type: 3}
+    - target: {fileID: 114578289256925510, guid: 45f1d135f53ee0f41b9da794d3448e9c,
+        type: 2}
+      propertyPath: SwooshSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e7b69d8cf51539a47b1bac66aa523537, type: 3}
+    - target: {fileID: 114157446973722292, guid: 45f1d135f53ee0f41b9da794d3448e9c,
+        type: 2}
+      propertyPath: SwooshSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e7b69d8cf51539a47b1bac66aa523537, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45f1d135f53ee0f41b9da794d3448e9c, type: 2}
   m_IsPrefabParent: 0
@@ -1786,6 +1811,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a9e68457d645ec4d9fb7fe047c9b4d8, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1573524177 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1573524176}
 --- !u!1 &1578546930
 GameObject:
   m_ObjectHideFlags: 0

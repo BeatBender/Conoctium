@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Map/Level1/Level1.unity
     guid: 5dc0d53fc3c12a840810c36a1becf50f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Map/InterLevel.unity
     guid: 686a44a8eddb3c5499025a4e13e81189
   - enabled: 1

@@ -11,6 +11,7 @@ TagManager:
   - Radioactive
   - Player2
   - NewGameButton
+  - EditorController
   layers:
   - Default
   - TransparentFX
