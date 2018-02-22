@@ -35,12 +35,12 @@ public class ButtonManager : MonoBehaviour {
 	public void goBackMenu () {
 		if (inlevelmenu == true) {
 			animator.SetTrigger ("MoveMenuLeft");
-			StartCoroutine (toleft ());
-			inlevelmenu = false;
+            StartCoroutine (toleft ());
+            inlevelmenu = false;
 		} else if (inoptionsmenu == true) {
 			animator.SetTrigger ("MoveToTop");
-			StartCoroutine (toleft ());
-			inoptionsmenu = false;
+             StartCoroutine (toleft ());
+            inoptionsmenu = false;
 
 		}
 
@@ -55,12 +55,12 @@ public class ButtonManager : MonoBehaviour {
 
 
 	 IEnumerator toright () {
-		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=true;
+        GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=true;
+        GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=true;
-		
-		yield return new WaitForSeconds (2); 
+		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=true; 
+
+        yield return new WaitForSeconds (2); 
 
 		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=false;
@@ -77,13 +77,13 @@ public class ButtonManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=true;
 		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=true;
-		/*GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
+        /*GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false; */
-		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
+		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true; */
+        GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false; 
+        GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
 		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
 
 	}
