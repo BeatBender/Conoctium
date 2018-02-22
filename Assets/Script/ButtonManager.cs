@@ -121,12 +121,6 @@ public class ButtonManager : MonoBehaviour {
 
     }
 
-	void Update ()
-	{
-		Debug.Log ("timescale = " + Time.timeScale);
-	}
-
-
 	public void NewGameBtn(string newGameLevel)
     {
 		

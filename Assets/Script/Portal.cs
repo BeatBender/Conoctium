@@ -6,14 +6,20 @@ public class Portal : MonoBehaviour {
 
     public GameObject Target;
     private static bool bJustTP;
+    private PlayerMove Player;
+
+    private Vector3 LastImpulsion;
 
     void Awake()
     {
         bJustTP = false;
     }
 
+
     IEnumerator OnTriggerEnter(Collider other)
     {
+        Player = other.GetComponent<PlayerMove>();
+
         if(Target)
         {
             // if the object is tagged player
@@ -22,13 +28,11 @@ public class Portal : MonoBehaviour {
                 bJustTP = true;
                 // modify its transform
                 other.gameObject.transform.position = Target.transform.position;
-                other.gameObject.transform.rotation = Target.transform.rotation;
 
                 PlayerMove CurrentPlayer = other.GetComponent<PlayerMove>();
-                Vector3 ImpulseDirection = Rotate2DVector(CurrentPlayer.PlayerMoveDirection, Target.transform.eulerAngles.z);
+                LastImpulsion = Rotate2DVector(Player.PlayerMoveDirection, Target.transform.eulerAngles.z);
 
-                CurrentPlayer.GiveImpulsion(ImpulseDirection);
-
+                //CurrentPlayer.GiveImpulsion(ImpulseDirection);
                 yield return new WaitForSeconds(0.2f);
                 bJustTP = true;
             }
@@ -49,5 +53,13 @@ public class Portal : MonoBehaviour {
     {
         float VectorMagnitude = Vector.magnitude;
         return new Vector3(VectorMagnitude * Mathf.Cos(Angle), VectorMagnitude * Mathf.Sin(Angle), Vector.z);
+    }
+
+    private void Update()
+    {
+        if(bJustTP)
+        {
+            Player.GetPlayerController().Move(LastImpulsion * Time.deltaTime);
+        }   
     }
 }
