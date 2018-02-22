@@ -209,8 +209,11 @@ public class Player : MonoBehaviour
             isGrounded = false;
     }
 
+<<<<<<< HEAD
+=======
     private void PlaySound(AudioClip audioClip)
     {
         GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
+>>>>>>> af07baa83ab7825ddb84aa47e2c9e3884098580c
 }
