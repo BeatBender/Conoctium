@@ -1329,16 +1329,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114310622503690508, guid: 58c679a4a6fb9334da544eee3e884d74,
-        type: 2}
-      propertyPath: JumpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: aebfc82ef0e6c644ba4acbcb81a08b12, type: 3}
-    - target: {fileID: 114310622503690508, guid: 58c679a4a6fb9334da544eee3e884d74,
-        type: 2}
-      propertyPath: SwooshSound
-      value: 
-      objectReference: {fileID: 8300000, guid: e7b69d8cf51539a47b1bac66aa523537, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58c679a4a6fb9334da544eee3e884d74, type: 2}
   m_IsPrefabParent: 0

@@ -65,9 +65,17 @@ public class EditorBehavior : MonoBehaviour {
 			scaleObject (Input.GetAxis ("ScaleX"), Input.GetAxis ("ScaleY"));
 			actionTime = Time.time + actionCoolDown;
 		}
-			
+        if (Input.GetAxis("TriggerPlayer1") >= .8)
+        {
+            rotateObject(.5f);
+        }
 
-		if(currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
+        if (Input.GetAxis("TriggerPlayer1") <= -.8)
+        {
+            rotateObject(-.5f);
+        }
+
+        if (currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
 			 
 		}
 	}
@@ -92,19 +100,27 @@ public class EditorBehavior : MonoBehaviour {
 		currentObj.GetComponent <Transform> ().position = currentGridPosition;
 	}
 
-	void scaleObject(float x, float y){
-		//Influence chart: x -> z; y -> y
-		Vector3 temp = currentObj.GetComponent <Transform> ().localScale;
-		if (temp.z + x != 0) {
-			temp.z += x;
-		}
-		if (temp.y + y != 0) {
-			temp.y += y;
-		}
-		currentObj.GetComponent <Transform> ().localScale  = temp;
-	}
+    void scaleObject(float x, float y)
+    {
+        //Influence chart: x -> z; y -> y
+        Vector3 temp = currentObj.GetComponent<Transform>().localScale;
+        if (temp.z + x != 0)
+        {
+            temp.z += x;
+        }
+        if (temp.y + y != 0)
+        {
+            temp.y += y;
+        }
+        currentObj.GetComponent<Transform>().localScale = temp;
+    }
 
-	public void selectPrefab(GameObject prefab){
+    void rotateObject(float x)
+    {
+        currentObj.GetComponent<Transform>().Rotate(new Vector3(x, 0, 0));
+    }
+
+    public void selectPrefab(GameObject prefab){
 		switchStates ();
 		currentObj = Instantiate (prefab);
 		currentObj.GetComponent <Transform> ().position = currentGridPosition;

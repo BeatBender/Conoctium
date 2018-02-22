@@ -164,10 +164,6 @@ public class Player : MonoBehaviour
             {
                 SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
-            else if (level == 1)
-            {
-                SceneManager.LoadScene("InterLevel");
-            }
             else
             {
                 SceneManager.LoadScene(level + 1, LoadSceneMode.Single);
@@ -209,11 +205,8 @@ public class Player : MonoBehaviour
             isGrounded = false;
     }
 
-<<<<<<< HEAD
-=======
     private void PlaySound(AudioClip audioClip)
     {
         GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
->>>>>>> af07baa83ab7825ddb84aa47e2c9e3884098580c
 }
