@@ -86,9 +86,33 @@ public class SaveManager : MonoBehaviour
             GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
         }
+        bool p1Present = false;
+        bool p2Present = false;
+        GameObject p1 = null;
+        GameObject p2 = null;
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "Player1")
+            {
+                p1Present = true;
+                p1 = child.gameObject;
+            }
+            if (child.tag == "Player2")
+            {
+                p2Present = true;
+                p2 = child.gameObject;
+            }
+        }
 
-        GameObject p1 = Instantiate(Resources.Load("prefabPlayer1") as GameObject);
-        GameObject p2 = Instantiate(Resources.Load("prefabPlayer2") as GameObject);
+        if (!p1Present)
+        {
+            p1 = Instantiate(Resources.Load("prefabPlayer1") as GameObject);
+        }
+        if (!p2Present)
+        {
+            p2 = Instantiate(Resources.Load("prefabPlayer2") as GameObject);
+        }
+
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
 
