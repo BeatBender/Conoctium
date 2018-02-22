@@ -38,3 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Map/Editor/Editor.unity
     guid: 83511c7fa0679504891885e5c2e27b8c
+  - enabled: 1
+    path: Assets/Map/DarkLevel2/DarkLevel2.unity
+    guid: 9ab0e8d9d1ccc574ebed2e35a8a85433
+  - enabled: 1
+    path: Assets/Map/DarkLevel1/DarkLevel.unity
+    guid: 94a2bab8882edc142bd9f587ae1c3d4a
