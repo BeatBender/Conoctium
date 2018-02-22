@@ -11,6 +11,7 @@ public class EditorBehavior : MonoBehaviour {
 	public GameObject grid;
 	public EventSystem eventSystem;
     public GameObject tuto;
+	public GameObject cursor;
 
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
@@ -37,25 +38,51 @@ public class EditorBehavior : MonoBehaviour {
 			if (currentState == State.GridState) {
 				if (currentObj) {
 					//if the cursor is holding an object
-
+					showCursor(true);
 
 					currentObj = null;
 				} else {
-			
+					//Selection
+					RaycastHit hit;
+					if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
+						if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+							currentObj = hit.collider.gameObject;
+							showCursor (false);
+						}
+					}
 				}
 			} else {
 				eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke ();
 			}
 		}
 
+		if(Input.GetButtonDown ("FireB")){
+			if (currentState == State.GridState) {
+				if (currentObj) {
+					//if the cursor is holding an object
+					Destroy(currentObj);
+					showCursor(true);
+					currentObj = null;
+				} else {
+					//Selection
+					RaycastHit hit;
+					if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
+						if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+							Destroy(hit.collider.gameObject);
+						}
+					}
+				}
+			}
+		}
+
 		//Moving the selected object around /Keyboard
-		if ((Input.GetAxis ("ArrowRL") != 0 || Input.GetAxis ("ArrowUD") != 0) && actionTime < Time.time && currentObj && currentState == State.GridState) {
+		if ((Input.GetAxis ("ArrowRL") != 0 || Input.GetAxis ("ArrowUD") != 0) && actionTime < Time.time && currentState == State.GridState) {
 			moveObject (Input.GetAxis ("ArrowRL"), Input.GetAxis ("ArrowUD"));
 			actionTime = Time.time + actionCoolDown;
 		}
 
 		//Moving the selected object around /Controller
-		if ((Input.GetAxis ("HorizontalPlayer1") != 0 || Input.GetAxis ("VerticalPlayer1") != 0) && actionTime < Time.time && currentObj && currentState == State.GridState) {
+		if ((Input.GetAxis ("HorizontalPlayer1") != 0 || Input.GetAxis ("VerticalPlayer1") != 0) && actionTime < Time.time && currentState == State.GridState) {
 			moveObject (Mathf.RoundToInt(Input.GetAxis ("HorizontalPlayer1")), Mathf.RoundToInt(Input.GetAxis ("VerticalPlayer1")));
 			actionTime = Time.time + actionCoolDown;
 		}
@@ -88,16 +115,24 @@ public class EditorBehavior : MonoBehaviour {
 			currentState = State.SelectionState;
 			eventSystem.SetSelectedGameObject (null);
 			eventSystem.SetSelectedGameObject (selectionMenu.content.GetChild(0).gameObject);
+			showCursor (false);
 		} else {
 			currentState = State.GridState;
+			if (!currentObj) {
+				
+			}
 		}
 			
 	}
 
 	void moveObject(float x, float y){
 		currentGridPosition.x += x;
-		currentGridPosition.y += y; 
-		currentObj.GetComponent <Transform> ().position = currentGridPosition;
+		currentGridPosition.y += y;
+		if (currentObj) {
+			currentObj.GetComponent <Transform> ().position = currentGridPosition;
+		} else {
+			showCursor (true);
+		}
 	}
 
     void scaleObject(float x, float y)
@@ -114,6 +149,11 @@ public class EditorBehavior : MonoBehaviour {
         }
         currentObj.GetComponent<Transform>().localScale = temp;
     }
+
+	void showCursor(bool value){
+		cursor.SetActive (value);
+		cursor.GetComponent <Transform> ().position = new Vector3(currentGridPosition.x, currentGridPosition.y, -1.5f);
+	}
 
     void rotateObject(float x)
     {
