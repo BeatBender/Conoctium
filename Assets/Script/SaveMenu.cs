@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SaveMenu : MonoBehaviour
 {
-
+    public GameObject Serialize;
     public GameObject menuObject;
     private bool isActive = false;
 
@@ -43,11 +43,11 @@ public class SaveMenu : MonoBehaviour
 
     public void LaunchSave()
     {
-        Debug.Log("SAVE");
+        Serialize.GetComponent<SaveManager>().Save("Map1");
     }
 
     public void LaunchLoad()
     {
-        Debug.Log("LOAD");
+        Serialize.GetComponent<SaveManager>().Load("Map1");
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class EditorBehavior : MonoBehaviour {
-
+    public GameObject serialize;
 	public Canvas canvas;
 	public ScrollRect selectionMenu;
 	public GameObject grid;
@@ -124,5 +124,6 @@ public class EditorBehavior : MonoBehaviour {
 		switchStates ();
 		currentObj = Instantiate (prefab);
 		currentObj.GetComponent <Transform> ().position = currentGridPosition;
+        currentObj.GetComponent<Transform>().parent = serialize.GetComponent<Transform>();
 	}
 }

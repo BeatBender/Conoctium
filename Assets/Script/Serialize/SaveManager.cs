@@ -19,7 +19,7 @@ public class SaveManager : MonoBehaviour
         if (loadNow)
         {
             loadNow = false;
-            GetSave("FirstMap");
+            Load("FirstMap");
         }
 
     }
@@ -59,7 +59,7 @@ public class SaveManager : MonoBehaviour
 
     }
 
-    public void GetSave(string fileName)
+    public void Load(string fileName)
     {
         //GameObject pique = Instantiate(Resources.Load("prefabPique") as GameObject);
 
