@@ -61,7 +61,7 @@ public class PlayerMove : MonoBehaviour
         {
             case 1:
                 // Handle the jump for the second player
-                if (Input.GetButtonDown("JumpKP1"))
+                if (Input.GetButtonDown("JumpKP1") || Input.GetButtonDown("Fire1Player1"))
                 {
                     if (PlayerController.isGrounded)
                     {
@@ -82,7 +82,7 @@ public class PlayerMove : MonoBehaviour
                 break;
             case 2:
                 // Handle the jump for the second player
-                if (Input.GetButtonDown("JumpKP2"))
+                if (Input.GetButtonDown("JumpKP2") || Input.GetButtonDown("Fire1Player2"))
                 {
                     if (PlayerController.isGrounded)
                     {
@@ -108,11 +108,7 @@ public class PlayerMove : MonoBehaviour
                 break;
         }
 
-        // Application of the gravity force passed by parameter
-        ApplyGravity(CurrentGravity);
-        // The function Move of the controller has to be the last function called
-        ClampMoveDirection();
-        PlayerController.Move(PlayerMoveDirection * PlayerMoveSpeed * Time.deltaTime);
+        UpdatePlayerMovement();
     }
 
     //--------------------------------------------------------------------------//
@@ -121,15 +117,16 @@ public class PlayerMove : MonoBehaviour
     // Function useful to change locally the gravity*/
     public void ApplyGravity(Vector3 GravityDirection)
     {
-        PlayerMoveDirection.y += GravityDirection.y;
+        PlayerMoveDirection.y += GravityDirection.y * Time.deltaTime;
     }
-    //--------------------------------------------------------------------------//
-    //--------------------------------------------------------------------------//
-    private void ClampMoveDirection()
+
+    private Vector3 ClampMoveDirection(Vector3 PlayerMoveDirectionUnclamped)
     {
-        PlayerMoveDirection.x = Mathf.Clamp(PlayerMoveDirection.x, -10, 10);
-        PlayerMoveDirection.y = Mathf.Clamp(PlayerMoveDirection.y, -1.5f, 10);
-        PlayerMoveDirection.z = 0f;
+        Vector3 ClampedMoveDirection = Vector3.zero;
+        ClampedMoveDirection.x = Mathf.Clamp(PlayerMoveDirection.x, -10, 10);
+        ClampedMoveDirection.y = Mathf.Clamp(PlayerMoveDirection.y, -1.5f, 10);
+        ClampedMoveDirection.z = 0f;
+        return ClampedMoveDirection;
     }
 
     //--------------------------------------------------------------------------//
@@ -142,7 +139,7 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveDirection.y = PlayerJumpSpeed;
 
     }
-
+    
     //--------------------------------------------------------------------------//
     //--------------------------------------------------------------------------//
 
@@ -151,21 +148,16 @@ public class PlayerMove : MonoBehaviour
     {
         PlayerMoveDirection.x = HorizontalValue;
     }
-    //--------------------------------------------------------------------------//
-    //--------------------------------------------------------------------------//
+
+    private void UpdatePlayerMovement()
+    {
+        // Application of the gravity force passed by parameter
+        ApplyGravity(CurrentGravity);
+
+        // The function Move of the controller has to be the last function called
+        PlayerController.Move(ClampMoveDirection(PlayerMoveDirection) * PlayerMoveSpeed * Time.deltaTime);
+    }
 
     public CharacterController GetPlayerController() { return GetComponent<CharacterController>(); }
     public int GetPlayerIndex() { return IndexPlayer; }
-
-    //--------------------------------------------------------------------------//
-    //--------------------------------------------------------------------------//
-    public void GiveImpulsion(Vector3 ImpulsionDirection)
-    {
-        Debug.Log("Impulsion given : " + ImpulsionDirection);
-        PlayerMoveDirection = ImpulsionDirection;
-        Debug.Log("Player move direction" + PlayerMoveDirection);
-    }
-
 }
-
-
