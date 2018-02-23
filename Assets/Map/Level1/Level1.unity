@@ -605,7 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: HorizontalPlayer1
   m_VerticalAxis: VerticalPlayer1
-  m_SubmitButton: Submit
+  m_SubmitButton: FireA
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5

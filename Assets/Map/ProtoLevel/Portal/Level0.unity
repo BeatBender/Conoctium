@@ -1150,6 +1150,16 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 198682555051112162, guid: 199708437cd0aad40a25ed619185fa4e,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198682555051112162, guid: 199708437cd0aad40a25ed619185fa4e,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 199708437cd0aad40a25ed619185fa4e, type: 2}
   m_IsPrefabParent: 0
@@ -1183,7 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: HorizontalPlayer1
   m_VerticalAxis: VerticalPlayer1
-  m_SubmitButton: Submit
+  m_SubmitButton: FireA
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -6108,6 +6118,16 @@ Prefab:
     - target: {fileID: 4641795724033456, guid: 199708437cd0aad40a25ed619185fa4e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198682555051112162, guid: 199708437cd0aad40a25ed619185fa4e,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198682555051112162, guid: 199708437cd0aad40a25ed619185fa4e,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198682555051112162, guid: 199708437cd0aad40a25ed619185fa4e,
         type: 2}
