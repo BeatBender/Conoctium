@@ -55,7 +55,7 @@ public class SaveManager : MonoBehaviour
         }
         var jsonString = JsonConvert.SerializeObject(scene);
         Debug.Log(jsonString);
-        System.IO.File.WriteAllText(@"Assets\Saves\" + saveName + ".txt", jsonString);
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + saveName + ".txt", jsonString);
 
     }
 
@@ -63,7 +63,7 @@ public class SaveManager : MonoBehaviour
     {
         //GameObject pique = Instantiate(Resources.Load("prefabPique") as GameObject);
 
-        string text = System.IO.File.ReadAllText(@"Assets\Saves\" + fileName + ".txt");
+        string text = System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\" + fileName + ".txt");
         SceneSerializer scene = JsonConvert.DeserializeObject<SceneSerializer>(text);
 
         foreach (Cube cubi in scene.cubes)
