@@ -176,6 +176,12 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void Teleport( Vector3 jaquie)
+    {
+        gameObject.GetComponent<Transform>().position = jaquie;
+    }
+    
     public void SetSpawnPos(Vector3 spwn)
     {
         SpawnPos = spwn;
