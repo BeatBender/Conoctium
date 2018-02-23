@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 33714177411418276}
   - component: {fileID: 23300603379643046}
   - component: {fileID: 114647871947230016}
-  - component: {fileID: 114352792594414542}
   m_Layer: 0
   m_Name: TeleporterB
   m_TagString: Portal
@@ -39,7 +38,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4103556862100450}
-  - component: {fileID: 114328012648127764}
   - component: {fileID: 114012806408918712}
   m_Layer: 0
   m_Name: DualPortal
@@ -60,7 +58,6 @@ GameObject:
   - component: {fileID: 33628601917508618}
   - component: {fileID: 23719095608673172}
   - component: {fileID: 114015298712694034}
-  - component: {fileID: 114913544342638794}
   m_Layer: 0
   m_Name: TeleporterA
   m_TagString: Portal
@@ -239,29 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1263103790826066}
---- !u!114 &114328012648127764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1506233538318296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07efef42e1f1f0c4580faa640673c638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114352792594414542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1263103790826066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ff2c0d9ef184c49a9accdb22f05df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 1613639579210386}
 --- !u!114 &114647871947230016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,15 +248,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1613639579210386}
---- !u!114 &114913544342638794
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1613639579210386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ff2c0d9ef184c49a9accdb22f05df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 1263103790826066}
