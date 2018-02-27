@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a2394e506760348bbb83fa2cb99865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Serialize: {fileID: 0}
+  Serialize: {fileID: 620561975}
   menuObject: {fileID: 1903148901}
 --- !u!1 &185460555
 GameObject:
@@ -4420,7 +4420,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 881030571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae52d20320b6334cb04f5e0c7457e89, type: 3}
   m_Name: 
@@ -7790,7 +7790,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1575957069}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae52d20320b6334cb04f5e0c7457e89, type: 3}
   m_Name: 
@@ -10009,7 +10009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3891d33cb7088fd459b1cfc8f9d1239a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serialize: {fileID: 1937019149}
+  serialize: {fileID: 620561975}
   canvas: {fileID: 610622594}
   selectionMenu: {fileID: 1293924090}
   grid: {fileID: 753683093}
@@ -10139,7 +10139,7 @@ Prefab:
     - target: {fileID: 224763300466156784, guid: 528453e3196c51f429ecfb5640854083,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224423242870742928, guid: 528453e3196c51f429ecfb5640854083,
         type: 2}
@@ -10174,7 +10174,7 @@ Prefab:
     - target: {fileID: 224763300466156784, guid: 528453e3196c51f429ecfb5640854083,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 224423242870742928, guid: 528453e3196c51f429ecfb5640854083,
         type: 2}

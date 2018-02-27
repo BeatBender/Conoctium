@@ -43,11 +43,13 @@ public class SaveMenu : MonoBehaviour
 
     public void LaunchSave()
     {
-        Serialize.GetComponent<SaveManager>().Save("Map1");
+        int i = 1;
+        Serialize.GetComponent<SaveManager>().Save(i);
     }
 
     public void LaunchLoad()
     {
-        Serialize.GetComponent<SaveManager>().Load("Map1");
+        int i = 1;
+        Serialize.GetComponent<SaveManager>().Load(i);
     }
 }
