@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class ButtonManager : MonoBehaviour {
 	Animator animator;
@@ -144,7 +145,7 @@ public class ButtonManager : MonoBehaviour {
     public void EditorBtn()
     {
         SceneManager.LoadScene("Editor");
-
+        var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }
 
     public void ExitGameBtn()

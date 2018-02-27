@@ -34,3 +34,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Assets/Script/Player/Player.cs
+Conoctium.csproj
+Conoctium.Editor.csproj
