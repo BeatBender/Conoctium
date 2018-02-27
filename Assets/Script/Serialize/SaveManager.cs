@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using serialize;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
@@ -14,17 +15,17 @@ public class SaveManager : MonoBehaviour
         if (saveNow)
         {
             saveNow = false;
-            Save("FirstMap");
+            Save(-1);
         }
         if (loadNow)
         {
             loadNow = false;
-            Load("FirstMap");
+            Load(-1);
         }
 
     }
 
-    public void Save(string saveName)
+    public void Save(int i)
     {
         SceneSerializer scene = new SceneSerializer();
 
@@ -55,15 +56,23 @@ public class SaveManager : MonoBehaviour
         }
         var jsonString = JsonConvert.SerializeObject(scene);
         Debug.Log(jsonString);
-        System.IO.File.WriteAllText(@"Assets\Saves\" + saveName + ".txt", jsonString);
 
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
     }
 
-    public void Load(string fileName)
+#if !UNITY_EDITOR
+    public void ScreenSave(int i)
+    {
+        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SaveMap/map" + i + ".png");
+    }
+#endif
+
+    public void Load(int i)
     {
         //GameObject pique = Instantiate(Resources.Load("prefabPique") as GameObject);
 
-        string text = System.IO.File.ReadAllText(@"Assets\Saves\" + fileName + ".txt");
+        string text = System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt");
         SceneSerializer scene = JsonConvert.DeserializeObject<SceneSerializer>(text);
 
         foreach (Cube cubi in scene.cubes)
@@ -86,9 +95,33 @@ public class SaveManager : MonoBehaviour
             GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
         }
+        bool p1Present = false;
+        bool p2Present = false;
+        GameObject p1 = null;
+        GameObject p2 = null;
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "Player1")
+            {
+                p1Present = true;
+                p1 = child.gameObject;
+            }
+            if (child.tag == "Player2")
+            {
+                p2Present = true;
+                p2 = child.gameObject;
+            }
+        }
 
-        GameObject p1 = Instantiate(Resources.Load("prefabPlayer1") as GameObject);
-        GameObject p2 = Instantiate(Resources.Load("prefabPlayer2") as GameObject);
+        if (!p1Present)
+        {
+            p1 = Instantiate(Resources.Load("prefabPlayer1") as GameObject);
+        }
+        if (!p2Present)
+        {
+            p2 = Instantiate(Resources.Load("prefabPlayer2") as GameObject);
+        }
+
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
 
