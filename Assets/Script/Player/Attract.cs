@@ -34,7 +34,7 @@ public class Attract : MonoBehaviour {
                 {
                     PlaySound(SwooshSound);
                 }
-                else if (Input.GetButton("AttractKP1"))
+                else if (Input.GetButton("AttractKP1") || Input.GetAxis("TriggerPlayer1") < -0.5f)
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionTowardTarget() * AttractionForceIntensity * Time.deltaTime);
@@ -45,7 +45,7 @@ public class Attract : MonoBehaviour {
                 {
                     PlaySound(SwooshSound);
                 }
-                else if(Input.GetButton("AttractKP2"))
+                else if(Input.GetButton("AttractKP2") || Input.GetAxis("TriggerPlayer2") < -0.5f)
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionTowardTarget() * AttractionForceIntensity * Time.deltaTime);
