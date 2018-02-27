@@ -57,10 +57,18 @@ public class SaveManager : MonoBehaviour
         var jsonString = JsonConvert.SerializeObject(scene);
         Debug.Log(jsonString);
 
+        Camera.main.GetComponent<SaveMenu>().Resume_btn();
+
+#if UNITY_EDITOR
+#else
+        ScreenSave(1);
+#endif
+
         System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
     }
 
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
+#else
     public void ScreenSave(int i)
     {
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
@@ -81,6 +89,7 @@ public class SaveManager : MonoBehaviour
             block.GetComponent<Transform>().localScale = cubi.scale;
             block.GetComponent<Transform>().eulerAngles = cubi.rotation;
             block.GetComponent<Transform>().position = cubi.position;
+            block.GetComponent<Transform>().parent = this.GetComponent<Transform>();
             
         }
         foreach (Pique piqui in scene.piques)
@@ -89,11 +98,13 @@ public class SaveManager : MonoBehaviour
             pique.GetComponent<Transform>().localScale = piqui.scale;
             pique.GetComponent<Transform>().eulerAngles = piqui.rotation;
             pique.GetComponent<Transform>().position = piqui.position;
+            pique.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         foreach (Checkpoint checki in scene.checkpoints)
         {
             GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
+            check.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         bool p1Present = false;
         bool p2Present = false;
