@@ -37,7 +37,7 @@ public class Repulse : MonoBehaviour
                 {
                     PlaySound(SwooshSound);
                 }
-                else if (Input.GetButton("RepulseKP1"))
+                else if (Input.GetButton("RepulseKP1") || Input.GetAxis("TriggerPlayer1") > 0.5f)
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionOppositeTarget() * RepulsionForceIntensity * Time.deltaTime);
@@ -49,7 +49,7 @@ public class Repulse : MonoBehaviour
                 {
                     PlaySound(SwooshSound);
                 }
-                else if (Input.GetButton("RepulseKP2"))
+                else if (Input.GetButton("RepulseKP2") || Input.GetAxis("TriggerPlayer2") > 0.5f)
                 {
                     // Use directly the move function of the character controller to priorize this movement
                     Player.GetPlayerController().Move(GetDirectionOppositeTarget() * RepulsionForceIntensity * Time.deltaTime);

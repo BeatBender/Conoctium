@@ -61,7 +61,7 @@ public class PlayerMove : MonoBehaviour
         {
             case 1:
                 // Handle the jump for the second player
-                if (Input.GetButtonDown("JumpKP1") || Input.GetButtonDown("Fire1Player1"))
+                if (Input.GetButtonDown("JumpKP1"))
                 {
                     if (PlayerController.isGrounded)
                     {
@@ -72,17 +72,23 @@ public class PlayerMove : MonoBehaviour
                 if (PlayerController.isGrounded)
                 {
                     // Call the moveright function with the value given by horizontalkp1 input
-                    MoveRight(Input.GetAxis("HorizontalKP1"));
+                    float JMove = Input.GetAxis("HorizontalJP1");
+                    float KMove = Input.GetAxis("HorizontalKP1");
+                    float HorizontalMove = (Mathf.Abs(JMove) >= Mathf.Abs(KMove)) ? JMove : KMove;
+                    MoveRight(HorizontalMove);
                 }
                 else
                 {
                     // In air the player can move with a reduction of movement
-                    MoveRight(Input.GetAxis("HorizontalKP1") * PlayerFactorReductionSpeedInAir);
+                    float JMove = Input.GetAxis("HorizontalJP1");
+                    float KMove = Input.GetAxis("HorizontalKP1");
+                    float HorizontalMove = (Mathf.Abs(JMove) >= Mathf.Abs(KMove)) ? JMove : KMove;
+                    MoveRight(HorizontalMove * PlayerFactorReductionSpeedInAir);
                 }
                 break;
             case 2:
                 // Handle the jump for the second player
-                if (Input.GetButtonDown("JumpKP2") || Input.GetButtonDown("Fire1Player2"))
+                if (Input.GetButtonDown("JumpKP2"))
                 {
                     if (PlayerController.isGrounded)
                     {
@@ -93,13 +99,18 @@ public class PlayerMove : MonoBehaviour
                 // Handle the horizontal input of the player 1
                 if (PlayerController.isGrounded)
                 {
-                    // Call the moveright function with the value given by horizontalkp1 input
-                    MoveRight(Input.GetAxis("HorizontalKP2"));
+                    float JMove = Input.GetAxis("HorizontalJP2");
+                    float KMove = Input.GetAxis("HorizontalKP2");
+                    float HorizontalMove = (Mathf.Abs(JMove) >= Mathf.Abs(KMove)) ? JMove : KMove ;
+                    MoveRight(HorizontalMove);
                 }
                 else
                 {
                     // In air the player can move with a reduction of movement
-                    MoveRight(Input.GetAxis("HorizontalKP2") * PlayerFactorReductionSpeedInAir);
+                    float JMove = Input.GetAxis("HorizontalJP2");
+                    float KMove = Input.GetAxis("HorizontalKP2");
+                    float HorizontalMove = (Mathf.Abs(JMove) >= Mathf.Abs(KMove)) ? JMove : KMove;
+                    MoveRight(HorizontalMove * PlayerFactorReductionSpeedInAir);
                 }
                 break;
 
