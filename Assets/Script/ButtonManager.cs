@@ -11,6 +11,7 @@ public class ButtonManager : MonoBehaviour {
 	Button NewGameButton;
 	bool inlevelmenu =false;
 	bool inoptionsmenu =false;
+    bool inleveleditormenu = false;
     public  List<GameObject> ListLevel; 
 	void Awake()
 	{
@@ -43,8 +44,15 @@ public class ButtonManager : MonoBehaviour {
             inoptionsmenu = false;
 
 		}
+        else if (inleveleditormenu == true)
+        {
+            animator.SetTrigger("MoveToMainMenu");
+            StartCoroutine(tomainmenu());
+            inoptionsmenu = false;
 
-	}
+        }
+
+    }
 
 	public void goOptionsMenu () {
 		Debug.Log ("Options menu");
@@ -53,58 +61,63 @@ public class ButtonManager : MonoBehaviour {
 		StartCoroutine(todown());
 	}
 
+    public void goLevelEditorMenu()
+    {
 
-	 IEnumerator toright () {
-        GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=true;
-        GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=true; 
+        inleveleditormenu = true;
+        animator.SetTrigger("MoveToLevelEditor");
+        StartCoroutine(totop());
+    }
 
-        yield return new WaitForSeconds (2); 
 
-		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=false;
-
-		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().Select(); 
+    IEnumerator toright () {
+        
+        yield return new WaitForSeconds(1);
+        ListLevel[1].SetActive(true);
+        ListLevel[0].SetActive(false);
+       
 
 	}
 
 	 IEnumerator toleft () {
-		yield return new WaitForSeconds (1);
-		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=true;
-        /*GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=true; */
-        GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false; 
-        GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
+        
+        yield return new WaitForSeconds(1);
+        ListLevel[0].SetActive(true);
+        ListLevel[1].SetActive(false);
 
-	}
+    }
 
 	IEnumerator todown () {
-		GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level3btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level4btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Level10btn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("Backbtn").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().interactable=true;
-		GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().Select();
-		yield return new WaitForSeconds (1);
-		GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("OptionsButton").GetComponent<Button>().interactable=false;
-		GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().interactable=false;
+	
+		yield return new WaitForSeconds (2);
+        ListLevel[4].SetActive(true);
+        ListLevel[0].SetActive(false);
 
 
 
-	}
+    }
+    IEnumerator tomainmenu()
+    {
+
+        yield return new WaitForSeconds(1);
+        ListLevel[0].SetActive(true);
+        ListLevel[4].SetActive(false);
+
+
+
+    }
+
+
+    IEnumerator totop()
+    {
+
+        yield return new WaitForSeconds(1);
+        ListLevel[5].SetActive(true);
+        ListLevel[0].SetActive(false);
+
+    }
+
+   
 
 
     public void PageList(int nblevel)
