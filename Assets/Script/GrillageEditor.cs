@@ -5,35 +5,25 @@ using UnityEngine;
 [SelectionBase]
 public class GrillageEditor : MonoBehaviour {
 
-    public int resolution;
+    public Vector2Int resolution;
     public GameObject Carre_Prefab;
 
-    private bool[] carre;
     private float carreSize;
-    
+	private float decalage = .05f;    
 
-    private void Awake()
-    {
-        carre = new bool[resolution * resolution];
-        carreSize = 1f * resolution * 0.05f;
-
-        for (int i = 0, y = 0; y < resolution; y++)
-        {
-            for (int x = 0; x < resolution; x++, i++)
-            {
-                CreateVoxel(i, x, y);
+    private void Awake() {
+        carreSize = .9f;
+        for (int i = 0, y = 0; y < resolution.y; y++) {
+            for (int x = 0; x < resolution.x; x++, i++) {
+                CreateVoxel(x, y);
             }
-        }
-       
+        }       
     }
 
-    private void CreateVoxel(int i, int x, int y)
-    {
+    private void CreateVoxel(int x, int y) {
         GameObject o = Instantiate(Carre_Prefab) as GameObject;
         o.transform.parent = transform;
-        o.transform.localPosition = new Vector3((x + 0.5f) * carreSize, (y + 0.5f) * carreSize);
-        o.transform.localScale = Vector3.one * carreSize * 0.95f;
+		o.transform.localPosition = new Vector3(x + (x - 1) * decalage, y + (y - 1) * decalage);
+        o.transform.localScale = Vector3.one * carreSize;
     }
-
-
 }

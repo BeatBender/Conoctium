@@ -38,21 +38,19 @@ public class EditorBehavior : MonoBehaviour {
 			if (currentState == State.GridState) {
 				if (currentObj) {
 					//if the cursor is holding an object
-					showCursor(true);
+					showCursor (true);
 
 					currentObj = null;
 				} else {
 					//Selection
-					RaycastHit hit;
-					if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
-						if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
-							currentObj = hit.collider.gameObject;
-							showCursor (false);
-						}
+					GameObject selected = selectWithCursor();
+					if (selected) {
+						currentObj = selected;
+						showCursor (false);
 					}
 				}
 			} else {
-				eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke ();
+				switchStates ();
 			}
 		}
 
@@ -65,11 +63,23 @@ public class EditorBehavior : MonoBehaviour {
 					currentObj = null;
 				} else {
 					//Selection
-					RaycastHit hit;
-					if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
-						if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
-							Destroy(hit.collider.gameObject);
-						}
+					GameObject selected = selectWithCursor();
+					if (selected) {
+						Destroy (selected);
+					}
+				}
+			}
+		}
+
+		if (Input.GetButtonDown ("Duplicate")) {
+			if (currentState == State.GridState) {
+				if (currentObj) {
+					selectPrefab (currentObj);
+				} else {
+					GameObject selected = selectWithCursor ();
+					if (selected) {
+						selectPrefab (selected);
+						showCursor (false);
 					}
 				}
 			}
@@ -92,15 +102,11 @@ public class EditorBehavior : MonoBehaviour {
 			scaleObject (Input.GetAxis ("ScaleX"), Input.GetAxis ("ScaleY"));
 			actionTime = Time.time + actionCoolDown;
 		}
-        if (Input.GetAxis("TriggerPlayer1") >= .8)
-        {
-            rotateObject(.5f);
-        }
 
-        if (Input.GetAxis("TriggerPlayer1") <= -.8)
-        {
-            rotateObject(-.5f);
-        }
+		if (Mathf.Abs(Input.GetAxis ("TriggerPlayer1")) > .9 && currentObj && actionTime < Time.time) {
+			rotateObject (Mathf.RoundToInt (Input.GetAxis ("TriggerPlayer1")) * 5);
+			actionTime = Time.time + actionCoolDown;
+		}
 
         if (currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
 			 
@@ -115,13 +121,11 @@ public class EditorBehavior : MonoBehaviour {
 			currentState = State.SelectionState;
 			eventSystem.SetSelectedGameObject (null);
 			eventSystem.SetSelectedGameObject (selectionMenu.content.GetChild(0).gameObject);
-			showCursor (false);
 		} else {
 			currentState = State.GridState;
-			if (!currentObj) {
-				
-			}
 		}
+
+		showCursor (currentState == State.GridState && !currentObj);
 			
 	}
 
@@ -135,8 +139,7 @@ public class EditorBehavior : MonoBehaviour {
 		}
 	}
 
-    void scaleObject(float x, float y)
-    {
+    void scaleObject(float x, float y) {
         //Influence chart: x -> z; y -> y
         Vector3 temp = currentObj.GetComponent<Transform>().localScale;
         if (temp.z + x != 0)
@@ -152,16 +155,24 @@ public class EditorBehavior : MonoBehaviour {
 
 	void showCursor(bool value){
 		cursor.SetActive (value);
-		cursor.GetComponent <Transform> ().position = new Vector3(currentGridPosition.x, currentGridPosition.y, -1.5f);
+		cursor.GetComponent <Transform> ().position = new Vector3(currentGridPosition.x, currentGridPosition.y, -2f);
 	}
 
-    void rotateObject(float x)
-    {
+    void rotateObject(float x){
         currentObj.GetComponent<Transform>().Rotate(new Vector3(x, 0, 0));
     }
 
+	GameObject selectWithCursor(){
+		RaycastHit hit;
+		if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
+			if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+				return hit.collider.gameObject;
+			}
+		}
+		return null;
+	}
+
     public void selectPrefab(GameObject prefab){
-		switchStates ();
 		currentObj = Instantiate (prefab);
 		currentObj.GetComponent <Transform> ().position = currentGridPosition;
         currentObj.GetComponent<Transform>().parent = serialize.GetComponent<Transform>();
