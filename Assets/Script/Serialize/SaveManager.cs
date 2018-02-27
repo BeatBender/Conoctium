@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using serialize;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
@@ -14,17 +15,17 @@ public class SaveManager : MonoBehaviour
         if (saveNow)
         {
             saveNow = false;
-            Save("FirstMap");
+            Save(-1);
         }
         if (loadNow)
         {
             loadNow = false;
-            Load("FirstMap");
+            Load(-1);
         }
 
     }
 
-    public void Save(string saveName)
+    public void Save(int i)
     {
         SceneSerializer scene = new SceneSerializer();
 
@@ -55,15 +56,23 @@ public class SaveManager : MonoBehaviour
         }
         var jsonString = JsonConvert.SerializeObject(scene);
         Debug.Log(jsonString);
-        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + saveName + ".txt", jsonString);
 
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
     }
 
-    public void Load(string fileName)
+#if !UNITY_EDITOR
+    public void ScreenSave(int i)
+    {
+        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SaveMap/map" + i + ".png");
+    }
+#endif
+
+    public void Load(int i)
     {
         //GameObject pique = Instantiate(Resources.Load("prefabPique") as GameObject);
 
-        string text = System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\" + fileName + ".txt");
+        string text = System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt");
         SceneSerializer scene = JsonConvert.DeserializeObject<SceneSerializer>(text);
 
         foreach (Cube cubi in scene.cubes)
