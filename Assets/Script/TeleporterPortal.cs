@@ -23,16 +23,16 @@ public class TeleporterPortal : MonoBehaviour {
             //Rigidbody p1 = other.gameObject.GetComponent<Rigidbody>();
             //float vecNorm = p1.velocity.magnitude;
             //p1.velocity = new Vector3(vecNorm * Mathf.Sin(this.transform.localRotation.z), vecNorm * Mathf.Cos(this.transform.localRotation.z), 0f);
-			other.gameObject.GetComponent<Player>().Teleport(target.gameObject.GetComponent<Transform> ().position);
+			other.gameObject.GetComponent<Player>().Teleport(target.gameObject.GetComponent<Transform>().position);
             Debug.Log ("TP j1");
 		}
-		if(other.tag == "Player2"&& !jumpPlayer2) {
+		if(other.tag == "Player2" && !jumpPlayer2) {
 		    target.GetComponent<TeleporterPortal>().jumpPlayer2 = true;
 		    //other.gameObject.transform.position = new Vector3(target.transform.position.x, target.transform.position.y , 0);
             //Rigidbody p2 = other.gameObject.GetComponent<Rigidbody>();
             //float vecNorm = p2.velocity.magnitude;
             //p2.velocity = new Vector3(vecNorm * Mathf.Sin(this.transform.localRotation.z), vecNorm * Mathf.Cos(this.transform.localRotation.z), 0f);
-			other.gameObject.GetComponent<Player>().Teleport(target.gameObject.GetComponent<Transform> ().position);
+			other.gameObject.GetComponent<Player>().Teleport(target.gameObject.GetComponent<Transform>().position);
             Debug.Log ("TP j2");
 		}
 	}

@@ -5767,12 +5767,22 @@ Prefab:
     - target: {fileID: 224999255057325862, guid: c9385584e992db040954216876198a41,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 414
+      value: 173
       objectReference: {fileID: 0}
     - target: {fileID: 224999255057325862, guid: c9385584e992db040954216876198a41,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 312
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 224724183623772238, guid: c9385584e992db040954216876198a41,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 224724183623772238, guid: c9385584e992db040954216876198a41,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 392
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9385584e992db040954216876198a41, type: 2}

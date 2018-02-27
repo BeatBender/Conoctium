@@ -6,9 +6,9 @@ public class TeleporterParent : MonoBehaviour {
 
 	//public GameObject teleporterA;
 	//public GameObject teleporterB;
-	private float adjust = 1.5f;
-	private bool jumpPlayer1;
-	private bool jumpPlayer2;
+	//private float adjust = 1.5f;
+	//private bool jumpPlayer1;
+	//private bool jumpPlayer2;
 	public Color color;
 
 	void Start () {
