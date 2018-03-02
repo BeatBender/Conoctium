@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class RollingBox : MonoBehaviour {
     public float rotationSpeed;
-	public Rigidbody box;
+	public Rigidbody bodyToRotate;
+	Vector3 m_EulerAngleVelocity;
 
 	// Use this for initialization
 	void Start () {
-		//box = GetComponent<Rigidbody>();
+        m_EulerAngleVelocity = new Vector3(0, 0, 100);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        //box.AddForce(0, 0, rotationSpeed);
-		//box.Rotate(Vector3.right * rotationSpeed * Time.deltaTime);
+	void FixedUpdate () {
+	   Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * m_EulerAngleVelocity * Time.deltaTime);
+        bodyToRotate.MoveRotation(bodyToRotate.rotation * deltaRotation);
+
 	}
 }
