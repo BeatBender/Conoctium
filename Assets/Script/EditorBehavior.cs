@@ -56,7 +56,7 @@ public class EditorBehavior : MonoBehaviour {
 
 		if(Input.GetButtonDown ("FireB")){
 			if (currentState == State.GridState) {
-				if (currentObj) {
+				if (currentObj && currentObj.layer != LayerMask.NameToLayer("Player")) {
 					//if the cursor is holding an object
 					Destroy(currentObj);
 					showCursor(true);
@@ -64,7 +64,7 @@ public class EditorBehavior : MonoBehaviour {
 				} else {
 					//Selection
 					GameObject selected = selectWithCursor();
-					if (selected) {
+					if (selected && selected.layer != LayerMask.NameToLayer("Player")) {
 						Destroy (selected);
 					}
 				}
@@ -73,11 +73,11 @@ public class EditorBehavior : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Duplicate")) {
 			if (currentState == State.GridState) {
-				if (currentObj) {
+				if (currentObj && currentObj.layer != LayerMask.NameToLayer("Player")) {
 					selectPrefab (currentObj);
 				} else {
 					GameObject selected = selectWithCursor ();
-					if (selected) {
+					if (selected && selected.layer != LayerMask.NameToLayer("Player")) {
 						selectPrefab (selected);
 						showCursor (false);
 					}
@@ -98,14 +98,14 @@ public class EditorBehavior : MonoBehaviour {
 		}
 
 		//Scaling the selected object
-		if ((Input.GetAxis ("ScaleX") != 0 || Input.GetAxis ("ScaleY") != 0) && actionTime < Time.time && currentObj && currentState == State.GridState) {
+		if ((Input.GetAxis ("ScaleX") != 0 || Input.GetAxis ("ScaleY") != 0) && actionTime < Time.time && currentObj && currentState == State.GridState && currentObj.layer != LayerMask.NameToLayer("Player")) {
 			scaleObject (Input.GetAxis ("ScaleX"), Input.GetAxis ("ScaleY"));
 			actionTime = Time.time + actionCoolDown;
 		}
 
-		if (Mathf.Abs(Input.GetAxis ("TriggerPlayer1")) > .9 && currentObj && actionTime < Time.time) {
-			rotateObject (Mathf.RoundToInt (Input.GetAxis ("TriggerPlayer1")) * 5);
-			actionTime = Time.time + actionCoolDown;
+		if (Mathf.Abs(Input.GetAxis ("TriggerPlayer1")) > .9 && currentObj && actionTime < Time.time && currentObj.layer != LayerMask.NameToLayer("Player")) {
+			rotateObject (Mathf.RoundToInt (-Input.GetAxis ("TriggerPlayer1")) * 5);
+			actionTime = Time.time + actionCoolDown / 2;
 		}
 
         if (currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
