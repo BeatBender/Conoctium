@@ -146,12 +146,7 @@ public class ButtonManager : MonoBehaviour {
     }
 
     public void EditorBtn(int numLevel )
-    {   if (numLevel == 0){
-            SceneManager.LoadScene("Editor");
-          
-        }
-        else
-        {
+    {  
             //creer objet
             GameObject LevelInfos;
             LevelInfos = new GameObject();        
@@ -164,8 +159,6 @@ public class ButtonManager : MonoBehaviour {
             //Load la scene editor
             SceneManager.LoadScene("Editor");
             
-
-        }
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,7 +45,13 @@ public class SaveMenu : MonoBehaviour
     public void LaunchSave()
     {
         int i = 1;
-        Serialize.GetComponent<SaveManager>().Save(i);
+        if(!Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out i))
+        {
+            i = 0;
+        }
+        Debug.Log("nbMap" + i);
+        Serialize.GetComponent<SaveManager>().Save(i+1);
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (i+1).ToString());
     }
 
     public void LaunchLoad()
