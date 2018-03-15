@@ -309,6 +309,7 @@
     <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
     <Compile Include="Assets\Script\Fade.cs" />
     <Compile Include="Assets\Script\GrillageEditor.cs" />
+    <Compile Include="Assets\Script\Loadinginformations.cs" />
     <Compile Include="Assets\Script\moving.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />
     <Compile Include="Assets\Script\Player\Attract.cs" />

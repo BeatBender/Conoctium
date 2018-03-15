@@ -12,6 +12,16 @@ TagManager:
   - Player2
   - NewGameButton
   - EditorController
+  - Level2btn
+  - Level1btn
+  - Level4btn
+  - BackOptionbtn
+  - Level10btn
+  - QuitButton
+  - OptionsButton
+  - Level3btn
+  - Backbtn
+  - LevelInfos
   layers:
   - Default
   - TransparentFX

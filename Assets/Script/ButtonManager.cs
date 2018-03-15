@@ -73,8 +73,9 @@ public class ButtonManager : MonoBehaviour {
 
     IEnumerator toright () {
         
-        yield return new WaitForSeconds(1);
+        
         ListLevel[1].SetActive(true);
+        yield return new WaitForSeconds(1);
         ListLevel[0].SetActive(false);
        
 
@@ -82,8 +83,9 @@ public class ButtonManager : MonoBehaviour {
 
 	 IEnumerator toleft () {
         
-        yield return new WaitForSeconds(1);
+        
         ListLevel[0].SetActive(true);
+        yield return new WaitForSeconds(1);
         ListLevel[1].SetActive(false);
 
     }
@@ -100,8 +102,9 @@ public class ButtonManager : MonoBehaviour {
     IEnumerator tomainmenu()
     {
 
-        yield return new WaitForSeconds(1);
+        
         ListLevel[0].SetActive(true);
+        yield return new WaitForSeconds(1);
         ListLevel[4].SetActive(false);
 
 
@@ -142,9 +145,27 @@ public class ButtonManager : MonoBehaviour {
 
     }
 
-    public void EditorBtn()
-    {
-        SceneManager.LoadScene("Editor");
+    public void EditorBtn(int numLevel )
+    {   if (numLevel == 0){
+            SceneManager.LoadScene("Editor");
+          
+        }
+        else
+        {
+            //creer objet
+            GameObject LevelInfos;
+            LevelInfos = new GameObject();        
+            LevelInfos.tag = "LevelInfos";
+            LevelInfos.name = "LevelInfos";
+            LevelInfos.AddComponent<Loadinginformations>();
+            LevelInfos.GetComponent<Loadinginformations>().LevelLoad = numLevel;
+            LevelInfos.GetComponent<Loadinginformations>().dontDestruct();
+
+            //Load la scene editor
+            SceneManager.LoadScene("Editor");
+            
+
+        }
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }
 

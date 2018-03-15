@@ -9,7 +9,13 @@ public class SaveManager : MonoBehaviour
 {
     public bool saveNow = false;
     public bool loadNow = false;
-    // Update is called once per frame
+
+    private void Start()
+    {
+        GameObject temp = GameObject.FindGameObjectWithTag("LevelInfos");        
+        Load(temp.GetComponent<Loadinginformations>().LevelLoad);    
+    }
+
     void Update () {
 
         if (saveNow)
@@ -22,7 +28,6 @@ public class SaveManager : MonoBehaviour
             loadNow = false;
             Load(-1);
         }
-
     }
 
     public void Save(int i)
