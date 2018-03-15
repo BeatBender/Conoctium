@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33432782303622682}
   - component: {fileID: 23689787402591624}
   - component: {fileID: 95490515073428790}
-  - component: {fileID: 114592576606526974}
-  - component: {fileID: 114031661689289060}
+  - component: {fileID: 114835559129813776}
+  - component: {fileID: 114194889130188648}
   m_Layer: 0
   m_Name: planete7
   m_TagString: Untagged
@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 06c340d0a7157e841b1057354baff3a3, type: 2}
+  - {fileID: 2100000, guid: f17ab74ffd6031045b85765671fca8d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,7 +103,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114031661689289060
+--- !u!114 &114194889130188648
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -111,17 +111,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1818784455124938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f128a5fa82695f14b82c8d76d814887b, type: 3}
+  m_Script: {fileID: 11500000, guid: 843d3a01824859f47a028b7465c5edc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitingObject: {fileID: 4590389649485350}
+  orbitingObject: {fileID: 0}
   OrbitPath:
     xAxis: 80
     yAxis: 150
   orbitProgress: 0.5
   orbitPeriod: 30
   orbitActive: 1
---- !u!114 &114592576606526974
+--- !u!114 &114835559129813776
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -129,6 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1818784455124938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e72e24d26a68145be5c4ac9ecf32e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 378f9bf3bfd355541b091c37213e3335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
