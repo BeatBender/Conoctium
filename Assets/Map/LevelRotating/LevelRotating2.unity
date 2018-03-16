@@ -1468,8 +1468,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 616947301}
-  - component: {fileID: 616947303}
   - component: {fileID: 616947302}
+  - component: {fileID: 616947303}
   m_Layer: 0
   m_Name: InnertBox
   m_TagString: Untagged
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.5
   bodyToRotate: {fileID: 616947302}
-  direction: 1
+  changeDirection: 1
 --- !u!1001 &661229856
 Prefab:
   m_ObjectHideFlags: 0
@@ -3487,7 +3487,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1300299094}
-  - component: {fileID: 1300299096}
   - component: {fileID: 1300299095}
   m_Layer: 0
   m_Name: piques
@@ -3528,20 +3527,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1300299096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1300299093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c376004701e906a47b66b5dd1ddbd697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 0.5
-  bodyToRotate: {fileID: 1300299095}
-  direction: 1
 --- !u!1001 &1317559134
 Prefab:
   m_ObjectHideFlags: 0
@@ -4115,7 +4100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.75
   bodyToRotate: {fileID: 1637560149}
-  direction: 0
+  changeDirection: 0
 --- !u!4 &1637560148
 Transform:
   m_ObjectHideFlags: 0
@@ -4688,11 +4673,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4414272167785946, guid: 9780730077b318a42a032f9378a569c5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.65
+      value: 5.09
       objectReference: {fileID: 0}
     - target: {fileID: 4414272167785946, guid: 9780730077b318a42a032f9378a569c5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.36
+      value: 3.88
       objectReference: {fileID: 0}
     - target: {fileID: 4414272167785946, guid: 9780730077b318a42a032f9378a569c5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4720,7 +4705,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1227738336800628, guid: 9780730077b318a42a032f9378a569c5, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9780730077b318a42a032f9378a569c5, type: 2}

@@ -835,9 +835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c376004701e906a47b66b5dd1ddbd697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.5
+  rotationSpeed: 1.5
   bodyToRotate: {fileID: 824229919}
-  direction: 1
+  changeDirection: 0
 --- !u!1001 &848839667
 Prefab:
   m_ObjectHideFlags: 0
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.75
   bodyToRotate: {fileID: 1637560149}
-  direction: 0
+  changeDirection: 0
 --- !u!4 &1637560148
 Transform:
   m_ObjectHideFlags: 0
