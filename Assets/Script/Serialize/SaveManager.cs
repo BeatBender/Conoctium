@@ -12,7 +12,15 @@ public class SaveManager : MonoBehaviour
     public bool deleteNow = false;
     public int deletedSave = 1;
     // Update is called once per frame
-    void Update()
+
+    private void Start()
+    {
+        GameObject temp = GameObject.FindGameObjectWithTag("LevelInfos");
+        Load(temp.GetComponent<Loadinginformations>().LevelLoad);
+    }
+
+
+void Update()
     {
 
         if (saveNow)
@@ -68,6 +76,9 @@ public class SaveManager : MonoBehaviour
         System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
 
         Camera.main.GetComponent<SaveMenu>().Resume_btn();
+
+        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SavesMap/map" + i + ".png");
 
 #if UNITY_EDITOR
 #else

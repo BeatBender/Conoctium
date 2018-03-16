@@ -12,6 +12,7 @@ public class InitializeFolder : MonoBehaviour {
         //if the SaveFile do not exists create it with a value of 0
         if(!System.IO.File.Exists("conoctium_Data/Resources/Saves"))
         {
+            Debug.Log("No Savce file found");
             System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", "0");
         }
     }

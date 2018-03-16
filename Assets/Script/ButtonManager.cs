@@ -147,17 +147,17 @@ public class ButtonManager : MonoBehaviour {
 
     public void EditorBtn(int numLevel )
     {  
-            //creer objet
-            GameObject LevelInfos;
-            LevelInfos = new GameObject();        
-            LevelInfos.tag = "LevelInfos";
-            LevelInfos.name = "LevelInfos";
-            LevelInfos.AddComponent<Loadinginformations>();
-            LevelInfos.GetComponent<Loadinginformations>().LevelLoad = numLevel;
-            LevelInfos.GetComponent<Loadinginformations>().dontDestruct();
+        //creer objet
+        GameObject LevelInfos;
+        LevelInfos = new GameObject();        
+        LevelInfos.tag = "LevelInfos";
+        LevelInfos.name = "LevelInfos";
+        LevelInfos.AddComponent<Loadinginformations>();
+        LevelInfos.GetComponent<Loadinginformations>().LevelLoad = numLevel;
+        LevelInfos.GetComponent<Loadinginformations>().dontDestruct();
 
-            //Load la scene editor
-            SceneManager.LoadScene("Editor");
+        //Load la scene editor
+        SceneManager.LoadScene("Editor");
             
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }

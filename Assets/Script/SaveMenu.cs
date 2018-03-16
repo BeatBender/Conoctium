@@ -44,19 +44,17 @@ public class SaveMenu : MonoBehaviour
 
     public void LaunchSave()
     {
-        int i = 1;
-        if(!Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out i))
-        {
-            i = 0;
-        }
-        Debug.Log("nbMap" + i);
-        Serialize.GetComponent<SaveManager>().Save(i+1);
-        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (i+1).ToString());
+        int numSave = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
+
+        Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out numSave);
+        
+        Debug.Log("nbMap" + numSave);
+        Serialize.GetComponent<SaveManager>().Save(numSave + 1);
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (numSave+1).ToString());
     }
 
-    public void LaunchLoad()
+    public void LaunchLoad(int numLoad)
     {
-        int i = 1;
-        Serialize.GetComponent<SaveManager>().Load(i);
+        Serialize.GetComponent<SaveManager>().Load(numLoad);
     }
 }
