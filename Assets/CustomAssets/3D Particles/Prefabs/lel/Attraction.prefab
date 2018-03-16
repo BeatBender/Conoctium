@@ -6651,7 +6651,7 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 0001030405
-  m_Mesh: {fileID: 4300022, guid: 77bf5257d47183f49bff40333fef076c, type: 3}
+  m_Mesh: {fileID: 4300022, guid: 87e1f5904edeccb4f8d23c1426a719fb, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
