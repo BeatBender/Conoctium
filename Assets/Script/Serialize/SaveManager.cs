@@ -75,7 +75,7 @@ void Update()
 
         System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
 
-        Camera.main.GetComponent<SaveMenu>().Resume_btn();
+        Camera.main.GetComponent<PauseMenu>().Resume_btn();
 
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
         ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SavesMap/map" + i + ".png");
@@ -105,9 +105,11 @@ void Update()
             nbFiles = 0;
         }
         System.IO.File.Delete(@"conoctium_Data\Resources\Saves\" + deleteFile + ".txt");
+        System.IO.File.Delete(@"conoctium_Data\Resources\SavesMap\map" + deleteFile + ".png");
         for (int i = deleteFile + 1; i <= nbFiles; i++)
         {
             System.IO.File.Move(@"conoctium_Data\Resources\Saves\" + i + ".txt", @"conoctium_Data\Resources\Saves\" + (i - 1) + ".txt");
+            System.IO.File.Move(@"conoctium_Data\Resources\Saves\" + i + ".txt", @"conoctium_Data\Resources\SavesMap\map" + (i - 1) + ".png");
         }
         System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (nbFiles - 1).ToString());
     }

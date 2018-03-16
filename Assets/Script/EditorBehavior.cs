@@ -8,10 +8,10 @@ public class EditorBehavior : MonoBehaviour {
     public GameObject serialize;
 	public Canvas canvas;
 	public ScrollRect selectionMenu;
-	public GameObject grid;
 	public EventSystem eventSystem;
     public GameObject tuto;
 	public GameObject cursor;
+	public LineRenderer linker;
 
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
@@ -52,37 +52,56 @@ public class EditorBehavior : MonoBehaviour {
 			} else {
 				switchStates ();
 			}
+			linkObjects ();
 		}
 
 		if(Input.GetButtonDown ("FireB")){
 			if (currentState == State.GridState) {
-				if (currentObj) {
+				if (currentObj && currentObj.layer != LayerMask.NameToLayer("Player")) {
 					//if the cursor is holding an object
-					Destroy(currentObj);
+					if (currentObj.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+						Destroy (currentObj);
+					} else {
+						Destroy (currentObj.GetComponent<Transform> ().parent.gameObject);
+					}
 					showCursor(true);
 					currentObj = null;
 				} else {
 					//Selection
 					GameObject selected = selectWithCursor();
-					if (selected) {
-						Destroy (selected);
+					if (selected && selected.layer != LayerMask.NameToLayer("Player")) {
+						if (selected.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+							Destroy (selected);
+						} else {
+							Destroy (selected.GetComponent<Transform> ().parent.gameObject);
+						}
 					}
 				}
 			}
+			linkObjects ();
 		}
 
 		if (Input.GetButtonDown ("Duplicate")) {
 			if (currentState == State.GridState) {
-				if (currentObj) {
-					selectPrefab (currentObj);
+				if (currentObj && currentObj.layer != LayerMask.NameToLayer("Player")) {
+					if (currentObj.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+						selectPrefab (currentObj);
+					} else {
+						selectPrefab (currentObj.GetComponent<Transform> ().parent.gameObject);
+					}
 				} else {
 					GameObject selected = selectWithCursor ();
-					if (selected) {
-						selectPrefab (selected);
+					if (selected && selected.layer != LayerMask.NameToLayer("Player")) {
+						if (selected.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+							selectPrefab (selected);
+						} else {
+							selectPrefab (selected.GetComponent<Transform> ().parent.gameObject);
+						}
 						showCursor (false);
 					}
 				}
 			}
+			linkObjects ();
 		}
 
 		//Moving the selected object around /Keyboard
@@ -98,14 +117,14 @@ public class EditorBehavior : MonoBehaviour {
 		}
 
 		//Scaling the selected object
-		if ((Input.GetAxis ("ScaleX") != 0 || Input.GetAxis ("ScaleY") != 0) && actionTime < Time.time && currentObj && currentState == State.GridState) {
+		if ((Input.GetAxis ("ScaleX") != 0 || Input.GetAxis ("ScaleY") != 0) && actionTime < Time.time && currentObj && currentState == State.GridState && currentObj.layer != LayerMask.NameToLayer("Player")) {
 			scaleObject (Input.GetAxis ("ScaleX"), Input.GetAxis ("ScaleY"));
 			actionTime = Time.time + actionCoolDown;
 		}
 
-		if (Mathf.Abs(Input.GetAxis ("TriggerPlayer1")) > .9 && currentObj && actionTime < Time.time) {
+		if (Mathf.Abs(Input.GetAxis ("TriggerPlayer1")) > .9 && currentObj && actionTime < Time.time && currentObj.layer != LayerMask.NameToLayer("Player")) {
 			rotateObject (Mathf.RoundToInt (Input.GetAxis ("TriggerPlayer1")) * 5);
-			actionTime = Time.time + actionCoolDown;
+			actionTime = Time.time + actionCoolDown / 2;
 		}
 
         if (currentState == State.GridState && Input.GetAxis("HorizontalPlayer1") > 0){
@@ -137,17 +156,15 @@ public class EditorBehavior : MonoBehaviour {
 		} else {
 			showCursor (true);
 		}
+		linkObjects ();
 	}
 
     void scaleObject(float x, float y) {
-        //Influence chart: x -> z; y -> y
         Vector3 temp = currentObj.GetComponent<Transform>().localScale;
-        if (temp.z + x != 0)
-        {
-            temp.z += x;
+		if (Mathf.RoundToInt(temp.x + x) != 0) {
+            temp.x += x;
         }
-        if (temp.y + y != 0)
-        {
+		if (Mathf.RoundToInt(temp.y + y) != 0) {
             temp.y += y;
         }
         currentObj.GetComponent<Transform>().localScale = temp;
@@ -159,13 +176,13 @@ public class EditorBehavior : MonoBehaviour {
 	}
 
     void rotateObject(float x){
-        currentObj.GetComponent<Transform>().Rotate(new Vector3(x, 0, 0));
+        currentObj.GetComponent<Transform>().Rotate(new Vector3(0, 0, x));
     }
 
 	GameObject selectWithCursor(){
 		RaycastHit hit;
 		if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
-			if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+			if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> () || hit.collider.GetComponent<Transform> ().parent.parent == serialize.GetComponent<Transform> ()) {
 				return hit.collider.gameObject;
 			}
 		}
@@ -176,5 +193,20 @@ public class EditorBehavior : MonoBehaviour {
 		currentObj = Instantiate (prefab);
 		currentObj.GetComponent <Transform> ().position = currentGridPosition;
         currentObj.GetComponent<Transform>().parent = serialize.GetComponent<Transform>();
+		if (currentObj.GetComponentsInChildren<Transform> ().Length >= 3) {
+			currentObj = currentObj.GetComponentsInChildren<Transform> () [1].gameObject;
+		}
+		linkObjects ();
+	}
+
+	void linkObjects(){
+		if (!currentObj || currentObj.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> ()) {
+			linker.gameObject.SetActive (false);
+		} else {
+			linker.gameObject.SetActive (true);
+			Transform[] objs = currentObj.GetComponent<Transform> ().parent.GetComponentsInChildren <Transform> ();
+			linker.SetPosition (0, objs [1].position);
+			linker.SetPosition (1, objs [2].position);
+		}
 	}
 }
