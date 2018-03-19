@@ -29,10 +29,13 @@ public class Portal : MonoBehaviour {
                 // modify its transform
                 other.gameObject.transform.position = Target.transform.position;
 
+                Debug.Log("Move direction : " + Player.PlayerMoveDirection);
+
                 PlayerMove CurrentPlayer = other.GetComponent<PlayerMove>();
                 LastImpulsion = Rotate2DVector(Player.PlayerMoveDirection, Target.transform.eulerAngles.z);
 
-                //CurrentPlayer.GiveImpulsion(ImpulseDirection);
+                Debug.Log("impulsion : " + LastImpulsion);
+                
                 yield return new WaitForSeconds(0.2f);
                 bJustTP = true;
             }
