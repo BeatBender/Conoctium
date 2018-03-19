@@ -51,16 +51,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CustomAssets\3D Particles\Scripts\GameObjectSpawner.cs" />
+     <Compile Include="Assets\CustomAssets\3D Particles\Scripts\LookAtCamera.cs" />
+     <Compile Include="Assets\CustomAssets\3D Particles\Scripts\ThreeDParticlesSmoothCameraOrbit.cs" />
      <Compile Include="Assets\Script\ButtonManager.cs" />
      <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
      <Compile Include="Assets\Script\EditorBehavior.cs" />
      <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
+     <Compile Include="Assets\Script\Ellipse.cs" />
      <Compile Include="Assets\Script\Fade.cs" />
      <Compile Include="Assets\Script\GrillageEditor.cs" />
+     <Compile Include="Assets\Script\InitializeFolder.cs" />
+     <Compile Include="Assets\Script\mouvement_circulaire.cs" />
      <Compile Include="Assets\Script\moving.cs" />
+     <Compile Include="Assets\Script\OrbitMotion.cs" />
      <Compile Include="Assets\Script\PauseMenu.cs" />
      <Compile Include="Assets\Script\Player\Attract.cs" />
      <Compile Include="Assets\Script\Player\Billes.cs" />
+     <Compile Include="Assets\Script\Player\InoputHandlerDebug.cs" />
      <Compile Include="Assets\Script\Player\Player.cs" />
      <Compile Include="Assets\Script\Player\PlayerMove.cs" />
      <Compile Include="Assets\Script\Player\Repulse.cs" />
@@ -69,9 +77,11 @@
      <Compile Include="Assets\Script\PortalTetureSetup.cs" />
      <Compile Include="Assets\Script\RollingBox.cs" />
      <Compile Include="Assets\Script\SaveMenu.cs" />
+     <Compile Include="Assets\Script\SaveScreen.cs" />
      <Compile Include="Assets\Script\Serialize\Checkpoint.cs" />
      <Compile Include="Assets\Script\Serialize\Cube.cs" />
      <Compile Include="Assets\Script\Serialize\EditorObject.cs" />
+     <Compile Include="Assets\Script\Serialize\Loadinginformations.cs" />
      <Compile Include="Assets\Script\Serialize\Pique.cs" />
      <Compile Include="Assets\Script\Serialize\Player.cs" />
      <Compile Include="Assets\Script\Serialize\SaveManager.cs" />
@@ -83,11 +93,11 @@
      <Compile Include="Assets\Script\TextScript.cs" />
      <Compile Include="Assets\Script\Vitre.cs" />
      <None Include="Assets\Shader\ScreenCutoutShader.shader" />
-     <None Include="Assets\Saves\FirstMap.txt" />
+     <None Include="Assets\CustomAssets\3D Particles\Simple Particle Scaler\Simple Particle Scaler - Readme.txt" />
+     <None Include="Assets\CustomAssets\3D Particles\3D Particles - Readme.txt" />
      <None Include="Assets\Materials\Phantom.shader" />
-     <None Include="Assets\Saves\JSON.txt" />
      <None Include="Assets\JsonDotNet\link.xml" />
-     <None Include="Assets\Saves\Map1.txt" />
+     <None Include="Assets\CustomAssets\3D Particles\Shaders\Mobile Vertex Color Cull Off.shader" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/mpolo/Documents/Conoctium/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

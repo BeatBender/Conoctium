@@ -311,9 +311,6 @@
     <None Include="Assets\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
     <None Include="Assets\JsonDotNet\link.xml" />
     <None Include="Assets\Materials\Phantom.shader" />
-    <None Include="Assets\Saves\FirstMap.txt" />
-    <None Include="Assets\Saves\JSON.txt" />
-    <None Include="Assets\Saves\Map1.txt" />
     <None Include="Assets\Shader\ScreenCutoutShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

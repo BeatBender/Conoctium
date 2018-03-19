@@ -3,34 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using serialize;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
     public bool saveNow = false;
     public bool loadNow = false;
+    public bool deleteNow = false;
+    public int deletedSave = 1;
     // Update is called once per frame
-    void Update () {
+
+    private void Start()
+    {
+        GameObject temp = GameObject.FindGameObjectWithTag("LevelInfos");
+        Load(temp.GetComponent<Loadinginformations>().LevelLoad);
+    }
+
+
+void Update()
+    {
 
         if (saveNow)
         {
             saveNow = false;
-            Save("FirstMap");
+            Save(-1);
         }
         if (loadNow)
         {
             loadNow = false;
-            Load("FirstMap");
+            Load(-1);
+        }
+        if (deleteNow)
+        {
+            deleteNow = false;
+            Delete(deletedSave);
         }
 
     }
 
-    public void Save(string saveName)
+    public void Save(int i)
     {
         SceneSerializer scene = new SceneSerializer();
 
         foreach (Transform child in transform)
         {
-            switch(child.gameObject.tag)
+            switch (child.gameObject.tag)
             {
                 case "Sol":
                     scene.AddCube(new Cube(child.position, child.eulerAngles, child.localScale));
@@ -51,19 +68,57 @@ public class SaveManager : MonoBehaviour
 
                     break;
             }
-            
+
         }
         var jsonString = JsonConvert.SerializeObject(scene);
         Debug.Log(jsonString);
-        System.IO.File.WriteAllText(@"Assets\Saves\" + saveName + ".txt", jsonString);
 
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
+
+        Camera.main.GetComponent<PauseMenu>().Resume_btn();
+
+        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SavesMap/map" + i + ".png");
+
+#if UNITY_EDITOR
+#else
+        ScreenSave(1);
+#endif
     }
 
-    public void Load(string fileName)
+#if UNITY_EDITOR
+#else
+    public void ScreenSave(int i)
+    {
+        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SaveMap/map" + i + ".png");
+    }
+#endif
+
+    public void Delete(int deleteFile)
+    {
+        //TODO 
+        //
+        int nbFiles;
+        if (!System.Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out nbFiles))
+        {
+            nbFiles = 0;
+        }
+        System.IO.File.Delete(@"conoctium_Data\Resources\Saves\" + deleteFile + ".txt");
+        System.IO.File.Delete(@"conoctium_Data\Resources\SavesMap\map" + deleteFile + ".png");
+        for (int i = deleteFile + 1; i <= nbFiles; i++)
+        {
+            System.IO.File.Move(@"conoctium_Data\Resources\Saves\" + i + ".txt", @"conoctium_Data\Resources\Saves\" + (i - 1) + ".txt");
+            System.IO.File.Move(@"conoctium_Data\Resources\Saves\" + i + ".txt", @"conoctium_Data\Resources\SavesMap\map" + (i - 1) + ".png");
+        }
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (nbFiles - 1).ToString());
+    }
+
+    public void Load(int i)
     {
         //GameObject pique = Instantiate(Resources.Load("prefabPique") as GameObject);
 
-        string text = System.IO.File.ReadAllText(@"Assets\Saves\" + fileName + ".txt");
+        string text = System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt");
         SceneSerializer scene = JsonConvert.DeserializeObject<SceneSerializer>(text);
 
         foreach (Cube cubi in scene.cubes)
@@ -72,7 +127,8 @@ public class SaveManager : MonoBehaviour
             block.GetComponent<Transform>().localScale = cubi.scale;
             block.GetComponent<Transform>().eulerAngles = cubi.rotation;
             block.GetComponent<Transform>().position = cubi.position;
-            
+            block.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+
         }
         foreach (Pique piqui in scene.piques)
         {
@@ -80,15 +136,41 @@ public class SaveManager : MonoBehaviour
             pique.GetComponent<Transform>().localScale = piqui.scale;
             pique.GetComponent<Transform>().eulerAngles = piqui.rotation;
             pique.GetComponent<Transform>().position = piqui.position;
+            pique.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         foreach (Checkpoint checki in scene.checkpoints)
         {
             GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
+            check.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+        }
+        bool p1Present = false;
+        bool p2Present = false;
+        GameObject p1 = null;
+        GameObject p2 = null;
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "Player1")
+            {
+                p1Present = true;
+                p1 = child.gameObject;
+            }
+            if (child.tag == "Player2")
+            {
+                p2Present = true;
+                p2 = child.gameObject;
+            }
         }
 
-        GameObject p1 = Instantiate(Resources.Load("prefabPlayer1") as GameObject);
-        GameObject p2 = Instantiate(Resources.Load("prefabPlayer2") as GameObject);
+        if (!p1Present)
+        {
+            p1 = Instantiate(Resources.Load("prefabPlayer1") as GameObject);
+        }
+        if (!p2Present)
+        {
+            p2 = Instantiate(Resources.Load("prefabPlayer2") as GameObject);
+        }
+
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
 

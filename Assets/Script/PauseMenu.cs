@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject box;
     public GameObject player1;
     public GameObject player2;
+    public GameObject serialize;
     private bool isActive = false;
 
     // Update is called once per frame
@@ -45,6 +47,8 @@ public class PauseMenu : MonoBehaviour {
     public void LoadSceneBtn(string level)
     {
         SceneManager.LoadScene(level);
+        GameObject temp = GameObject.FindGameObjectWithTag("LevelInfos");
+        Destroy(temp);
     }
 
     public void ExitGameBtn()
@@ -81,5 +85,31 @@ public class PauseMenu : MonoBehaviour {
 
     }
 
-		
+    public void LaunchSave()
+    {
+        int numSave = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
+        if(numSave == 0)
+        {
+            Debug.Log("Nouvelle save");
+            Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out numSave);
+
+            serialize.GetComponent<SaveManager>().Save(numSave + 1);
+            System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (numSave + 1).ToString());
+        }
+        else
+        {
+            Debug.Log("fichier sauvegardé : "+ numSave);
+            serialize.GetComponent<SaveManager>().Save(numSave);
+        }
+        
+    }
+
+    public void LaunchLoad()
+    {
+        int numLoad = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
+        Debug.Log("fichier chargé : " + numLoad);
+        serialize.GetComponent<SaveManager>().Load(numLoad);
+    }
+
+
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -43,11 +44,17 @@ public class SaveMenu : MonoBehaviour
 
     public void LaunchSave()
     {
-        Serialize.GetComponent<SaveManager>().Save("Map1");
+        int numSave = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
+
+        Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out numSave);
+        
+        Debug.Log("nbMap" + numSave);
+        Serialize.GetComponent<SaveManager>().Save(numSave + 1);
+        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (numSave+1).ToString());
     }
 
-    public void LaunchLoad()
+    public void LaunchLoad(int numLoad)
     {
-        Serialize.GetComponent<SaveManager>().Load("Map1");
+        Serialize.GetComponent<SaveManager>().Load(numLoad);
     }
 }
