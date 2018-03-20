@@ -86,6 +86,7 @@
      <Compile Include="Assets\Script\Serialize\SaveManager.cs" />
      <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
      <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
+     <Compile Include="Assets\Script\SoundManager.cs" />
      <Compile Include="Assets\Script\SpawnPoint.cs" />
      <Compile Include="Assets\Script\TeleporterParent.cs" />
      <Compile Include="Assets\Script\TeleporterPortal.cs" />

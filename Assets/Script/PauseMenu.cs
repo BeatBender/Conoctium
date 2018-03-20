@@ -8,11 +8,17 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject menuObject;
-    public GameObject box;
+	public Transform ceiling;
+	public Transform ground;
+	public Transform leftWall;
+	public Transform rightWall;
+	public GameObject grid;
     public GameObject player1;
     public GameObject player2;
     public GameObject serialize;
     private bool isActive = false;
+
+	private float[,] dim = new float[,]{{25, 19, 11, 0}, {35, 29, 16, 5}, {45, 39, 22, 10}};
 
     // Update is called once per frame
     void Update()
@@ -56,34 +62,25 @@ public class PauseMenu : MonoBehaviour {
         Application.Quit();
     }
 
-    public void SizeLittleBtn()
-    {
-        box.GetComponent<Transform>().localScale = new Vector3(24.6f, 0.31f, 1.4374f);
-        box.GetComponent<Transform>().position = new Vector3(0f, -10.05f, -0.89f);
-        this.GetComponent<Transform>().position = new Vector3(0f, 1f, -29.56f);
-        player1.GetComponent<Transform>().position = new Vector3(-8.024024f, -8.876052f, -0.500054f);
-        player2.GetComponent<Transform>().position = new Vector3(6.869448f, -8.790702f, -0.500010f);
-    }
-
-    public void SizeMediumBtn()
-    {
-        box.GetComponent<Transform>().localScale = new Vector3(32f, 0.39f, 1.4374f);
-        box.GetComponent<Transform>().position = new Vector3(-4.04f, -10.05f, -0.89f);
-        this.GetComponent<Transform>().position = new Vector3(-3.55f, 3f, -31f);
-        player1.GetComponent<Transform>().position = new Vector3(-8.024024f, -8.876052f, -0.500054f);
-        player2.GetComponent<Transform>().position = new Vector3(6.869448f, -8.790702f, -0.500010f);
-
-    }
-
-    public void SizeBigBtn()
-    {
-        box.GetComponent<Transform>().localScale = new Vector3(37f, 0.45f, 1.4374f);
-        box.GetComponent<Transform>().position = new Vector3(-4.04f, -10.05f, -0.89f);
-        this.GetComponent<Transform>().position = new Vector3(-3.35f, 2.8f, -38.63f);
-        player1.GetComponent<Transform>().position = new Vector3(-8.024024f, -8.876052f, -0.500054f);
-        player2.GetComponent<Transform>().position = new Vector3(6.869448f, -8.790702f, -0.500010f);
-
-    }
+	public void SetSize(int size){
+		//Ceiling
+		ceiling.localPosition = new Vector3(0, dim[size, 1] + 1, 0);
+		ceiling.localScale = new Vector3(dim[size, 0] + 2, 1, 1);
+		//Ground
+		ground.localScale = new Vector3(dim[size, 0] + 2, 1, 1);
+		//Left Wall
+		leftWall.localPosition = new Vector3(-(dim[size, 0] + 1)/2, (dim[size, 1] + 1)/2, 0);
+		leftWall.localScale= new Vector3(1, dim[size, 1] + 2, 1);
+		//Right Wall
+		rightWall.localPosition = new Vector3((dim[size, 0] + 1)/2, (dim[size, 1] + 1)/2, 0);
+		rightWall.localScale = new Vector3(1, dim[size, 1] + 2, 1);
+		//Grid
+		grid.GetComponent<SpriteRenderer>().size = new Vector2(dim[size, 0], dim[size, 1]);
+		grid.GetComponent<Transform> ().localPosition = new Vector3 (0, (dim[size, 1] + 1)/2, 0);
+		//Camera
+		this.GetComponent<Transform>().position = new Vector3(0, dim[size, 3], -30);
+		this.GetComponent<Camera>().orthographicSize = dim[size, 2];
+	}
 
     public void LaunchSave()
     {
