@@ -11,6 +11,7 @@ namespace serialize
         public List<Cube> cubes;
         public List<Checkpoint> checkpoints;
         public List<Pique> piques;
+        public List<Portal> portals;
 
         public SceneSerializer()
         {
@@ -19,6 +20,7 @@ namespace serialize
             cubes = new List<Cube>();
             checkpoints = new List<Checkpoint>();
             piques = new List<Pique>();
+            portals = new List<Portal>();
         }
     
         public void SetP1(Player p1)
@@ -40,6 +42,10 @@ namespace serialize
         public void AddPiques(Pique piqui)
         {
             piques.Add(piqui);
+        }
+        public void AddPortal(Portal portal)
+        {
+            portals.Add(portal);
         }
 
     }
