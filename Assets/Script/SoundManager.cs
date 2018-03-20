@@ -8,7 +8,9 @@ public class SoundManager : MonoBehaviour {
     public static SoundManager instance = null;     
 
     public AudioClip JumpSound;
-    public AudioClip SwooshSound;
+    public AudioClip AttiranceSound;
+    public AudioClip RepulsionSound;
+    public AudioClip PortalSound;
 
     void Awake()
     {
@@ -34,8 +36,14 @@ public class SoundManager : MonoBehaviour {
                 GetComponent<AudioSource>().PlayOneShot(JumpSound);
                 break;
 
-            case "swooshSound":
-                GetComponent<AudioSource>().PlayOneShot(SwooshSound);
+            case "attiranceSound":
+                GetComponent<AudioSource>().PlayOneShot(AttiranceSound);
+                break;
+            case "repulsionSound":
+                GetComponent<AudioSource>().PlayOneShot(RepulsionSound);
+                break;
+            case "portalSound":
+                GetComponent<AudioSource>().PlayOneShot(PortalSound);
                 break;
         }
         
