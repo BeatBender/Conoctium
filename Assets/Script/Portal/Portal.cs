@@ -24,6 +24,7 @@ public class Portal : MonoBehaviour {
             // if the object is tagged player
             if (other.tag == "Player" && !bJustTP)
             {
+                Debug.Log("EnterThe Portal");
                 bJustTP = true;
                 // modify its transform
                 other.gameObject.transform.position = Target.transform.position;
@@ -32,7 +33,7 @@ public class Portal : MonoBehaviour {
 
                 PlayerMove CurrentPlayer = other.GetComponent<PlayerMove>();
                 LastImpulsion = Rotate2DVector(Player.PlayerMoveDirection, Target.transform.eulerAngles.z);
-
+                
                 Debug.Log("impulsion : " + LastImpulsion);
                 
                 yield return new WaitForSeconds(0.2f);

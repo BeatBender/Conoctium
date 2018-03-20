@@ -22,10 +22,6 @@ public class Player : MonoBehaviour
 
     private Vector3 SpawnPos = new Vector3(0, 0, 0);
 
-
-    public AudioClip JumpSound;
-    public AudioClip SwooshSound;
-
     // Use this for initialization
     void Start()
     {
@@ -69,7 +65,7 @@ public class Player : MonoBehaviour
         //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
         if (Input.GetButtonDown("Fire1" + select) && isGrounded)
         {
-            PlaySound(JumpSound);
+            SoundManager.instance.PlaySound("jumpSound");
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
         }
 
@@ -82,7 +78,7 @@ public class Player : MonoBehaviour
             {
                 if (attraction==false)
                 {
-                    PlaySound(SwooshSound);
+                    SoundManager.instance.PlaySound("attiranceSound");
                     attraction = true;
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
@@ -91,7 +87,7 @@ public class Player : MonoBehaviour
             {
                 if (attraction == false)
                 {
-                    PlaySound(SwooshSound);
+                    SoundManager.instance.PlaySound("attiranceSound");
                     attraction = true;
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
@@ -115,12 +111,12 @@ public class Player : MonoBehaviour
                 Vector3 otherPlayer;
                 if (select == "Player1")
                 {
-                    PlaySound(SwooshSound);
+                    SoundManager.instance.PlaySound("repulsionSound");
                     otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
                 }
                 else
                 {
-                    PlaySound(SwooshSound);
+                    SoundManager.instance.PlaySound("repulsionSound");
                     otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
                 }
                 Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
@@ -179,6 +175,7 @@ public class Player : MonoBehaviour
 
     public void Teleport( Vector3 jaquie)
     {
+        SoundManager.instance.PlaySound("portalSound");
         gameObject.GetComponent<Transform>().position = jaquie;
     }
     
@@ -209,10 +206,5 @@ public class Player : MonoBehaviour
         }
         else
             isGrounded = false;
-    }
-
-    private void PlaySound(AudioClip audioClip)
-    {
-        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }
