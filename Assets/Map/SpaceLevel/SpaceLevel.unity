@@ -642,6 +642,10 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
   m_IsPrefabParent: 0
@@ -924,6 +928,7 @@ MonoBehaviour:
   box: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  serialize: {fileID: 0}
 --- !u!114 &176368161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3654,6 +3659,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1358335761}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1360192053
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1374430356
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,6 +5147,10 @@ Prefab:
     - target: {fileID: 400004, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.9985157
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
       propertyPath: ShapeModule.radiusThickness
