@@ -305,19 +305,22 @@
     <Compile Include="Assets\Script\Fade.cs" />
     <Compile Include="Assets\Script\GrillageEditor.cs" />
     <Compile Include="Assets\Script\InitializeFolder.cs" />
+    <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
+    <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
     <Compile Include="Assets\Script\mouvement_circulaire.cs" />
     <Compile Include="Assets\Script\moving.cs" />
     <Compile Include="Assets\Script\OrbitMotion.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />
     <Compile Include="Assets\Script\Player\Attract.cs" />
     <Compile Include="Assets\Script\Player\Billes.cs" />
-    <Compile Include="Assets\Script\Player\InoputHandlerDebug.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerMove.cs" />
     <Compile Include="Assets\Script\Player\Repulse.cs" />
-    <Compile Include="Assets\Script\Portal.cs" />
-    <Compile Include="Assets\Script\PortalCamera.cs" />
-    <Compile Include="Assets\Script\PortalTetureSetup.cs" />
+    <Compile Include="Assets\Script\Portal\Portal.cs" />
+    <Compile Include="Assets\Script\Portal\PortalCamera.cs" />
+    <Compile Include="Assets\Script\Portal\PortalTetureSetup.cs" />
+    <Compile Include="Assets\Script\Portal\TeleporterParent.cs" />
+    <Compile Include="Assets\Script\Portal\TeleporterPortal.cs" />
     <Compile Include="Assets\Script\RollingBox.cs" />
     <Compile Include="Assets\Script\SaveMenu.cs" />
     <Compile Include="Assets\Script\SaveScreen.cs" />
@@ -330,9 +333,6 @@
     <Compile Include="Assets\Script\Serialize\SaveManager.cs" />
     <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
     <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
-    <Compile Include="Assets\Script\SpawnPoint.cs" />
-    <Compile Include="Assets\Script\TeleporterParent.cs" />
-    <Compile Include="Assets\Script\TeleporterPortal.cs" />
     <Compile Include="Assets\Script\TextScript.cs" />
     <Compile Include="Assets\Script\Vitre.cs" />
   </ItemGroup>
