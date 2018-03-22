@@ -75,6 +75,7 @@ public class ButtonManager : MonoBehaviour {
         
         
         ListLevel[1].SetActive(true);
+        GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
         ListLevel[0].SetActive(false);
        
@@ -85,6 +86,7 @@ public class ButtonManager : MonoBehaviour {
         
         
         ListLevel[0].SetActive(true);
+        GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
         ListLevel[1].SetActive(false);
 
@@ -92,8 +94,9 @@ public class ButtonManager : MonoBehaviour {
 
 	IEnumerator todown () {
 	
-		yield return new WaitForSeconds (2);
+		
         ListLevel[4].SetActive(true);
+        yield return new WaitForSeconds(1);
         ListLevel[0].SetActive(false);
 
 
@@ -104,6 +107,7 @@ public class ButtonManager : MonoBehaviour {
 
         
         ListLevel[0].SetActive(true);
+        GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
         ListLevel[4].SetActive(false);
 
@@ -115,8 +119,10 @@ public class ButtonManager : MonoBehaviour {
     IEnumerator totop()
     {
 
+        
+        ListLevel[4].SetActive(true);
+        GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
-        ListLevel[5].SetActive(true);
         ListLevel[0].SetActive(false);
 
     }
