@@ -173,10 +173,10 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Teleport( Vector3 jaquie)
+    public void Teleport( Vector3 pos)
     {
         SoundManager.instance.PlaySound("portalSound");
-        gameObject.GetComponent<Transform>().position = jaquie;
+        gameObject.GetComponent<Transform>().position = pos;
     }
     
     public void SetSpawnPos(Vector3 spwn)
