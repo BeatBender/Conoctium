@@ -98,6 +98,7 @@ public class ButtonManager : MonoBehaviour {
 
 
         ListLevel[0].SetActive(true);
+        GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
         ListLevel[4].SetActive(false);
 

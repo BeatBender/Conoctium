@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114446589192310900}
   - component: {fileID: 114755047247897858}
   m_Layer: 5
-  m_Name: 1
+  m_Name: prefabEditorButton
   m_TagString: Level1btn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
