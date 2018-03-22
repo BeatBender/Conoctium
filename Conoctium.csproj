@@ -298,6 +298,7 @@
     <Compile Include="Assets\CustomAssets\3D Particles\Scripts\LookAtCamera.cs" />
     <Compile Include="Assets\CustomAssets\3D Particles\Scripts\ThreeDParticlesSmoothCameraOrbit.cs" />
     <Compile Include="Assets\ElevatorMove.cs" />
+    <Compile Include="Assets\LoadButtonEditor.cs" />
     <Compile Include="Assets\Script\ButtonManager.cs" />
     <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
     <Compile Include="Assets\Script\EditorBehavior.cs" />
@@ -305,6 +306,7 @@
     <Compile Include="Assets\Script\Ellipse.cs" />
     <Compile Include="Assets\Script\Fade.cs" />
     <Compile Include="Assets\Script\InitializeFolder.cs" />
+    <Compile Include="Assets\Script\Interrupteur.cs" />
     <Compile Include="Assets\Script\LevelEdtiorButton.cs" />
     <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
     <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
@@ -322,6 +324,7 @@
     <Compile Include="Assets\Script\Portal\PortalTetureSetup.cs" />
     <Compile Include="Assets\Script\Portal\TeleporterParent.cs" />
     <Compile Include="Assets\Script\Portal\TeleporterPortal.cs" />
+    <Compile Include="Assets\Script\Porte.cs" />
     <Compile Include="Assets\Script\RollingBox.cs" />
     <Compile Include="Assets\Script\SaveMenu.cs" />
     <Compile Include="Assets\Script\SaveScreen.cs" />
@@ -337,7 +340,6 @@
     <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
     <Compile Include="Assets\Script\SoundManager.cs" />
     <Compile Include="Assets\Script\TextScript.cs" />
-    <Compile Include="Assets\Script\Vitre.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\CustomAssets\3D Particles\3D Particles - Readme.txt" />
