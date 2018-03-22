@@ -4102,6 +4102,7 @@ GameObject:
   - component: {fileID: 789667662}
   - component: {fileID: 789667661}
   - component: {fileID: 789667660}
+  - component: {fileID: 789667663}
   m_Layer: 5
   m_Name: ContentListButton
   m_TagString: Untagged
@@ -4187,6 +4188,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &789667663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 789667658}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425ecf26d6fd1df4583e76b3888fee8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &798760529
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,6 +6514,10 @@ Prefab:
       objectReference: {fileID: 494017699}
     - target: {fileID: 1680596788773590, guid: 4fce55c07d6778b4b85aef0c07c49bc9, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680596788773590, guid: 4fce55c07d6778b4b85aef0c07c49bc9, type: 2}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

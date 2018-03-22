@@ -15,11 +15,12 @@ public class LoadButtonEditor : MonoBehaviour {
         for (int i = 1; i <= numSave; i++)
         {
             GameObject button = Instantiate(Resources.Load("prefabEditorButton") as GameObject);
-            button.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+            button.GetComponent<Transform>().SetParent(this.GetComponent<Transform>(), true);
             ParamArrayAttribute = i;
             button.GetComponent<Button>().onClick.AddListener(LoadLeveltn);
-            Debug.Log("Charge;ent de " + i +" niveaux");
-            //button.GetComponent<Text>().text = "Level " + i;
+            Debug.Log("Chargement de " + i +" niveaux");
+            button.GetComponentInChildren<Text>().text = "Level " + i;
+            //button.GetComponentInChildren<Image>(). = "Level " + i;
 
             if (i % 2 != 0)
             {
@@ -29,6 +30,7 @@ public class LoadButtonEditor : MonoBehaviour {
             {
                 button.GetComponent<Transform>().position = new Vector3(810, -247 - 370 * (int)i / 2, 0);
             }
+            
         }
     }
 	
