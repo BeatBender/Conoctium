@@ -41,14 +41,14 @@ public class ButtonManager : MonoBehaviour {
             inlevelmenu = false;
 		} else if (inoptionsmenu == true) {
 			animator.SetTrigger ("MoveToTop");
-             StartCoroutine (toleft ());
+             StartCoroutine (tomainmenu ());
             inoptionsmenu = false;
 
 		}
         else if (inleveleditormenu == true)
         {
             animator.SetTrigger("MoveToMainMenu");
-            StartCoroutine(tomainmenu());
+            StartCoroutine(todown());
             inoptionsmenu = false;
 
         }
@@ -59,7 +59,7 @@ public class ButtonManager : MonoBehaviour {
 		Debug.Log ("Options menu");
 		inoptionsmenu = true;
 		animator.SetTrigger("MoveToOptions");
-		StartCoroutine(todown());
+		StartCoroutine(todownoptions());
 	}
 
     public void goLevelEditorMenu()
@@ -75,6 +75,8 @@ public class ButtonManager : MonoBehaviour {
         
         
         ListLevel[1].SetActive(true);
+        ListLevel[6].SetActive(true);
+        GameObject.FindGameObjectWithTag("Level1btn").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
         ListLevel[0].SetActive(false);
        
@@ -82,30 +84,48 @@ public class ButtonManager : MonoBehaviour {
 	}
 
 	 IEnumerator toleft () {
-        
-        
         ListLevel[0].SetActive(true);
+        GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
+        ListLevel[6].SetActive(false);
         ListLevel[1].SetActive(false);
+        ListLevel[2].SetActive(false);
+        ListLevel[3].SetActive(false);
 
     }
 
 	IEnumerator todown () {
-	
-		yield return new WaitForSeconds (2);
-        ListLevel[4].SetActive(true);
+
+
+        ListLevel[0].SetActive(true);
+        yield return new WaitForSeconds(1);
+        ListLevel[4].SetActive(false);
+
+
+    }
+
+    IEnumerator todownoptions()
+    {
+
+
+        ListLevel[5].SetActive(true);
+        GameObject.FindGameObjectWithTag("BackOptionbtn").GetComponent<Button>().Select();
+        yield return new WaitForSeconds(1);
         ListLevel[0].SetActive(false);
 
 
 
     }
+
+
     IEnumerator tomainmenu()
     {
 
         
         ListLevel[0].SetActive(true);
+        GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
-        ListLevel[4].SetActive(false);
+        ListLevel[5].SetActive(false);
 
 
 
@@ -115,21 +135,26 @@ public class ButtonManager : MonoBehaviour {
     IEnumerator totop()
     {
 
+        
+        ListLevel[4].SetActive(true);
+        GameObject.FindGameObjectWithTag("Level2btn").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
-        ListLevel[5].SetActive(true);
         ListLevel[0].SetActive(false);
 
     }
 
-   
-
-
     public void PageList(int nblevel)
-    { int i =0;
+    {
+        int i = 0;
         foreach (GameObject page in ListLevel)
         {
-            page.SetActive(false);
+            if (i == 6)
+            {
+                break;
 
+            }
+            page.SetActive(false);
+            i++;
         }
 
         ListLevel[nblevel].SetActive(true);
@@ -138,12 +163,14 @@ public class ButtonManager : MonoBehaviour {
 
     }
 
+
 	public void NewGameBtn(string newGameLevel)
     {
 		
         SceneManager.LoadScene(newGameLevel);
 
     }
+
 
     public void EditorBtn(int numLevel )
     {  
@@ -162,9 +189,15 @@ public class ButtonManager : MonoBehaviour {
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }
 
+
     public void ExitGameBtn()
     {
 
         Application.Quit();
     }
+
+
+
+
+
 }

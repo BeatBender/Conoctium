@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
             {
                 if (attraction==false)
                 {
-                    SoundManager.instance.PlaySound("swooshSound");
+                    SoundManager.instance.PlaySound("attiranceSound");
                     attraction = true;
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
             {
                 if (attraction == false)
                 {
-                    SoundManager.instance.PlaySound("swooshSound");
+                    SoundManager.instance.PlaySound("attiranceSound");
                     attraction = true;
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
@@ -111,12 +111,12 @@ public class Player : MonoBehaviour
                 Vector3 otherPlayer;
                 if (select == "Player1")
                 {
-                    SoundManager.instance.PlaySound("swooshSound");
+                    SoundManager.instance.PlaySound("repulsionSound");
                     otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
                 }
                 else
                 {
-                    SoundManager.instance.PlaySound("swooshSound");
+                    SoundManager.instance.PlaySound("repulsionSound");
                     otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
                 }
                 Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
@@ -173,9 +173,10 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Teleport( Vector3 jaquie)
+    public void Teleport( Vector3 pos)
     {
-        gameObject.GetComponent<Transform>().position = jaquie;
+        SoundManager.instance.PlaySound("portalSound");
+        gameObject.GetComponent<Transform>().position = pos;
     }
     
     public void SetSpawnPos(Vector3 spwn)
@@ -205,10 +206,5 @@ public class Player : MonoBehaviour
         }
         else
             isGrounded = false;
-    }
-
-    private void PlaySound(AudioClip audioClip)
-    {
-        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }

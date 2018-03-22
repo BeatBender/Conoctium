@@ -132,12 +132,10 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 ClampMoveDirection(Vector3 PlayerMoveDirectionUnclamped)
     {
-        Debug.Log("Input : " + PlayerMoveDirectionUnclamped);
         Vector3 ClampedMoveDirection = Vector3.zero;
         ClampedMoveDirection.x = Mathf.Clamp(PlayerMoveDirection.x, -10, 10);
         ClampedMoveDirection.y = Mathf.Clamp(PlayerMoveDirection.y, -1.5f, 10);
         ClampedMoveDirection.z = 0f;
-        Debug.Log("output : " + ClampedMoveDirection);
         return ClampedMoveDirection;
     }
 
