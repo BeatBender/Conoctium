@@ -84,8 +84,6 @@ public class ButtonManager : MonoBehaviour {
 	}
 
 	 IEnumerator toleft () {
-        
-        
         ListLevel[0].SetActive(true);
         GameObject.FindGameObjectWithTag("NewGameButton").GetComponent<Button>().Select();
         yield return new WaitForSeconds(1);
