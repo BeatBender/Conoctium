@@ -91,6 +91,8 @@ public class ButtonManager : MonoBehaviour {
         yield return new WaitForSeconds(1);
         ListLevel[6].SetActive(false);
         ListLevel[1].SetActive(false);
+        ListLevel[2].SetActive(false);
+        ListLevel[3].SetActive(false);
 
     }
 
@@ -116,6 +118,8 @@ public class ButtonManager : MonoBehaviour {
 
 
     }
+
+
     IEnumerator tomainmenu()
     {
 
@@ -141,9 +145,6 @@ public class ButtonManager : MonoBehaviour {
 
     }
 
-   
-
-
     public void PageList(int nblevel)
     {
         int i = 0;
@@ -164,12 +165,14 @@ public class ButtonManager : MonoBehaviour {
 
     }
 
+
 	public void NewGameBtn(string newGameLevel)
     {
 		
         SceneManager.LoadScene(newGameLevel);
 
     }
+
 
     public void EditorBtn(int numLevel )
     {  
@@ -188,9 +191,15 @@ public class ButtonManager : MonoBehaviour {
         var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }
 
+
     public void ExitGameBtn()
     {
 
         Application.Quit();
     }
+
+
+
+
+
 }

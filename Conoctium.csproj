@@ -310,6 +310,7 @@
     <Compile Include="Assets\Script\Ellipse.cs" />
     <Compile Include="Assets\Script\Fade.cs" />
     <Compile Include="Assets\Script\InitializeFolder.cs" />
+    <Compile Include="Assets\Script\LevelEdtiorButton.cs" />
     <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
     <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
     <Compile Include="Assets\Script\mouvement_circulaire.cs" />
