@@ -1391,6 +1391,7 @@ GameObject:
   - component: {fileID: 176368156}
   - component: {fileID: 176368155}
   - component: {fileID: 176368160}
+  - component: {fileID: 176368161}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1488,6 +1489,19 @@ MonoBehaviour:
   player1: {fileID: 0}
   player2: {fileID: 0}
   serialize: {fileID: 0}
+--- !u!114 &176368161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176368154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233b5b014b76f2245bfe97a97e25560c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 8a118162b51b51349ba82f808c8c1442, type: 3}
+  fadeSpeed: 0.3
 --- !u!1001 &184824560
 Prefab:
   m_ObjectHideFlags: 0
@@ -3518,7 +3532,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4135524388105484, guid: 199708437cd0aad40a25ed619185fa4e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.33
+      value: 10.46
       objectReference: {fileID: 0}
     - target: {fileID: 4135524388105484, guid: 199708437cd0aad40a25ed619185fa4e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3553,7 +3567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4135524388105484, guid: 199708437cd0aad40a25ed619185fa4e, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.83
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 4677098696330002, guid: 199708437cd0aad40a25ed619185fa4e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4647,7 +4661,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609455449}
   m_LocalRotation: {x: -0.49999848, y: 0.50000006, z: -0.49999994, w: 0.50000155}
-  m_LocalPosition: {x: 0, y: 0.80999947, z: -0.17126566}
+  m_LocalPosition: {x: 0, y: 0.80999947, z: -1.53}
   m_LocalScale: {x: 2.1589, y: 1, z: 2.87545}
   m_Children: []
   m_Father: {fileID: 0}
