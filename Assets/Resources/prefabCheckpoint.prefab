@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33537424642761326}
   - component: {fileID: 23061219579984272}
   m_Layer: 0
-  m_Name: flag
+  m_Name: prefabCheckpoint
   m_TagString: checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
