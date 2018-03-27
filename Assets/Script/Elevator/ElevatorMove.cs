@@ -15,14 +15,12 @@ public class ElevatorMove : MonoBehaviour {
 	void Start () {
         StartTime = Time.time;
         JourneyLength = Vector3.Distance(StartPos.position, EndPos.position);
-        Debug.Log(JourneyLength);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         float distCovered = (Time.time - StartTime) * Speed;
         float fracJourney = Mathf.Sin(distCovered / JourneyLength);
-        Debug.Log(fracJourney);
         transform.position = Vector3.Lerp(StartPos.position, EndPos.position, (fracJourney+1) / 2);
 
     }
