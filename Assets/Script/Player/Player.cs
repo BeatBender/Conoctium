@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -66,11 +67,20 @@ public class Player : MonoBehaviour
         //Mise à jour de la vitesse actuel
         actualVelocity = new Vector3(gameObjRigidBody.velocity.x, gameObjRigidBody.velocity.y, gameObjRigidBody.velocity.z);
 
+		Debug.Log ("in boucle");
+		Debug.Log (Input.GetKey(KeyCode.Space));
         //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
         if (Input.GetButtonDown("Fire1" + select) && isGrounded)
         {
-            SoundManager.instance.PlaySound("jumpSound");
+			Debug.Log ("jump");
             gameObjRigidBody.velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
+			/*try {
+				SoundManager.instance.PlaySound("jumpSound");
+			}
+			catch (Exception e) {
+				print("error" + e);
+			}  */
+
         }
 
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
@@ -109,7 +119,6 @@ public class Player : MonoBehaviour
         //■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
         if (Input.GetAxis("Trigger" + select) <= -.5)
         {
-            //Debug.Log (Input.GetAxis("Fire3"+select) + " Repulsion" + select);
             if (!repulsion)
             {
                 Vector3 otherPlayer;
@@ -172,7 +181,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision coli)
+    public void OnCollisionEnter(Collision coli)
     {
         if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1")
         {
@@ -191,11 +200,19 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Transform>().position = SpawnPos;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
     }
+
+	public void OnCollisionStay(Collider other){
+		transform.parent = other.transform;
+	}
+
+	public void OnCollisionExit(Collider other){
+		transform.parent = null;
+	}    
 
     public void Teleport(Vector3 pos)
     {
+		
         SoundManager.instance.PlaySound("portalSound");
         gameObject.GetComponent<Transform>().position = pos;
     }
@@ -204,29 +221,30 @@ public class Player : MonoBehaviour
     {
         SpawnPos = spwn;
     }
-    private void IsGrounded()
-    {
-        float distanceTouch = 1f;
-        //		Vector3 decal = new Vector3(0,-1,0);     
 
+
+    void IsGrounded()
+    {
+        float distanceTouch = 1f;   
         RaycastHit hit;
 
         //Dessine un trait de couleur bleu si on ne touche pas le sol
         Debug.DrawRay(gameObject.GetComponent<Transform>().position, Vector3.down, Color.blue);
 
         //Si on touche un objet vers le bas à une distance inférieur à distanceTouch
-        if (Physics.Raycast(gameObject.GetComponent<Transform>().position, Vector3.down, out hit, distanceTouch))
-        {
-            //Si l'objet a le tag "Sol"
-            if (hit.transform.tag == "Sol")
-            {
-                //On dessine un trait de couleur rouge
-                Debug.DrawRay(gameObject.GetComponent<Transform>().position, Vector3.down, Color.red);
-                isGrounded = true;
-            }
-        }
-        else
-            isGrounded = false;
+		if (Physics.Raycast (gameObject.GetComponent<Transform> ().position, Vector3.down, out hit, distanceTouch)) 
+		{
+			//Si l'objet a le tag "Sol"
+			if (hit.transform.tag == "Sol") 
+			{
+				//On dessine un trait de couleur rouge
+				Debug.DrawRay (gameObject.GetComponent<Transform> ().position, Vector3.down, Color.red);
+				isGrounded = true;
+			}
+		} else {
+			isGrounded = false;
+		}
+            
     }
 }
 
