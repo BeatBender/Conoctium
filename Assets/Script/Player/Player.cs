@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
-    private float speed = 20.0f;
+    [SerializeField]
+    private float speed = 30.0f;
+    [SerializeField]
     private float jumpSpeed = 750f;
 
     private bool repulsion = false;
@@ -17,7 +18,9 @@ public class Player : MonoBehaviour
     private float attractSpeed = 100f;
     private float repulSpeed = 1200f;
 
+    [SerializeField]
     private float solFriction = 1.1f;
+    [SerializeField]
     private float airFriction = 1.025f;
 
     private Vector3 SpawnPos = new Vector3(0, 0, 0);
@@ -31,9 +34,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Rigidbody gameObjRigidBody = gameObject.GetComponent<Rigidbody>();
         IsGrounded();
-        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0, -10f * Time.deltaTime, 0);
+        gameObjRigidBody.velocity += new Vector3(0, -10f * Time.deltaTime, 0);
 
         //Selection du joueur
         string select = "";
@@ -41,7 +44,8 @@ public class Player : MonoBehaviour
         select = gameObject.tag;
 
         //On récupère la vitesse actuel
-        Vector3 actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
+
+        Vector3 actualVelocity = new Vector3(gameObjRigidBody.velocity.x, gameObjRigidBody.velocity.y, gameObjRigidBody.velocity.z);
 
         if (Input.GetAxis("Horizontal" + select) == 0 && Input.GetAxis("Trigger" + select) <= 0.015 && Input.GetAxis("Trigger" + select) >= -0.015)
         {
@@ -57,26 +61,26 @@ public class Player : MonoBehaviour
 
         //■■■■■■■■■■ MOOVE ■■■■■■■■■■■
         //On ajoute à la vitesse actuel sa propre vitesse plus celle du joystick * speed * temps entre deux frames
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x + Input.GetAxis("Horizontal" + select) * speed * Time.deltaTime, actualVelocity.y, 0);
+        gameObjRigidBody.velocity = new Vector3(actualVelocity.x + Input.GetAxis("Horizontal" + select) * speed * Time.deltaTime, actualVelocity.y, 0);
 
         //Mise à jour de la vitesse actuel
-        actualVelocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
+        actualVelocity = new Vector3(gameObjRigidBody.velocity.x, gameObjRigidBody.velocity.y, gameObjRigidBody.velocity.z);
 
         //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
         if (Input.GetButtonDown("Fire1" + select) && isGrounded)
         {
             SoundManager.instance.PlaySound("jumpSound");
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
+            gameObjRigidBody.velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
         }
 
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
         if (Input.GetAxis("Trigger" + select) >= .5)
         {
-            
+
             Vector3 otherPlayer;
-            if (select == "Player1" )
+            if (select == "Player1")
             {
-                if (attraction==false)
+                if (attraction == false)
                 {
                     SoundManager.instance.PlaySound("attiranceSound");
                     attraction = true;
@@ -94,8 +98,8 @@ public class Player : MonoBehaviour
             }
             Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
             Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
-            gameObject.GetComponent<Rigidbody>().velocity += attractSpeed * inbetween * Time.deltaTime;
-            //gameObject.GetComponent<Rigidbody>().velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
+            gameObjRigidBody.velocity += attractSpeed * inbetween * Time.deltaTime;
+            //gameObjRigidBody.velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed, 0);
         }
         else if (isGrounded)
         {
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
                 }
                 Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
                 Vector3 inbetween = Vector3.Normalize(otherPlayer - mePlayer);
-                gameObject.GetComponent<Rigidbody>().velocity -= repulSpeed * inbetween * Time.deltaTime;
+                gameObjRigidBody.velocity -= repulSpeed * inbetween * Time.deltaTime;
 
                 repulsion = true;
             }
@@ -131,23 +135,40 @@ public class Player : MonoBehaviour
             repulsion = false;
         }
         //■■■■■■■■■■ TESTS VITESSE ■■■■■■■■■■■■
-        if (gameObject.GetComponent<Rigidbody>().velocity.x > maxSpeed)
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(maxSpeed, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
+		Vector3 gameObjVelocity = gameObjRigidBody.velocity;
 
-        if (gameObject.GetComponent<Rigidbody>().velocity.y > maxSpeed)
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, maxSpeed, gameObject.GetComponent<Rigidbody>().velocity.z);
+		if (gameObjVelocity.x > maxSpeed)
+			gameObjVelocity = new Vector3(maxSpeed, gameObjVelocity.y, gameObjVelocity.z);
 
-        if (gameObject.GetComponent<Rigidbody>().velocity.z > maxSpeed)
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, maxSpeed);
+		if (gameObjVelocity.y > maxSpeed)
+			gameObjVelocity = new Vector3(
+					gameObjVelocity.x, 
+					maxSpeed, 
+					gameObjVelocity.z);
 
-        if (gameObject.GetComponent<Rigidbody>().velocity.x < -maxSpeed)
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-maxSpeed, gameObject.GetComponent<Rigidbody>().velocity.y, gameObject.GetComponent<Rigidbody>().velocity.z);
+		if (gameObjVelocity.z > maxSpeed)
+			gameObjVelocity = new Vector3(
+				gameObjVelocity.x, 
+				gameObjVelocity.y, 
+				maxSpeed);
 
-        if (gameObject.GetComponent<Rigidbody>().velocity.y < -maxSpeed)
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, -maxSpeed, gameObject.GetComponent<Rigidbody>().velocity.z);
+		if (gameObjVelocity.x < -maxSpeed)
+			gameObjVelocity = new Vector3(
+				-maxSpeed, 
+				gameObjVelocity.y, 
+				gameObjVelocity.z);
 
-        if (gameObject.GetComponent<Rigidbody>().velocity.z < -maxSpeed)
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(gameObject.GetComponent<Rigidbody>().velocity.x, gameObject.GetComponent<Rigidbody>().velocity.y, -maxSpeed);
+		if (gameObjVelocity.y < -maxSpeed)
+			gameObjVelocity = new Vector3(
+				gameObjVelocity.x, 
+				-maxSpeed, 
+				gameObjVelocity.z);
+
+		if (gameObjVelocity.z < -maxSpeed)
+			gameObjVelocity = new Vector3(
+				gameObjVelocity.x, 
+				gameObjVelocity.y, 
+				-maxSpeed);
     }
 
 
@@ -173,12 +194,12 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Teleport( Vector3 pos)
+    public void Teleport(Vector3 pos)
     {
         SoundManager.instance.PlaySound("portalSound");
         gameObject.GetComponent<Transform>().position = pos;
     }
-    
+
     public void SetSpawnPos(Vector3 spwn)
     {
         SpawnPos = spwn;
@@ -208,3 +229,4 @@ public class Player : MonoBehaviour
             isGrounded = false;
     }
 }
+

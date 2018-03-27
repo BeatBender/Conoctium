@@ -54,7 +54,9 @@
      <Compile Include="Assets\CustomAssets\3D Particles\Scripts\GameObjectSpawner.cs" />
      <Compile Include="Assets\CustomAssets\3D Particles\Scripts\LookAtCamera.cs" />
      <Compile Include="Assets\CustomAssets\3D Particles\Scripts\ThreeDParticlesSmoothCameraOrbit.cs" />
+     <Compile Include="Assets\LoadEditorLevel.cs" />
      <Compile Include="Assets\Script\ButtonManager.cs" />
+     <Compile Include="Assets\Script\Camera\TinyMoveMainCamera.cs" />
      <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
      <Compile Include="Assets\Script\EditorBehavior.cs" />
      <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
@@ -71,12 +73,8 @@
      <Compile Include="Assets\Script\moving.cs" />
      <Compile Include="Assets\Script\OrbitMotion.cs" />
      <Compile Include="Assets\Script\PauseMenu.cs" />
-     <Compile Include="Assets\Script\Player\Attract.cs" />
      <Compile Include="Assets\Script\Player\Billes.cs" />
      <Compile Include="Assets\Script\Player\Player.cs" />
-     <Compile Include="Assets\Script\Player\PlayerMove.cs" />
-     <Compile Include="Assets\Script\Player\Repulse.cs" />
-     <Compile Include="Assets\Script\Portal\Portal.cs" />
      <Compile Include="Assets\Script\Portal\PortalCamera.cs" />
      <Compile Include="Assets\Script\Portal\PortalTetureSetup.cs" />
      <Compile Include="Assets\Script\Portal\TeleporterParent.cs" />
@@ -103,9 +101,6 @@
      <None Include="Assets\Materials\Phantom.shader" />
      <None Include="Assets\JsonDotNet\link.xml" />
      <None Include="Assets\CustomAssets\3D Particles\Shaders\Mobile Vertex Color Cull Off.shader" />
- <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/tblac/Documents/Conoctium/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -178,32 +173,32 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Facebook.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/Facebook/UnityEditor.Facebook.Extensions.dll</HintPath>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+ <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/tblac/Documents/Conoctium/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/etudiant/Documents/AtelierJeu/Conoctium/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Analytics">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/Users/tblac/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
