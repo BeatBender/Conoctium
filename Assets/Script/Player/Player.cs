@@ -23,12 +23,28 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float airFriction = 1.025f;
 
+    //Particles
+    private GameObject idle;
+    private GameObject pattraction;
+    private GameObject prepulsion;
+
     private Vector3 SpawnPos = new Vector3(0, 0, 0);
 
     // Use this for initialization
     void Start()
     {
         SpawnPos = gameObject.GetComponent<Transform>().position;
+
+
+        //Find particle object in Player gameobject
+        idle = transform.Find("Idle").gameObject;
+        pattraction = transform.Find("Attraction").gameObject;
+        prepulsion = transform.Find("Repulsion").gameObject;
+
+        //Default particles configs
+        idle.SetActive(true);
+        pattraction.SetActive(false);
+        prepulsion.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,6 +99,15 @@ public class Player : MonoBehaviour
                 if (attraction == false)
                 {
                     SoundManager.instance.PlaySound("attiranceSound");
+
+                    if(transform.parent.tag == "Player1")
+                    {
+                        //Change to Attraction particles
+                        idle.SetActive(false);
+                        pattraction.SetActive(true);
+                        prepulsion.SetActive(false);
+                    }
+
                     attraction = true;
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
@@ -93,6 +118,14 @@ public class Player : MonoBehaviour
                 {
                     SoundManager.instance.PlaySound("attiranceSound");
                     attraction = true;
+
+                    if (transform.parent.tag == "Player2")
+                    {
+                        //Change to Attraction particles
+                        idle.SetActive(false);
+                        pattraction.SetActive(true);
+                        prepulsion.SetActive(false);
+                    }
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
             }
@@ -104,6 +137,11 @@ public class Player : MonoBehaviour
         else if (isGrounded)
         {
             attraction = false;
+
+            //Change particles effect to idle
+            idle.SetActive(true);
+            pattraction.SetActive(false);
+            prepulsion.SetActive(false);
         }
 
         //■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
