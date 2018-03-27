@@ -229,7 +229,6 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Transform>().position = SpawnPos;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
     }
 
     public void Teleport(Vector3 pos)
