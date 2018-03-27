@@ -58,11 +58,15 @@
      <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
      <Compile Include="Assets\Script\EditorBehavior.cs" />
      <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
+     <Compile Include="Assets\Script\ElevatorMove.cs" />
      <Compile Include="Assets\Script\Ellipse.cs" />
      <Compile Include="Assets\Script\Fade.cs" />
      <Compile Include="Assets\Script\InitializeFolder.cs" />
+     <Compile Include="Assets\Script\Interrupteur.cs" />
+     <Compile Include="Assets\Script\LevelEdtiorButton.cs" />
      <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
      <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
+     <Compile Include="Assets\Script\LoadButtonEditor.cs" />
      <Compile Include="Assets\Script\mouvement_circulaire.cs" />
      <Compile Include="Assets\Script\moving.cs" />
      <Compile Include="Assets\Script\OrbitMotion.cs" />
@@ -77,6 +81,7 @@
      <Compile Include="Assets\Script\Portal\PortalTetureSetup.cs" />
      <Compile Include="Assets\Script\Portal\TeleporterParent.cs" />
      <Compile Include="Assets\Script\Portal\TeleporterPortal.cs" />
+     <Compile Include="Assets\Script\Porte.cs" />
      <Compile Include="Assets\Script\RollingBox.cs" />
      <Compile Include="Assets\Script\SaveMenu.cs" />
      <Compile Include="Assets\Script\SaveScreen.cs" />
@@ -86,12 +91,12 @@
      <Compile Include="Assets\Script\Serialize\Loadinginformations.cs" />
      <Compile Include="Assets\Script\Serialize\Pique.cs" />
      <Compile Include="Assets\Script\Serialize\Player.cs" />
+     <Compile Include="Assets\Script\Serialize\Portal.cs" />
      <Compile Include="Assets\Script\Serialize\SaveManager.cs" />
      <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
      <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
      <Compile Include="Assets\Script\SoundManager.cs" />
      <Compile Include="Assets\Script\TextScript.cs" />
-     <Compile Include="Assets\Script\Vitre.cs" />
      <None Include="Assets\Shader\ScreenCutoutShader.shader" />
      <None Include="Assets\CustomAssets\3D Particles\Simple Particle Scaler\Simple Particle Scaler - Readme.txt" />
      <None Include="Assets\CustomAssets\3D Particles\3D Particles - Readme.txt" />
