@@ -992,6 +992,7 @@ GameObject:
   - component: {fileID: 176368157}
   - component: {fileID: 176368156}
   - component: {fileID: 176368155}
+  - component: {fileID: 176368160}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1069,6 +1070,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176368160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176368154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233b5b014b76f2245bfe97a97e25560c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 8a118162b51b51349ba82f808c8c1442, type: 3}
+  fadeSpeed: 0.3
 --- !u!1 &178735829
 GameObject:
   m_ObjectHideFlags: 0
@@ -13273,7 +13287,7 @@ GameObject:
   - component: {fileID: 1637560149}
   m_Layer: 0
   m_Name: RollingBox
-  m_TagString: Untagged
+  m_TagString: Sol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17015,6 +17029,16 @@ Prefab:
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 82944253074341544, guid: 0e8ddbe76d0abcc4cb236e0595a9b136,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82944253074341544, guid: 0e8ddbe76d0abcc4cb236e0595a9b136,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}

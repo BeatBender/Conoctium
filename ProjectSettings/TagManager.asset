@@ -22,6 +22,7 @@ TagManager:
   - Level3btn
   - Backbtn
   - LevelInfos
+  - checkpoint
   layers:
   - Default
   - TransparentFX

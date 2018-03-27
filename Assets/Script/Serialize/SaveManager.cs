@@ -56,7 +56,7 @@ void Update()
                     scene.AddPiques(new Pique(child.position, child.eulerAngles, child.localScale));
                     break;
                 case "checkpoint":
-                    scene.AddCheckpoints(new Checkpoint(child.position));
+                    scene.AddCheckpoints(new Checkpoint(child.position, child.localScale));
                     break;
                 case "Player1":
                     scene.player1 = new serialize.Player(child.position);
@@ -65,7 +65,7 @@ void Update()
                     scene.player2 = new serialize.Player(child.position);
                     break;
                 case "Portal":
-                    scene.AddPortal(new serialize.Portal(child.GetChild(0).position, child.GetChild(1).position));
+                    scene.AddPortal(new serialize.Portal(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale, child.GetChild(1).localScale));
                     break;
                 default:
 
@@ -145,12 +145,15 @@ void Update()
         {
             GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
+            check.GetComponent<Transform>().localScale = checki.scale;
             check.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         foreach (serialize.Portal porti in scene.portals)
         {
             GameObject port = Instantiate(Resources.Load("DualPortal") as GameObject);
             port.GetComponent<Transform>().GetChild(0).position = porti.position;
+            port.GetComponent<Transform>().GetChild(0).localScale = porti.scale1;
+            port.GetComponent<Transform>().GetChild(1).localScale = porti.scale2;
             port.GetComponent<Transform>().GetChild(1).position = porti.position2;
             port.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
