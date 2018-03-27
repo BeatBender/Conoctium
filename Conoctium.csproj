@@ -300,6 +300,7 @@
     <Compile Include="Assets\ElevatorMove.cs" />
     <Compile Include="Assets\LoadButtonEditor.cs" />
     <Compile Include="Assets\Script\ButtonManager.cs" />
+    <Compile Include="Assets\Script\Camera\TinyMoveMainCamera.cs" />
     <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
     <Compile Include="Assets\Script\EditorBehavior.cs" />
     <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
