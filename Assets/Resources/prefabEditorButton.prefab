@@ -39,12 +39,13 @@ GameObject:
   - component: {fileID: 222322295299663838}
   - component: {fileID: 114446589192310900}
   - component: {fileID: 114755047247897858}
+  - component: {fileID: 114378466227970624}
   m_Layer: 5
   m_Name: prefabEditorButton
   m_TagString: Level1btn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1923286148654102
 GameObject:
@@ -98,6 +99,17 @@ MonoBehaviour:
   m_Text: 'Niveau 1
 
 '
+--- !u!114 &114378466227970624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680596788773590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ee3e34a3308ea45bd9cba2afee61bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114446589192310900
 MonoBehaviour:
   m_ObjectHideFlags: 1

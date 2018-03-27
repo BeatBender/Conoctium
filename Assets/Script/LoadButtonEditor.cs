@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LoadButtonEditor : MonoBehaviour {
-    private int ParamArrayAttribute = 0;
+    
     // Use this for initialization
     void Start () {
         int numSave;
@@ -16,19 +16,20 @@ public class LoadButtonEditor : MonoBehaviour {
         {
             GameObject button = Instantiate(Resources.Load("prefabEditorButton") as GameObject);
             button.GetComponent<Transform>().SetParent(this.GetComponent<Transform>(), true);
-            ParamArrayAttribute = i;
-            button.GetComponent<Button>().onClick.AddListener(LoadLeveltn);
+            button.GetComponent<LoadEditorLevel>().SetParamArrayAttribute(i);
             Debug.Log("Chargement de " + i +" niveaux");
             button.GetComponentInChildren<Text>().text = "Level " + i;
-            //button.GetComponentInChildren<Image>(). = "Level " + i;
+            //button.GetComponentInChildren<Image>(). ;
+
+            button.GetComponent<Transform>().localScale = new Vector3(1.53f, 1.11f, 1);
 
             if (i % 2 != 0)
             {
-                button.GetComponent<Transform>().position = new Vector3(380, -247 - 370 * (int)i / 2, 0);
+                button.GetComponent<Transform>().localPosition = new Vector3(380, 863 - (370 * (i / 2)), 0);
             }
             else
             {
-                button.GetComponent<Transform>().position = new Vector3(810, -247 - 370 * (int)i / 2, 0);
+                button.GetComponent<Transform>().localPosition = new Vector3(-178, 863 - (370 * (i / 2)), 0);
             }
             
         }
@@ -38,11 +39,6 @@ public class LoadButtonEditor : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    private void LoadLeveltn()
-    {
-        ButtonManager oui = Camera.main.GetComponent<ButtonManager>();
-        int i = ParamArrayAttribute;
-        oui.EditorBtn(i);
-    }
+   
+    
 }
