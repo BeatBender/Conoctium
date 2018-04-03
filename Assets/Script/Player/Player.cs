@@ -246,13 +246,13 @@ public class Player : MonoBehaviour
         //Changement de particules selon la bonne touche
         if (tag == "Player1")
         {
-            if (Input.GetKey(KeyCode.Q))
+            if (repulsion)
             {
                 idle.SetActive(false);
                 pattraction.SetActive(false);
                 prepulsion.SetActive(true);
             }
-            else if (Input.GetKey(KeyCode.W))
+            else if (attraction)
             {
                 idle.SetActive(false);
                 pattraction.SetActive(true);
@@ -268,13 +268,13 @@ public class Player : MonoBehaviour
 
         if (tag == "Player2")
         {
-            if (Input.GetKey(KeyCode.E))
+            if (repulsion)
             {
                 idle2.SetActive(false);
                 pattraction2.SetActive(false);
                 prepulsion2.SetActive(true);
             }
-            else if (Input.GetKey(KeyCode.R))
+            else if (attraction)
             {
                 idle2.SetActive(false);
                 pattraction2.SetActive(true);
