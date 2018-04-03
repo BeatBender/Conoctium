@@ -2516,7 +2516,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -2526,7 +2526,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -2835,7 +2835,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -2845,7 +2845,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -3588,7 +3588,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -3598,7 +3598,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -4692,10 +4692,10 @@ GameObject:
   - component: {fileID: 881030577}
   - component: {fileID: 881030576}
   - component: {fileID: 881030575}
-  - component: {fileID: 881030574}
   - component: {fileID: 881030580}
   - component: {fileID: 881030573}
   - component: {fileID: 881030572}
+  - component: {fileID: 881030574}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player2
@@ -4868,15 +4868,18 @@ AudioSource:
 --- !u!114 &881030574
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114662163011639466, guid: 9780730077b318a42a032f9378a569c5,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 881030571}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae52d20320b6334cb04f5e0c7457e89, type: 3}
+  m_Script: {fileID: 11500000, guid: d44c7a2a59970e545805ba3fcc2b7e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 30
+  jumpSpeed: 750
+  solFriction: 1.1
+  airFriction: 1.025
 --- !u!54 &881030575
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7033,7 +7036,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -7043,7 +7046,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -8013,7 +8016,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -8023,7 +8026,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -8159,7 +8162,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -8169,7 +8172,7 @@ Prefab:
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224976835458623526, guid: d6ae397d2bfacff4c816c231da95e0f6,
         type: 2}
@@ -8789,10 +8792,10 @@ GameObject:
   - component: {fileID: 1575957075}
   - component: {fileID: 1575957074}
   - component: {fileID: 1575957073}
-  - component: {fileID: 1575957072}
   - component: {fileID: 1575957078}
   - component: {fileID: 1575957071}
   - component: {fileID: 1575957070}
+  - component: {fileID: 1575957072}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player1
@@ -8965,15 +8968,18 @@ AudioSource:
 --- !u!114 &1575957072
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114310622503690508, guid: 58c679a4a6fb9334da544eee3e884d74,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1575957069}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae52d20320b6334cb04f5e0c7457e89, type: 3}
+  m_Script: {fileID: 11500000, guid: d44c7a2a59970e545805ba3fcc2b7e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 30
+  jumpSpeed: 750
+  solFriction: 1.1
+  airFriction: 1.025
 --- !u!54 &1575957073
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11459,7 +11465,7 @@ Prefab:
     - target: {fileID: 224763300466156784, guid: 528453e3196c51f429ecfb5640854083,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224423242870742928, guid: 528453e3196c51f429ecfb5640854083,
         type: 2}

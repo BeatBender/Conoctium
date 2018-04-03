@@ -67,6 +67,9 @@ void Update()
                 case "Portal":
                     scene.AddPortal(new serialize.Portal(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale, child.GetChild(1).localScale));
                     break;
+                case "Escalator":
+                    scene.AddEscalator(new serialize.Escalator(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(2).localScale));
+                    break;
                 default:
 
                     break;
@@ -100,8 +103,6 @@ void Update()
 
     public void Delete(int deleteFile)
     {
-        //TODO 
-        //
         int nbFiles;
         if (!System.Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out nbFiles))
         {
@@ -156,6 +157,15 @@ void Update()
             port.GetComponent<Transform>().GetChild(1).localScale = porti.scale2;
             port.GetComponent<Transform>().GetChild(1).position = porti.position2;
             port.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+        }
+        foreach (serialize.Escalator escali in scene.escalators)
+        {
+            GameObject esca = Instantiate(Resources.Load("Elevator") as GameObject);
+            esca.GetComponent<Transform>().tag = "Sol";
+            esca.GetComponent<Transform>().GetChild(0).position = escali.position;
+            esca.GetComponent<Transform>().GetChild(1).position = escali.position2;
+            esca.GetComponent<Transform>().GetChild(2).localScale = escali.scale;
+            esca.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         bool p1Present = false;
         bool p2Present = false;
