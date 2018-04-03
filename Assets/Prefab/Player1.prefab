@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 135924288345755500}
   - component: {fileID: 23456767326878392}
   - component: {fileID: 54810212170493582}
-  - component: {fileID: 114310622503690508}
+  - component: {fileID: 114519947376156320}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player1
@@ -1930,7 +1930,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114310622503690508
+--- !u!114 &114519947376156320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1938,7 +1938,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1713209453554524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae52d20320b6334cb04f5e0c7457e89, type: 3}
+  m_Script: {fileID: 11500000, guid: d44c7a2a59970e545805ba3fcc2b7e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114839811268309678

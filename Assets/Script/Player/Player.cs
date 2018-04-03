@@ -110,12 +110,12 @@ public class Player : MonoBehaviour
         {
 			Debug.Log ("jump");
             gameObjRigidBody.velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
-			/*try {
+			try {
 				SoundManager.instance.PlaySound("jumpSound");
 			}
 			catch (Exception e) {
 				print("error" + e);
-			}  */
+			}  
 
         }
 
@@ -128,7 +128,27 @@ public class Player : MonoBehaviour
             {
                 if (attraction == false)
                 {
+<<<<<<< HEAD
                     SoundManager.instance.PlaySound("attiranceSound");
+=======
+
+
+                    /*if(transform.parent.tag == "Player1")
+                    {
+                        //Change to Attraction particles
+                        idle.SetActive(false);
+                        pattraction.SetActive(true);
+                        prepulsion.SetActive(false);
+                    }*/
+                    try
+                    {
+                        SoundManager.instance.PlaySound("attiranceSound");
+                    }
+                    catch (Exception e)
+                    {
+                        print("error" + e);
+                    }
+>>>>>>> master
                     attraction = true;
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
@@ -137,8 +157,27 @@ public class Player : MonoBehaviour
             {
                 if (attraction == false)
                 {
-                    SoundManager.instance.PlaySound("attiranceSound");
+                    try
+                    {
+                        SoundManager.instance.PlaySound("attiranceSound");
+                    }
+                    catch (Exception e)
+                    {
+                        print("error" + e);
+                    }
                     attraction = true;
+<<<<<<< HEAD
+=======
+                    /*
+                    if (transform.parent.tag == "Player2")
+                    {
+                        //Change to Attraction particles
+                        idle.SetActive(false);
+                        pattraction.SetActive(true);
+                        prepulsion.SetActive(false);
+                    }
+                    */
+>>>>>>> master
                 }
                 otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
             }
@@ -150,6 +189,15 @@ public class Player : MonoBehaviour
         else if (isGrounded)
         {
             attraction = false;
+<<<<<<< HEAD
+=======
+            /*
+            //Change particles effect to idle
+            idle.SetActive(true);
+            pattraction.SetActive(false);
+            prepulsion.SetActive(false);
+            */
+>>>>>>> master
         }
 
         //■■■■■■■■■■ REPULSION ■■■■■■■■■■■■
@@ -160,12 +208,26 @@ public class Player : MonoBehaviour
                 Vector3 otherPlayer;
                 if (select == "Player1")
                 {
-                    SoundManager.instance.PlaySound("repulsionSound");
+                    try
+                    {
+                        SoundManager.instance.PlaySound("repulsionSound");
+                    }
+                    catch (Exception e)
+                    {
+                        print("error" + e);
+                    }
                     otherPlayer = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>().position;
                 }
                 else
                 {
-                    SoundManager.instance.PlaySound("repulsionSound");
+                    try
+                    {
+                        SoundManager.instance.PlaySound("repulsionSound");
+                    }
+                    catch (Exception e)
+                    {
+                        print("error" + e);
+                    }
                     otherPlayer = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>().position;
                 }
                 Vector3 mePlayer = gameObject.GetComponent<Transform>().position;
@@ -294,8 +356,15 @@ public class Player : MonoBehaviour
 
     public void Teleport(Vector3 pos)
     {
-		
-        SoundManager.instance.PlaySound("portalSound");
+
+        try
+        {
+            SoundManager.instance.PlaySound("portalSound");
+        }
+        catch (Exception e)
+        {
+            print("error" + e);
+        }
         gameObject.GetComponent<Transform>().position = pos;
     }
 
