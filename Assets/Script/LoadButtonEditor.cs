@@ -19,19 +19,18 @@ public class LoadButtonEditor : MonoBehaviour {
             button.GetComponent<LoadEditorLevel>().SetParamArrayAttribute(i);
             Debug.Log("Chargement de " + i +" niveaux");
             button.GetComponentInChildren<Text>().text = "Level " + i;
-            
-            /*Sprite texture = Resources.Load("conoctium_Data/Resources/SaveMap/map" + i) as Sprite;
-            button.GetComponent<Image>().sprite = texture;
-            
-            SpriteRenderer spriteRenderer = button.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = texture;*/
+            //button.GetComponentInChildren<Image>(). ;
 
             button.GetComponent<Transform>().localScale = new Vector3(1.53f, 1.11f, 1);
 
             if (i % 2 != 0)
+            {
                 button.GetComponent<Transform>().localPosition = new Vector3(380, 863 - (370 * (i / 2)), 0);
+            }
             else
+            {
                 button.GetComponent<Transform>().localPosition = new Vector3(-178, 863 - (370 * (i / 2)), 0);
+            }
             
         }
     }

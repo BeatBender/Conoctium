@@ -23,7 +23,6 @@ TagManager:
   - Backbtn
   - LevelInfos
   - checkpoint
-  - Escalator
   layers:
   - Default
   - TransparentFX

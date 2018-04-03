@@ -12,7 +12,6 @@ namespace serialize
         public List<Checkpoint> checkpoints;
         public List<Pique> piques;
         public List<Portal> portals;
-        public List<Escalator> escalators;
 
         public SceneSerializer()
         {
@@ -22,7 +21,6 @@ namespace serialize
             checkpoints = new List<Checkpoint>();
             piques = new List<Pique>();
             portals = new List<Portal>();
-            escalators = new List<Escalator>();
         }
     
         public void SetP1(Player p1)
@@ -48,10 +46,6 @@ namespace serialize
         public void AddPortal(Portal portal)
         {
             portals.Add(portal);
-        }
-        public void AddEscalator(Escalator escalator)
-        {
-            escalators.Add(escalator);
         }
 
     }
