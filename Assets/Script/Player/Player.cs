@@ -83,12 +83,9 @@ public class Player : MonoBehaviour
         //Mise à jour de la vitesse actuel
         actualVelocity = new Vector3(gameObjRigidBody.velocity.x, gameObjRigidBody.velocity.y, gameObjRigidBody.velocity.z);
 
-		Debug.Log ("in boucle");
-		Debug.Log (Input.GetKey(KeyCode.Space));
         //■■■■■■■■■■ SAUT ■■■■■■■■■■■■
         if (Input.GetButtonDown("Fire1" + select) && isGrounded)
         {
-			Debug.Log ("jump");
             gameObjRigidBody.velocity = new Vector3(actualVelocity.x, actualVelocity.y + jumpSpeed * Time.deltaTime, 0);
 			/*try {
 				SoundManager.instance.PlaySound("jumpSound");
@@ -102,6 +99,7 @@ public class Player : MonoBehaviour
         //■■■■■■■■■■ ATTRACTION ■■■■■■■■■■■■
         if (Input.GetAxis("Trigger" + select) >= .5)
         {
+			Debug.Log ("Attract");
 
             Vector3 otherPlayer;
             if (select == "Player1")
@@ -181,6 +179,7 @@ public class Player : MonoBehaviour
         {
             repulsion = false;
         }
+
         //■■■■■■■■■■ TESTS VITESSE ■■■■■■■■■■■■
 		Vector3 gameObjVelocity = gameObjRigidBody.velocity;
 
@@ -239,14 +238,6 @@ public class Player : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-
-	public void OnCollisionStay(Collider other){
-		transform.parent = other.transform;
-	}
-
-	public void OnCollisionExit(Collider other){
-		transform.parent = null;
-	}    
 
     public void Teleport(Vector3 pos)
     {
