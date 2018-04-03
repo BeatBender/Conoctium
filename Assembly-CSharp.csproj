@@ -75,6 +75,8 @@
      <Compile Include="Assets\Script\PauseMenu.cs" />
      <Compile Include="Assets\Script\Player\Billes.cs" />
      <Compile Include="Assets\Script\Player\Player.cs" />
+     <Compile Include="Assets\Script\Player\TestParticles.cs" />
+     <Compile Include="Assets\Script\Portal\ewgrewdsfv.cs" />
      <Compile Include="Assets\Script\Portal\PortalCamera.cs" />
      <Compile Include="Assets\Script\Portal\PortalTetureSetup.cs" />
      <Compile Include="Assets\Script\Portal\TeleporterParent.cs" />
@@ -172,9 +174,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
- <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/etudiant/Documents/AtelierJeu/Conoctium/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
