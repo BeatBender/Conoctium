@@ -294,6 +294,14 @@ public class Player : MonoBehaviour
     {
         if (coli.gameObject.tag == "Player2" && gameObject.tag == "Player1")
         {
+            try
+            {
+                SoundManager.instance.StopSoundLevel();
+            }
+            catch (Exception e)
+            {
+                print("error" + e);
+            }
             int level = SceneManager.GetActiveScene().buildIndex;
             if (level >= SceneManager.sceneCountInBuildSettings - 1)
             {
