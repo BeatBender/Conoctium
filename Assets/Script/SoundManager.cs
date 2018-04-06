@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class SoundManager : MonoBehaviour
 {
 
+    private float soundFeedBack;
+    private float soundLevel;
+
     private AudioSource musicSource;
     public static SoundManager instance = null;
 
@@ -26,7 +29,8 @@ public class SoundManager : MonoBehaviour
         {
             PlaySoundLevel();
         }
-
+        soundFeedBack = 1F;
+        soundLevel = 0.05F;
     }
 
     public void Update()
@@ -64,16 +68,16 @@ public class SoundManager : MonoBehaviour
         switch (choix)
         {
             case "jumpSound":
-                GetComponent<AudioSource>().PlayOneShot(JumpSound, 1f);
+                GetComponent<AudioSource>().PlayOneShot(JumpSound, soundFeedBack);
                 break;
             case "attiranceSound":
-                GetComponent<AudioSource>().PlayOneShot(AttiranceSound, 1f);
+                GetComponent<AudioSource>().PlayOneShot(AttiranceSound, soundFeedBack);
                 break;
             case "repulsionSound":
-                GetComponent<AudioSource>().PlayOneShot(RepulsionSound, 1f);
+                GetComponent<AudioSource>().PlayOneShot(RepulsionSound, soundFeedBack);
                 break;
             case "portalSound":
-                GetComponent<AudioSource>().PlayOneShot(PortalSound, 1f);
+                GetComponent<AudioSource>().PlayOneShot(PortalSound, soundFeedBack);
                 break;
         }
 
@@ -85,16 +89,16 @@ public class SoundManager : MonoBehaviour
         switch (rand)
         {
             case 0:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel1, 0.05f);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel1, soundLevel);
                 break;
             case 1:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel2, 0.05f);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel2, soundLevel);
                 break;
             case 2:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel3, 0.05f);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel3, soundLevel);
                 break;
             case 3:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel4, 0.05f);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel4, soundLevel);
                 break;
         }
     }
@@ -103,5 +107,17 @@ public class SoundManager : MonoBehaviour
     {
         GetComponent<AudioSource>().Stop();
         soundLevelStart = false;
+    }
+
+    public void SoundOn()
+    {
+        soundFeedBack = 1F;
+        soundLevel = 0.05F;
+    }
+
+    public void SoundOff()
+    {
+        soundFeedBack = 0;
+        soundLevel = 0;
     }
 }
