@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip musicLevel3;
     public AudioClip musicLevel4;
 
+    Toggle m_Toggle;
+    bool onOff = true;
     private bool soundLevelStart = false;
     public void Start()
     {
@@ -29,8 +32,11 @@ public class SoundManager : MonoBehaviour
         {
             PlaySoundLevel();
         }
-        soundFeedBack = 1F;
-        soundLevel = 0.05F;
+        m_Toggle = GetComponent<Toggle>();
+        //Add listener for when the state of the Toggle changes, to take action
+        m_Toggle.onValueChanged.AddListener(delegate {
+            ToggleValueChanged(m_Toggle);
+        });
     }
 
     public void Update()
@@ -43,8 +49,17 @@ public class SoundManager : MonoBehaviour
                 soundLevelStart = true;
             }
         }
-
-
+        Debug.Log(onOff);
+        if (onOff)
+        {
+            soundFeedBack = 1F;
+            soundLevel = 0.05F;
+        }
+        else
+        {
+            soundFeedBack = 0F;
+            soundLevel = 0F;
+        }
     }
 
     void Awake()
@@ -109,15 +124,37 @@ public class SoundManager : MonoBehaviour
         soundLevelStart = false;
     }
 
-    public void SoundOn()
+    public void SoundOnOff(bool value)
     {
-        soundFeedBack = 1F;
-        soundLevel = 0.05F;
+        if(value){
+            soundFeedBack = 1F;
+            soundLevel = 0.05F;
+            Debug.Log(value);
+        }
+        else
+        {
+            soundFeedBack = 0F;
+            soundLevel = 0F;
+
+            Debug.Log(value);
+        }
     }
 
-    public void SoundOff()
+    public void ToggleValueChanged(Toggle change)
     {
-        soundFeedBack = 0;
-        soundLevel = 0;
+        Debug.Log(onOff);
+        if (change.isOn)
+        {
+            soundFeedBack = 1F;
+            soundLevel = 0.05F;
+            onOff = true;
+        }
+        else
+        {
+            soundFeedBack = 0F;
+            soundLevel = 0F;
+            onOff = false;
+        }
+        Debug.Log(onOff);
     }
 }
