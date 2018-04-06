@@ -14,8 +14,6 @@ public class ChangePlayerEditor : MonoBehaviour {
         //Desactive les billes
         gameObject.GetComponent<Transform>().GetChild(0).gameObject.SetActive(false);
         
-        //Desactive le script Player
-        gameObject.GetComponent<Player>().enabled = false;
     }
 
     //Change les materials du player si il est dans un mur ou objet
