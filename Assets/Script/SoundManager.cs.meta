@@ -5,7 +5,15 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - JumpSound: {fileID: 8300000, guid: aebfc82ef0e6c644ba4acbcb81a08b12, type: 3}
+  - AttiranceSound: {fileID: 8300000, guid: 3e97a84d95a44a74291cd31dfd9c219c, type: 3}
+  - RepulsionSound: {instanceID: 0}
+  - PortalSound: {instanceID: 0}
+  - musicLevel1: {instanceID: 0}
+  - musicLevel2: {instanceID: 0}
+  - musicLevel3: {instanceID: 0}
+  - musicLevel4: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
