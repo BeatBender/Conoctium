@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour {
 	public Transform leftWall;
 	public Transform rightWall;
 	public GameObject grid;
+	public BoxCollider boxCollider;
     public GameObject player1;
     public GameObject player2;
     public GameObject serialize;
@@ -80,6 +81,9 @@ public class PauseMenu : MonoBehaviour {
 		//Camera
 		this.GetComponent<Transform>().position = new Vector3(0, dim[size, 3], -30);
 		this.GetComponent<Camera>().orthographicSize = dim[size, 2];
+		//Box Collider
+		boxCollider.size = new Vector3(dim[size, 0], dim[size, 1], 1);
+		boxCollider.center = new Vector3(0, (dim [size, 1] + 1) / 2, 0);
 	}
 
     public void LaunchSave()

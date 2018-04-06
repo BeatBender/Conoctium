@@ -12,6 +12,7 @@ public class EditorBehavior : MonoBehaviour {
     public GameObject tuto;
 	public GameObject cursor;
 	public LineRenderer linker;
+	public BoxCollider boundingBox;
 
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
@@ -149,8 +150,14 @@ public class EditorBehavior : MonoBehaviour {
 	}
 
 	void moveObject(float x, float y){
-		currentGridPosition.x += x;
-		currentGridPosition.y += y;
+		//Reset to center if the cursor is outside the box (When scaling box)
+		if (!boundingBox.bounds.Contains (currentGridPosition))
+			currentGridPosition = new Vector3 (0, 0, -0.9f);
+		Vector3 temp = currentGridPosition;
+		temp.x += x;
+		temp.y += y;
+		if (boundingBox.bounds.Contains (temp))
+			currentGridPosition = temp;
 		if (currentObj) {
 			currentObj.GetComponent <Transform> ().position = currentGridPosition;
 		} else {
