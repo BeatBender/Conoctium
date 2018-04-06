@@ -35,7 +35,7 @@ public class EditorBehavior : MonoBehaviour {
             tuto.SetActive(!tuto.activeInHierarchy);
         }
 
-		if(Input.GetButtonDown ("Fire1Player1")){
+		if(Input.GetButtonDown ("FireA")){
 			if (currentState == State.GridState) {
 				if (currentObj) {
 					//if the cursor is holding an object
@@ -112,7 +112,7 @@ public class EditorBehavior : MonoBehaviour {
 		}
 
 		//Moving the selected object around /Controller
-		if ((Input.GetAxis ("HorizontalPlayer1") != 0 || Input.GetAxis ("VerticalPlayer1") != 0) && actionTime < Time.time && currentState == State.GridState) {
+		if ((Input.GetAxis ("HorizontalPlayer") != 0 || Input.GetAxis ("VerticalPlayer") != 0) && actionTime < Time.time && currentState == State.GridState) {
 			moveObject (Mathf.RoundToInt(Input.GetAxis ("HorizontalPlayer1")), Mathf.RoundToInt(Input.GetAxis ("VerticalPlayer1")));
 			actionTime = Time.time + actionCoolDown;
 		}
@@ -152,7 +152,7 @@ public class EditorBehavior : MonoBehaviour {
 	void moveObject(float x, float y){
 		//Reset to center if the cursor is outside the box (When scaling box)
 		if (!boundingBox.bounds.Contains (currentGridPosition))
-			currentGridPosition = new Vector3 (0, 0, -0.9f);
+			currentGridPosition = new Vector3 (0, -8f, -0.9f);
 		Vector3 temp = currentGridPosition;
 		temp.x += x;
 		temp.y += y;
@@ -189,7 +189,9 @@ public class EditorBehavior : MonoBehaviour {
 	GameObject selectWithCursor(){
 		RaycastHit hit;
 		if (Physics.Raycast (cursor.GetComponent<Transform> ().position, Vector3.forward, out hit)) {
-			if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> () || hit.collider.GetComponent<Transform> ().parent.parent == serialize.GetComponent<Transform> ()) {
+			//if (hit.collider.GetComponent<Transform> ().parent == serialize.GetComponent<Transform> () || hit.collider.GetComponent<Transform> ().parent.parent == serialize.GetComponent<Transform> ()) {
+			Debug.Log(hit.collider);
+			if(hit.collider != boundingBox){
 				return hit.collider.gameObject;
 			}
 		}
