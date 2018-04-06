@@ -305,6 +305,7 @@
     <Compile Include="Assets\CustomAssets\3D Particles\Scripts\ThreeDParticlesSmoothCameraOrbit.cs" />
     <Compile Include="Assets\LoadEditorLevel.cs" />
     <Compile Include="Assets\Script\ButtonManager.cs" />
+    <Compile Include="Assets\Script\Camera\CameraShake.cs" />
     <Compile Include="Assets\Script\Camera\TinyMoveMainCamera.cs" />
     <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
     <Compile Include="Assets\Script\EditorBehavior.cs" />
@@ -345,6 +346,7 @@
     <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
     <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
     <Compile Include="Assets\Script\SoundManager.cs" />
+    <Compile Include="Assets\Script\Supprlevel.cs" />
     <Compile Include="Assets\Script\TextScript.cs" />
     <Compile Include="Assets\Script\UILevel.cs" />
   </ItemGroup>
