@@ -20,13 +20,12 @@ public class LoadButtonEditor : MonoBehaviour {
             Debug.Log("Chargement de " + i +" niveaux");
             button.GetComponentInChildren<Text>().text = "Level " + i;
 
-           /* System.IO.Directory.GetFiles("conoctium_Data/Resources/SavesMap/map"+i+".png");
-            Texture2D texture = Resources.Load("conoctium_Data/Resources/SavesMap/map" + i + ".png") as Texture2D;
+            String path = Application.dataPath + @"\Resources\SavesMap\map" + i + ".png";
+            Byte[] bytes = System.IO.File.ReadAllBytes(path);
+            Texture2D texture = new Texture2D(1, 1);
+            texture.LoadImage(bytes, false);
             Sprite image = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
-            button.GetComponent<Image>().sprite = image;*/
-            
-            /*SpriteRenderer spriteRenderer = button.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = texture;*/
+            button.GetComponent<Image>().sprite = image;
 
             button.GetComponent<Transform>().localScale = new Vector3(1.53f, 1.11f, 1);
 
