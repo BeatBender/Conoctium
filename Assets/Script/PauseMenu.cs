@@ -31,7 +31,14 @@ public class PauseMenu : MonoBehaviour {
             //Cursor.lockstate - CursorLockMode.Confined;
             Time.timeScale = 0;
             //GameObject.FindGameObjectWithTag("Resume_btn").GetComponent<Button>().Select();
-
+            try
+            {
+                SoundManager.instance.StopSoundLevel();
+            }
+            catch (Exception e)
+            {
+                print("error" + e);
+            }
         }
         else {
             menuObject.SetActive(false);
