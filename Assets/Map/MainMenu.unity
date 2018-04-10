@@ -1596,7 +1596,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1918677657}
     m_Modifications:
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1604,31 +1604,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.928363
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.2981334
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.40821788
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.23456968
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.10938163
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8754261
       objectReference: {fileID: 0}
     - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82944253074341544, guid: 0e8ddbe76d0abcc4cb236e0595a9b136,
         type: 2}
@@ -1645,6 +1645,19 @@ Prefab:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114022380932664884, guid: 0e8ddbe76d0abcc4cb236e0595a9b136,
+        type: 2}
+      propertyPath: m_Toggle
+      value: 
+      objectReference: {fileID: 757433512}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e8ddbe76d0abcc4cb236e0595a9b136, type: 2}
   m_IsPrefabParent: 0
@@ -2260,6 +2273,7 @@ MonoBehaviour:
   - {fileID: 1140990061}
   - {fileID: 1408459064}
   - {fileID: 947581700}
+  m_Toggle: {fileID: 0}
 --- !u!114 &494017700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3265,7 +3279,7 @@ GameObject:
   - component: {fileID: 757433512}
   m_Layer: 5
   m_Name: Toggle
-  m_TagString: Untagged
+  m_TagString: ToggleSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3346,6 +3360,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!4 &765279881 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4420475164542410, guid: 0e8ddbe76d0abcc4cb236e0595a9b136,
+    type: 2}
+  m_PrefabInternal: {fileID: 328124050}
 --- !u!1 &782421418
 GameObject:
   m_ObjectHideFlags: 0
@@ -8983,6 +9002,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 926580277}
+  - {fileID: 765279881}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
