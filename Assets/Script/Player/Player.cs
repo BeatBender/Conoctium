@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
             idle = transform.Find("Idle").gameObject;
             pattraction = transform.Find("Attraction").gameObject;
             prepulsion = transform.Find("Repulse").gameObject;
+
+            //Default particles configs
+            idle.SetActive(true);
+            pattraction.SetActive(false);
+            prepulsion.SetActive(false);
         }
 
         if (tag == "Player2")
@@ -55,17 +60,12 @@ public class Player : MonoBehaviour
             idle2 = transform.Find("Idle").gameObject;
             pattraction2 = transform.Find("Attraction").gameObject;
             prepulsion2 = transform.Find("Repulse").gameObject;
+
+            //Default particles configs
+            idle2.SetActive(true);
+            pattraction2.SetActive(false);
+            prepulsion2.SetActive(false);
         }
-
-        //Default particles configs
-        idle.SetActive(true);
-        pattraction.SetActive(false);
-        prepulsion.SetActive(false);
-
-        //Default particles configs
-        idle2.SetActive(true);
-        pattraction2.SetActive(false);
-        prepulsion2.SetActive(false);
     }
 
     // Update is called once per frame

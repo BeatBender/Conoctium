@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LoadEditorLevel : MonoBehaviour {
 
+    public bool playable = false;
+
     private int ParamArrayAttribute = 0;
 
     // Use this for initialization
@@ -25,7 +27,10 @@ public class LoadEditorLevel : MonoBehaviour {
         ButtonManager btn = Camera.main.GetComponent<ButtonManager>();
         int i = ParamArrayAttribute;
         Debug.Log("Je charge le niveau " + i);
-        btn.EditorBtn(i);
+        if(!playable)
+            btn.EditorBtn(i);
+        else
+            btn.EditorPlayBtn(i);
     }
 
     private void SupprLeveltn()

@@ -393,7 +393,6 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Resources\Saves\0.txt" />
-    <None Include="Assets\Resources\Saves\1.txt" />
     <None Include="Assets\Resources\Saves\SaveFile.txt" />
     <None Include="Assets\Shader\ScreenCutoutShader.shader" />
   </ItemGroup>

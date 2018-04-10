@@ -369,6 +369,7 @@
     <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
     <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
     <Compile Include="Assets\Script\LoadButtonEditor.cs" />
+    <Compile Include="Assets\Script\LoadButtonPlayEditor.cs" />
     <Compile Include="Assets\Script\mouvement_circulaire.cs" />
     <Compile Include="Assets\Script\moving.cs" />
     <Compile Include="Assets\Script\OrbitMotion.cs" />
@@ -452,7 +453,6 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Resources\Saves\0.txt" />
-    <None Include="Assets\Resources\Saves\1.txt" />
     <None Include="Assets\Resources\Saves\SaveFile.txt" />
     <None Include="Assets\Shader\ScreenCutoutShader.shader" />
   </ItemGroup>

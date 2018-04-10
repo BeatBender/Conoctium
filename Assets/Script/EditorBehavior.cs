@@ -10,19 +10,31 @@ public class EditorBehavior : MonoBehaviour {
 	public ScrollRect selectionMenu;
 	public EventSystem eventSystem;
     public GameObject tuto;
-	public GameObject cursor;
-	public LineRenderer linker;
-	public BoxCollider boundingBox;
 
+	//State
 	enum State {SelectionState, GridState};
 	State currentState = State.SelectionState;
+
+	//Selection
+	public BoxCollider boundingBox;
+	public GameObject cursor;
+	public LineRenderer linker;
 	Vector3 currentGridPosition = new Vector3(0, 0, -0.9f);
 	GameObject currentObj = null;
+
+	//Sound
+	public AudioSource sourceAudio;
+	public AudioClip backgroundMusic;
+	public AudioClip moveClip;
+
+	//Cooldown
 	float actionTime = 0.0f;
 	float actionCoolDown = 0.1f;
 
 	void Awake(){
 		eventSystem.SetSelectedGameObject (selectionMenu.content.GetChild(0).gameObject);
+		sourceAudio.clip = backgroundMusic;
+		sourceAudio.Play ();
 	}
 
 	void Update () {
@@ -164,6 +176,7 @@ public class EditorBehavior : MonoBehaviour {
 			showCursor (true);
 		}
 		linkObjects ();
+		sourceAudio.PlayOneShot (moveClip);
 	}
 
     void scaleObject(float x, float y) {

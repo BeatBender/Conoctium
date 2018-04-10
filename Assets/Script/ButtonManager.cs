@@ -15,14 +15,17 @@ public class ButtonManager : MonoBehaviour {
     bool inleveleditormenu = false;
     bool isSupp = false;
     public  List<GameObject> ListLevel;
-    SoundManager soundManager;
+    public Toggle m_Toggle;
     void Awake()
 	{
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 	}
 
 	void Start () {
-
+        m_Toggle = GameObject.FindGameObjectWithTag("ToggleSound").GetComponent<Toggle>();
+        m_Toggle.onValueChanged.AddListener(delegate {
+            SoundManager.instance.ToggleValueChanged(m_Toggle);
+        });
     }
 
 	void OnEnable()
@@ -189,6 +192,23 @@ public class ButtonManager : MonoBehaviour {
 
         //Load la scene editor
         SceneManager.LoadScene("Editor");
+
+        var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/Saves");
+    }
+
+    public void EditorPlayBtn(int numLevel)
+    {
+        //creer objet
+        GameObject LevelInfos;
+        LevelInfos = new GameObject();
+        LevelInfos.tag = "LevelInfos";
+        LevelInfos.name = "LevelInfos";
+        LevelInfos.AddComponent<Loadinginformations>();
+        LevelInfos.GetComponent<Loadinginformations>().LevelLoad = numLevel;
+        LevelInfos.GetComponent<Loadinginformations>().dontDestruct();
+
+        //Load la scene editor
+        SceneManager.LoadScene("EditorPlayer");
 
         var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/Saves");
     }

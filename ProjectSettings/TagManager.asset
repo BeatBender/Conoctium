@@ -25,6 +25,8 @@ TagManager:
   - checkpoint
   - LoadButtonEditor
   - SupprButtonEditor
+  - soundManager
+  - ToggleSound
   layers:
   - Default
   - TransparentFX
