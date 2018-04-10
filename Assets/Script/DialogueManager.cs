@@ -28,6 +28,9 @@ public class DialogueManager : MonoBehaviour {
         
             
         } else Time.timeScale = 1f;
+        if (Input.GetButtonDown("FireA")){
+            DisplayNextSentence();
+        }
     }
     void Start () {
 		sentences = new Queue<string>();
