@@ -75,7 +75,7 @@ void Update()
 
         }
         var jsonString = JsonConvert.SerializeObject(scene);
-        Debug.Log(jsonString);
+        //Debug.Log(jsonString);
 
         System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\" + i + ".txt", jsonString);
 
@@ -113,7 +113,7 @@ void Update()
         for (int i = deleteFile + 1; i <= nbFiles; i++)
         {
             System.IO.File.Move(Application.dataPath + @"\Resources\Saves\" + i + ".txt", Application.dataPath + @"\Resources\Saves\" + (i - 1) + ".txt");
-            System.IO.File.Move(Application.dataPath + @"\Resources\Saves\" + i + ".txt", Application.dataPath + @"\Resources\SavesMap\map" + (i - 1) + ".png");
+            System.IO.File.Move(Application.dataPath + @"\Resources\SavesMap\map" + i + ".png", Application.dataPath + @"\Resources\SavesMap\map" + (i - 1) + ".png");
         }
         System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt", (nbFiles - 1).ToString());
     }
@@ -144,7 +144,7 @@ void Update()
         }
         foreach (Checkpoint checki in scene.checkpoints)
         {
-            GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
+            GameObject check = Instantiate(Resources.Load("flag") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
             check.GetComponent<Transform>().localScale = checki.scale;
             check.GetComponent<Transform>().parent = this.GetComponent<Transform>();
@@ -188,7 +188,7 @@ void Update()
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
 
-        if(isEditor)
+        if(!isEditor)
         {
             p1.AddComponent<Player>();
             p2.AddComponent<Player>();

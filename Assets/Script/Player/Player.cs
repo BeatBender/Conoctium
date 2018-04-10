@@ -317,6 +317,10 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Transform>().position = SpawnPos;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        else if (coli.gameObject.tag == "checkpoint")
+        {
+            SpawnPos = gameObject.GetComponent<Transform>().position;
+        }
     }
 
     public void Teleport(Vector3 pos)

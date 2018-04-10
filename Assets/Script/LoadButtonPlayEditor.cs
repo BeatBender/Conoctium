@@ -40,8 +40,8 @@ public class LoadButtonPlayEditor : MonoBehaviour {
 
             button.GetComponent<Transform>().localScale = new Vector3(1.53f, 1.11f, 1);
 
-            if (i % 2 != 0)
-                button.GetComponent<Transform>().localPosition = new Vector3(300, 863 - (370 * (i / 2)), 0);
+            if (i % 2 == 0)
+                button.GetComponent<Transform>().localPosition = new Vector3(300, 863 - (370 * (i / 2 - 1)), 0);
             else
                 button.GetComponent<Transform>().localPosition = new Vector3(-178, 863 - (370 * (i / 2)), 0);
         }
@@ -67,10 +67,6 @@ public class LoadButtonPlayEditor : MonoBehaviour {
                 suppr.GetComponent<Transform>().localPosition = new Vector3(-28, 1013 - (370 * (i / 2)), 0);
         }
     }
-	// Update is called once per frame
-	void Update () {
-		
-	}
    
     
 }
