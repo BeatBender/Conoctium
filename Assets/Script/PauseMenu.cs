@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject player2;
     public GameObject serialize;
 	public GameObject editorController;
+	public Button firstButton;
     private bool isActive = false;
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class PauseMenu : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
         {
             Resume_btn();
+			firstButton.Select ();
+			firstButton.OnSelect (null);
         }
     }
 
