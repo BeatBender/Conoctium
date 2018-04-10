@@ -26,6 +26,8 @@ public class SoundManager : MonoBehaviour
     Toggle m_Toggle;
     bool onOff = true;
     private bool soundLevelStart = false;
+    private bool mainMenu = true;
+
     public void Start()
     {
         if (SceneManager.GetActiveScene().name != "MainMenu")
@@ -49,7 +51,7 @@ public class SoundManager : MonoBehaviour
                 soundLevelStart = true;
             }
         }
-        Debug.Log(onOff);
+        
         if (onOff)
         {
             soundFeedBack = 1F;
@@ -64,6 +66,7 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("test");
         //Check if there is already an instance of SoundManager
         if (instance == null)
             //if not, set it to this.
@@ -72,7 +75,6 @@ public class SoundManager : MonoBehaviour
         else if (instance != this)
             //Destroy this, this enforces our singleton pattern so there can only be one instance of SoundManager.
             Destroy(gameObject);
-
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad(gameObject);
     }
