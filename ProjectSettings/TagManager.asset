@@ -23,6 +23,8 @@ TagManager:
   - Backbtn
   - LevelInfos
   - checkpoint
+  - LoadButtonEditor
+  - SupprButtonEditor
   layers:
   - Default
   - TransparentFX

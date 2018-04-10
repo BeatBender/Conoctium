@@ -62,25 +62,25 @@ public class PauseMenu : MonoBehaviour {
     {
         Application.Quit();
     }
-		
+
 
     public void LaunchSave()
     {
         int numSave = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
-        if(numSave == 0)
+        if (numSave == 0)
         {
-            Debug.Log("Nouvelle save");
-            Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out numSave);
 
+            Int32.TryParse(System.IO.File.ReadAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt"), out numSave);
+            Debug.Log("Nouvelle save : " + numSave);
             serialize.GetComponent<SaveManager>().Save(numSave + 1);
-            System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (numSave + 1).ToString());
+            System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt", (numSave + 1).ToString());
         }
         else
         {
-            Debug.Log("fichier sauvegardé : "+ numSave);
+            Debug.Log("fichier sauvegardé : " + numSave);
             serialize.GetComponent<SaveManager>().Save(numSave);
         }
-        
+
     }
 
     public void LaunchLoad()

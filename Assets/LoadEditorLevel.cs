@@ -9,7 +9,10 @@ public class LoadEditorLevel : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        this.GetComponent<Button>().onClick.AddListener(LoadLeveltn);
+        if(this.tag == "SupprButtonEditor")
+            this.GetComponent<Button>().onClick.AddListener(SupprLeveltn);
+        else
+            this.GetComponent<Button>().onClick.AddListener(LoadLeveltn);
     }
 	
 	// Update is called once per frame
@@ -19,10 +22,17 @@ public class LoadEditorLevel : MonoBehaviour {
 
     private void LoadLeveltn()
     {
-        ButtonManager oui = Camera.main.GetComponent<ButtonManager>();
+        ButtonManager btn = Camera.main.GetComponent<ButtonManager>();
         int i = ParamArrayAttribute;
         Debug.Log("Je charge le niveau " + i);
-        oui.EditorBtn(i);
+        btn.EditorBtn(i);
+    }
+
+    private void SupprLeveltn()
+    {
+        int i = ParamArrayAttribute;
+        Debug.Log("Je Supprime le niveau " + i);
+        SaveManager.Delete(i);
     }
 
     public int GetParamArrayAttribute()

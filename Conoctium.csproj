@@ -193,9 +193,6 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -256,20 +253,8 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.LinuxStandalone.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.OSXStandalone.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Facebook.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/Facebook/UnityEditor.Facebook.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
@@ -278,6 +263,27 @@
       <HintPath>Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
+<<<<<<< HEAD
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/ASUS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+=======
       <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
@@ -297,6 +303,7 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/etudiant/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+>>>>>>> be0d6f86b46881a408d37822f4ec0f034d7ae5ae
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -351,6 +358,7 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Script\BoxScaler.cs" />
     <Compile Include="Assets\Script\ButtonManager.cs" />
     <Compile Include="Assets\Script\Camera\CameraShake.cs" />
     <Compile Include="Assets\Script\Camera\TinyMoveMainCamera.cs" />
@@ -363,7 +371,6 @@
     <Compile Include="Assets\Script\Fade.cs" />
     <Compile Include="Assets\Script\InitializeFolder.cs" />
     <Compile Include="Assets\Script\Interrupteur.cs" />
-    <Compile Include="Assets\Script\LevelEdtiorButton.cs" />
     <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
     <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
     <Compile Include="Assets\Script\LoadButtonEditor.cs" />
@@ -394,9 +401,9 @@
     <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
     <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
     <Compile Include="Assets\Script\SoundManager.cs" />
-    <Compile Include="Assets\Script\Supprlevel.cs" />
     <Compile Include="Assets\Script\TextScript.cs" />
     <Compile Include="Assets\Script\UILevel.cs" />
+    <Compile Include="Assets\SupprEditorLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\CustomAssets\3D Particles\3D Particles - Readme.txt" />
@@ -450,16 +457,7 @@
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Resources\Saves\0.txt" />
     <None Include="Assets\Resources\Saves\1.txt" />
-    <None Include="Assets\Resources\Saves\2.txt" />
-    <None Include="Assets\Resources\Saves\3.txt" />
-    <None Include="Assets\Resources\Saves\4.txt" />
     <None Include="Assets\Resources\Saves\SaveFile.txt" />
-    <None Include="Assets\Resources\conoctium_Data\Resources\Saves\0.txt" />
-    <None Include="Assets\Resources\conoctium_Data\Resources\Saves\1.txt" />
-    <None Include="Assets\Resources\conoctium_Data\Resources\Saves\2.txt" />
-    <None Include="Assets\Resources\conoctium_Data\Resources\Saves\3.txt" />
-    <None Include="Assets\Resources\conoctium_Data\Resources\Saves\4.txt" />
-    <None Include="Assets\Resources\conoctium_Data\Resources\Saves\SaveFile.txt" />
     <None Include="Assets\Shader\ScreenCutoutShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

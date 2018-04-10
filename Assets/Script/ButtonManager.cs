@@ -13,6 +13,7 @@ public class ButtonManager : MonoBehaviour {
 	bool inlevelmenu =false;
 	bool inoptionsmenu =false;
     bool inleveleditormenu = false;
+    bool isSupp = false;
     public  List<GameObject> ListLevel; 
 	void Awake()
 	{
@@ -173,11 +174,11 @@ public class ButtonManager : MonoBehaviour {
     }
 
 
-    public void EditorBtn(int numLevel )
-    {  
+    public void EditorBtn(int numLevel)
+    {
         //creer objet
         GameObject LevelInfos;
-        LevelInfos = new GameObject();        
+        LevelInfos = new GameObject();
         LevelInfos.tag = "LevelInfos";
         LevelInfos.name = "LevelInfos";
         LevelInfos.AddComponent<Loadinginformations>();
@@ -186,8 +187,44 @@ public class ButtonManager : MonoBehaviour {
 
         //Load la scene editor
         SceneManager.LoadScene("Editor");
+
+        var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/Saves");
+    }
+
+    public void EditorSupprBtn()
+    {
+        if(isSupp)
+        {
+            GameObject buttonE = GameObject.FindGameObjectWithTag("LoadButtonEditor");
+
+            int nbChild = buttonE.GetComponent<Transform>().GetChildCount();
+            for (int i = 0; i < nbChild; i++)
+            {
+                if(buttonE.GetComponent<Transform>().GetChild(i).tag == "SupprButtonEditor")
+                {
+                    Destroy(buttonE.GetComponent<Transform>().GetChild(i).gameObject);
+                }
+                else
+                {
+                    buttonE.GetComponent<Transform>().GetChild(i).GetComponent<Button>().interactable = true;
+                }
+               
+            }
+            this.isSupp = !this.isSupp;
+        }
+        else
+        {
+            GameObject buttonE = GameObject.FindGameObjectWithTag("LoadButtonEditor");
+
+            int nbChild = buttonE.GetComponent<Transform>().GetChildCount();
+            for (int i = 0; i < nbChild; i++)
+            {
+                buttonE.GetComponent<Transform>().GetChild(i).GetComponent<Button>().interactable = false;
+            }
+            buttonE.GetComponent<LoadButtonEditor>().SpawnDeleteButtons();
+            this.isSupp = !this.isSupp;
+        }
             
-        var folder = Directory.CreateDirectory("conoctium_Data/Resources/Saves");
     }
 
 

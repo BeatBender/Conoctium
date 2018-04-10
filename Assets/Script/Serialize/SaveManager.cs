@@ -76,12 +76,12 @@ void Update()
         var jsonString = JsonConvert.SerializeObject(scene);
         Debug.Log(jsonString);
 
-        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt", jsonString);
+        System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\" + i + ".txt", jsonString);
 
         Camera.main.GetComponent<PauseMenu>().Resume_btn();
 
-        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
-        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SavesMap/map" + i + ".png");
+        var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot(Application.dataPath + "/Resources/SavesMap/map" + i + ".png");
 
 #if UNITY_EDITOR
 #else
@@ -93,35 +93,35 @@ void Update()
 #else
     public void ScreenSave(int i)
     {
-        var folder = Directory.CreateDirectory("conoctium_Data/Resources/SavesMap");
-        ScreenCapture.CaptureScreenshot("conoctium_Data/Resources/SaveMap/map" + i + ".png");
+        var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/SavesMap");
+        ScreenCapture.CaptureScreenshot(Application.dataPath + "/Resources/SaveMap/map" + i + ".png");
     }
 #endif
 
-    public void Delete(int deleteFile)
+    static public void Delete(int deleteFile)
     {
-        //TODO 
-        //
+        Debug.Log("Suppression du fichier" + deleteFile);
+
         int nbFiles;
-        if (!System.Int32.TryParse(System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt"), out nbFiles))
+        if (!System.Int32.TryParse(System.IO.File.ReadAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt"), out nbFiles))
         {
             nbFiles = 0;
         }
-        System.IO.File.Delete(@"conoctium_Data\Resources\Saves\" + deleteFile + ".txt");
-        System.IO.File.Delete(@"conoctium_Data\Resources\SavesMap\map" + deleteFile + ".png");
+        System.IO.File.Delete(Application.dataPath + @"\Resources\Saves\" + deleteFile + ".txt");
+        System.IO.File.Delete(Application.dataPath + @"\Resources\SavesMap\map" + deleteFile + ".png");
         for (int i = deleteFile + 1; i <= nbFiles; i++)
         {
-            System.IO.File.Move(@"conoctium_Data\Resources\Saves\" + i + ".txt", @"conoctium_Data\Resources\Saves\" + (i - 1) + ".txt");
-            System.IO.File.Move(@"conoctium_Data\Resources\Saves\" + i + ".txt", @"conoctium_Data\Resources\SavesMap\map" + (i - 1) + ".png");
+            System.IO.File.Move(Application.dataPath + @"\Resources\Saves\" + i + ".txt", Application.dataPath + @"\Resources\Saves\" + (i - 1) + ".txt");
+            System.IO.File.Move(Application.dataPath + @"\Resources\Saves\" + i + ".txt", Application.dataPath + @"\Resources\SavesMap\map" + (i - 1) + ".png");
         }
-        System.IO.File.WriteAllText(@"conoctium_Data\Resources\Saves\SaveFile.txt", (nbFiles - 1).ToString());
+        System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt", (nbFiles - 1).ToString());
     }
 
     public void Load(int i)
     {
         //GameObject pique = Instantiate(Resources.Load("prefabPique") as GameObject);
 
-        string text = System.IO.File.ReadAllText(@"conoctium_Data\Resources\Saves\" + i + ".txt");
+        string text = System.IO.File.ReadAllText(Application.dataPath + @"\Resources\Saves\" + i + ".txt");
         SceneSerializer scene = JsonConvert.DeserializeObject<SceneSerializer>(text);
 
         foreach (Cube cubi in scene.cubes)
