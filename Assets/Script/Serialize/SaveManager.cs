@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     public bool saveNow = false;
     public bool loadNow = false;
     public bool deleteNow = false;
+    public bool isEditor = true;
     public int deletedSave = 1;
     // Update is called once per frame
 
@@ -186,6 +187,12 @@ void Update()
 
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
+
+        if(isEditor)
+        {
+            p1.AddComponent<Player>();
+            p2.AddComponent<Player>();
+        }
 
     }
 }

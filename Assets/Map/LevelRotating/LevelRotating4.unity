@@ -2387,6 +2387,7 @@ GameObject:
   - component: {fileID: 176368156}
   - component: {fileID: 176368155}
   - component: {fileID: 176368160}
+  - component: {fileID: 176368161}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2477,6 +2478,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOutTexture: {fileID: 2800000, guid: 8a118162b51b51349ba82f808c8c1442, type: 3}
   fadeSpeed: 0.3
+--- !u!114 &176368161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176368154}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a56c0891ddf9ff4bbfb67ca2dfcdcbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1907568975}
+  player2: {fileID: 662201463}
+  minSizeY: 5
+  maxSizeY: 25
 --- !u!1 &177888779
 GameObject:
   m_ObjectHideFlags: 0
@@ -9611,6 +9627,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04f792c90a5c6c44aa1a19d0d044d380, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &662201463 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4792240828126430, guid: 9780730077b318a42a032f9378a569c5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1965095965}
 --- !u!4 &672874271 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4237641674186802, guid: 04f792c90a5c6c44aa1a19d0d044d380,
@@ -20536,7 +20557,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1456110289}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -19, y: 27, z: 25.11}
+  m_LocalPosition: {x: -19, y: 30.2, z: 25.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1365946353}
@@ -26213,6 +26234,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1907568975 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4016428588458070, guid: 58c679a4a6fb9334da544eee3e884d74,
+    type: 2}
+  m_PrefabInternal: {fileID: 1137474869}
 --- !u!1001 &1910431908
 Prefab:
   m_ObjectHideFlags: 0
