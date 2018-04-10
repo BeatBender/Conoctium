@@ -26,7 +26,6 @@ public class LoadButtonPlayEditor : MonoBehaviour {
             GameObject button = Instantiate(Resources.Load("prefabEditorButton") as GameObject);
             button.GetComponent<Transform>().SetParent(this.GetComponent<Transform>(), true);
             button.GetComponent<LoadEditorLevel>().SetParamArrayAttribute(i);
-            Debug.Log("Chargement de " + i + " niveaux");
             button.GetComponentInChildren<Text>().text = "Level " + i;
             button.GetComponent<LoadEditorLevel>().playable = true;
 
@@ -58,7 +57,6 @@ public class LoadButtonPlayEditor : MonoBehaviour {
             GameObject suppr = Instantiate(Resources.Load("btn_suppr_petit") as GameObject);
             suppr.GetComponent<Transform>().SetParent(this.GetComponent<Transform>(), true);
             suppr.GetComponent<LoadEditorLevel>().SetParamArrayAttribute(i);
-            Debug.Log("Chargement de " + i + " boutons suppr");
             suppr.GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f, 1);
 
             if (i % 2 != 0)

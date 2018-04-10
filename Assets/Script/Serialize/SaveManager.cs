@@ -75,7 +75,6 @@ void Update()
 
         }
         var jsonString = JsonConvert.SerializeObject(scene);
-        //Debug.Log(jsonString);
 
         System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\" + i + ".txt", jsonString);
 
@@ -101,7 +100,6 @@ void Update()
 
     static public void Delete(int deleteFile)
     {
-        Debug.Log("Suppression du fichier" + deleteFile);
 
         int nbFiles;
         if (!System.Int32.TryParse(System.IO.File.ReadAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt"), out nbFiles))

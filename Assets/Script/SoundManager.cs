@@ -38,16 +38,6 @@ public class SoundManager : MonoBehaviour
         {
             PlaySoundLevel();
         }
-        else if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            m_Toggle = GameObject.FindGameObjectWithTag("ToggleSound").GetComponent<Toggle>();
-            
-            //Add listener for when the state of the Toggle changes, to take action
-            m_Toggle.onValueChanged.AddListener(delegate {
-                ToggleValueChanged(m_Toggle);
-            });
-        }
-        
     }
 
     public void Update()
@@ -66,15 +56,12 @@ public class SoundManager : MonoBehaviour
             if (m_Toggle == null){
                 m_Toggle = GameObject.FindGameObjectWithTag("ToggleSound").GetComponent<Toggle>();
             }
-            Debug.Log("test2" + m_Toggle.isOn);
             if (onOff)
             {
-                Debug.Log("test3" + m_Toggle.isOn);
                 m_Toggle.isOn = true;
             }
             else
             {
-                Debug.Log("test4" + m_Toggle.isOn);
                 m_Toggle.isOn = false;
             }
         }
@@ -92,7 +79,6 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("test");
         //Check if there is already an instance of SoundManager
         if (instance == null)
             //if not, set it to this.
@@ -157,14 +143,11 @@ public class SoundManager : MonoBehaviour
         if(value){
             soundFeedBack = SOUND_FEEDBACK;
             soundLevel = SOUND_LEVEL;
-            Debug.Log(value);
         }
         else
         {
             soundFeedBack = SOUND_MIN;
             soundLevel = SOUND_MIN;
-
-            Debug.Log(value);
         }
     }
 
@@ -182,6 +165,5 @@ public class SoundManager : MonoBehaviour
             soundLevel = SOUND_MIN;
             onOff = false;
         }
-        Debug.Log("test"+onOff);
     }
 }

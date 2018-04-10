@@ -21,13 +21,6 @@ public class ButtonManager : MonoBehaviour {
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 	}
 
-	void Start () {
-        m_Toggle = GameObject.FindGameObjectWithTag("ToggleSound").GetComponent<Toggle>();
-        m_Toggle.onValueChanged.AddListener(delegate {
-            SoundManager.instance.ToggleValueChanged(m_Toggle);
-        });
-    }
-
 	void OnEnable()
 	{
 		Time.timeScale = 1;
@@ -62,7 +55,6 @@ public class ButtonManager : MonoBehaviour {
     }
 
 	public void goOptionsMenu () {
-		Debug.Log ("Options menu");
 		inoptionsmenu = true;
 		animator.SetTrigger("MoveToOptions");
 		StartCoroutine(todownoptions());

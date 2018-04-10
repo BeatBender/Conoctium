@@ -22,7 +22,6 @@ public class LoadEditorLevel : MonoBehaviour {
     {
         ButtonManager btn = Camera.main.GetComponent<ButtonManager>();
         int i = ParamArrayAttribute;
-        Debug.Log("Je charge le niveau " + i);
         if(!playable)
             btn.EditorBtn(i);
         else
@@ -32,7 +31,6 @@ public class LoadEditorLevel : MonoBehaviour {
     private void SupprLeveltn()
     {
         int i = ParamArrayAttribute;
-        Debug.Log("Je Supprime le niveau " + i);
         SaveManager.Delete(i);
         GameObject[] list = GameObject.FindGameObjectsWithTag("Level1btn");
         foreach (GameObject game in list)
