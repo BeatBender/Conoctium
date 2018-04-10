@@ -76,7 +76,7 @@ public class SoundManager : MonoBehaviour
         }
         if (onOff)
         {
-            soundFeedBack = 1F;
+            soundFeedBack = 0.5F;
             soundLevel = 0.05F;
         }
         else
