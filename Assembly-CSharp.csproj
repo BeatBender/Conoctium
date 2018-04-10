@@ -108,6 +108,8 @@
      <Compile Include="Assets\Script\Camera\TinyMoveMainCamera.cs" />
      <Compile Include="Assets\Script\CameraFollowingPlayers.cs" />
      <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
+     <Compile Include="Assets\Script\Dialogue.cs" />
+     <Compile Include="Assets\Script\DialogueManager.cs" />
      <Compile Include="Assets\Script\EditorBehavior.cs" />
      <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
      <Compile Include="Assets\Script\Elevator\ElevatorMove.cs" />
@@ -115,7 +117,6 @@
      <Compile Include="Assets\Script\Fade.cs" />
      <Compile Include="Assets\Script\InitializeFolder.cs" />
      <Compile Include="Assets\Script\Interrupteur.cs" />
-     <Compile Include="Assets\Script\LevelEdtiorButton.cs" />
      <Compile Include="Assets\Script\LevelManager\LevelManagerBasic.cs" />
      <Compile Include="Assets\Script\LevelManager\SpawnPoint.cs" />
      <Compile Include="Assets\Script\LoadButtonEditor.cs" />
@@ -146,11 +147,10 @@
      <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
      <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
      <Compile Include="Assets\Script\SoundManager.cs" />
-     <Compile Include="Assets\Script\Supprlevel.cs" />
      <Compile Include="Assets\Script\TextScript.cs" />
      <Compile Include="Assets\Script\UILevel.cs" />
+     <Compile Include="Assets\SupprEditorLevel.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
-     <None Include="Assets\Resources\conoctium_Data\Resources\Saves\1.txt" />
      <None Include="Assets\Resources\Saves\SaveFile.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Fog.shader" />
@@ -159,7 +159,6 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\LutGen.shader" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
      <None Include="Assets\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
-     <None Include="Assets\Resources\conoctium_Data\Resources\Saves\0.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
      <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\ACES.cginc" />
@@ -170,7 +169,6 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Blit.shader" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
-     <None Include="Assets\Resources\Saves\4.txt" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
      <None Include="Assets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
@@ -179,11 +177,8 @@
      <None Include="Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\Materials\Phantom.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
-     <None Include="Assets\Resources\conoctium_Data\Resources\Saves\4.txt" />
-     <None Include="Assets\Resources\conoctium_Data\Resources\Saves\2.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
-     <None Include="Assets\Resources\Saves\2.txt" />
      <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
      <None Include="Assets\JsonDotNet\link.xml" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.cginc" />
@@ -202,11 +197,8 @@
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
      <None Include="Assets\Resources\Saves\0.txt" />
-     <None Include="Assets\Resources\Saves\3.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
-     <None Include="Assets\Resources\conoctium_Data\Resources\Saves\3.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
-     <None Include="Assets\Resources\conoctium_Data\Resources\Saves\SaveFile.txt" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/mpolo/Documents/Conoctium1.5/Conoctium/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
