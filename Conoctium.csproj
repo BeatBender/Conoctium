@@ -342,6 +342,8 @@
     <Compile Include="Assets\Script\Camera\TinyMoveMainCamera.cs" />
     <Compile Include="Assets\Script\CameraFollowingPlayers.cs" />
     <Compile Include="Assets\Script\ChangePlayerEditor.cs" />
+    <Compile Include="Assets\Script\Dialogue.cs" />
+    <Compile Include="Assets\Script\DialogueManager.cs" />
     <Compile Include="Assets\Script\EditorBehavior.cs" />
     <Compile Include="Assets\Script\EditorButtonBehavior.cs" />
     <Compile Include="Assets\Script\Elevator\ElevatorMove.cs" />
