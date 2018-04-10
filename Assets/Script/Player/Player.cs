@@ -348,15 +348,23 @@ public class Player : MonoBehaviour
         Debug.DrawRay(gameObject.GetComponent<Transform>().position, Vector3.down, Color.blue);
 
         //Si on touche un objet vers le bas à une distance inférieur à distanceTouch
-		if (Physics.Raycast (gameObject.GetComponent<Transform> ().position, Vector3.down, out hit, distanceTouch)) 
+		if (Physics.Raycast (gameObject.GetComponent<Transform>().position, Vector3.down, out hit, distanceTouch)) 
 		{
 			//Si l'objet a le tag "Sol"
 			if (hit.transform.tag == "Sol") 
 			{
 				//On dessine un trait de couleur rouge
-				Debug.DrawRay (gameObject.GetComponent<Transform> ().position, Vector3.down, Color.red);
+				Debug.DrawRay (gameObject.GetComponent<Transform>().position, Vector3.down, Color.red);
 				isGrounded = true;
 			}
+        else if (Physics.Raycast (gameObject.GetComponent<Transform>().position, Vector3.right, out hit, distanceTouch)) {
+            //if it's a stcky wall player can attract and repulse
+            if (hit.transform.tag == "Sticky")
+			{
+				//On dessine un trait de couleur rouge
+				isGrounded = true;
+			}
+        }
 		} else {
 			isGrounded = false;
 		}
