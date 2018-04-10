@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
 
+    private float SOUND_FEEDBACK = 0.5f;
+    private float SOUND_LEVEL = 0.05f;
+    private float SOUND_MIN = 0f;
+
     private float soundFeedBack;
     private float soundLevel;
 
@@ -76,13 +80,13 @@ public class SoundManager : MonoBehaviour
         }
         if (onOff)
         {
-            soundFeedBack = 0.5F;
-            soundLevel = 0.05F;
+            soundFeedBack = SOUND_FEEDBACK;
+            soundLevel = SOUND_LEVEL;
         }
         else
         {
-            soundFeedBack = 0F;
-            soundLevel = 0F;
+            soundFeedBack = SOUND_MIN;
+            soundLevel = SOUND_MIN;
         }
     }
 
@@ -151,14 +155,14 @@ public class SoundManager : MonoBehaviour
     public void SoundOnOff(bool value)
     {
         if(value){
-            soundFeedBack = 1F;
-            soundLevel = 0.05F;
+            soundFeedBack = SOUND_FEEDBACK;
+            soundLevel = SOUND_LEVEL;
             Debug.Log(value);
         }
         else
         {
-            soundFeedBack = 0F;
-            soundLevel = 0F;
+            soundFeedBack = SOUND_MIN;
+            soundLevel = SOUND_MIN;
 
             Debug.Log(value);
         }
@@ -168,14 +172,14 @@ public class SoundManager : MonoBehaviour
     {
         if (change.isOn)
         {
-            soundFeedBack = 1F;
-            soundLevel = 0.05F;
+            soundFeedBack = SOUND_FEEDBACK;
+            soundLevel = SOUND_LEVEL;
             onOff = true;
         }
         else
         {
-            soundFeedBack = 0F;
-            soundLevel = 0F;
+            soundFeedBack = SOUND_MIN;
+            soundLevel = SOUND_MIN;
             onOff = false;
         }
         Debug.Log("test"+onOff);
