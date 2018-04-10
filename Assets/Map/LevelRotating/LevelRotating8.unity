@@ -1669,7 +1669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.9134235, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &176368160
 MonoBehaviour:
@@ -1695,8 +1695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bc5f1c4b9b3dd4d827cc2d767e1453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1233805880}
-  player2: {fileID: 1814266362}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
   minSizeY: 5
   maxSizeY: 25
 --- !u!1 &180351532
@@ -13420,11 +13420,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4231676256814440, guid: a4b95889855801f419c48a3695236759,
     type: 2}
   m_PrefabInternal: {fileID: 1232965098}
---- !u!4 &1233805880 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4500217803217294, guid: 58c679a4a6fb9334da544eee3e884d74,
-    type: 2}
-  m_PrefabInternal: {fileID: 1137474869}
 --- !u!1001 &1238295276
 Prefab:
   m_ObjectHideFlags: 0
@@ -18990,11 +18985,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4291499555848014, guid: d460aed1945ed624989c6e48751b4dc2,
     type: 2}
   m_PrefabInternal: {fileID: 1809933882}
---- !u!4 &1814266362 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4414272167785946, guid: 9780730077b318a42a032f9378a569c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965095965}
 --- !u!1 &1822744957
 GameObject:
   m_ObjectHideFlags: 0
