@@ -1203,15 +1203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuObject: {fileID: 689563588}
-  ceiling: {fileID: 0}
-  ground: {fileID: 0}
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
-  grid: {fileID: 0}
-  boxCollider: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   serialize: {fileID: 0}
+  editorController: {fileID: 0}
+  firstButton: {fileID: 0}
 --- !u!114 &176368161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6953,6 +6949,10 @@ Prefab:
     - target: {fileID: 224489747762595918, guid: d1df2c55a85f2d94980e6bcb60c4bfbb,
         type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727719698897436, guid: d1df2c55a85f2d94980e6bcb60c4bfbb, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
