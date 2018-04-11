@@ -11,8 +11,8 @@ public class SoundManager : MonoBehaviour
     private float SOUND_LEVEL = 0.05f;
     private float SOUND_MIN = 0f;
 
-    private float soundFeedBack;
-    private float soundLevel;
+    public float soundFeedBack;
+    public float soundLevel;
 
     private AudioSource musicSource;
     public static SoundManager instance = null;
@@ -28,7 +28,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip musicLevel4;
 
     public Toggle m_Toggle;
-    bool onOff = true;
+    bool onOff=true;
     private bool soundLevelStart = false;
     private bool mainMenu = true;
 
@@ -37,24 +37,32 @@ public class SoundManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             PlaySoundLevel();
+            soundLevelStart = true;
+
         }
+
     }
 
     public void Update()
     {
+        Debug.Log("soundLevelStart" + soundLevelStart);
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             if (!soundLevelStart)
             {
-                PlaySoundLevel();
                 soundLevelStart = true;
+                PlaySoundLevel();
             }
         }
 
         else if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            if (m_Toggle == null){
+            if (m_Toggle == null)
+            {
                 m_Toggle = GameObject.FindGameObjectWithTag("ToggleSound").GetComponent<Toggle>();
+                m_Toggle.onValueChanged.AddListener(delegate {
+                    ToggleValueChanged(m_Toggle);
+                });
             }
             if (onOff)
             {
@@ -65,15 +73,21 @@ public class SoundManager : MonoBehaviour
                 m_Toggle.isOn = false;
             }
         }
-        if (onOff)
+
+        
+
+        if (m_Toggle != null)
         {
-            soundFeedBack = SOUND_FEEDBACK;
-            soundLevel = SOUND_LEVEL;
-        }
-        else
-        {
-            soundFeedBack = SOUND_MIN;
-            soundLevel = SOUND_MIN;
+            if (m_Toggle.isOn)
+            {
+                soundFeedBack = SOUND_FEEDBACK;
+                soundLevel = SOUND_LEVEL;
+            }
+            if (!m_Toggle.isOn)
+            {
+                soundFeedBack = SOUND_MIN;
+                soundLevel = SOUND_MIN;
+            }
         }
     }
 
@@ -138,16 +152,19 @@ public class SoundManager : MonoBehaviour
         soundLevelStart = false;
     }
 
-    public void SoundOnOff(bool value)
+    public void SoundOnOff()
     {
-        if(value){
+        if (onOff)
+        {
             soundFeedBack = SOUND_FEEDBACK;
             soundLevel = SOUND_LEVEL;
+            onOff = false;
         }
         else
         {
             soundFeedBack = SOUND_MIN;
             soundLevel = SOUND_MIN;
+            onOff = true;
         }
     }
 

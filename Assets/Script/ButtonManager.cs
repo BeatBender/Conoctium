@@ -21,7 +21,9 @@ public class ButtonManager : MonoBehaviour {
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 	}
 
-	void OnEnable()
+    
+
+    void OnEnable()
 	{
 		Time.timeScale = 1;
 	}

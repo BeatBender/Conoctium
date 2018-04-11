@@ -12,6 +12,11 @@ public class SoundManagerDeleted : MonoBehaviour {
         if (soundManager != null)
         {
             soundManager.GetComponent<Transform>().SetParent(this.GetComponent<Transform>());
+            Toggle toggle = GameObject.FindGameObjectWithTag("ToggleSound").GetComponent<Toggle>();
+            toggle.onValueChanged.AddListener(delegate {
+                soundManager.GetComponent<SoundManager>().ToggleValueChanged(toggle);
+            });
+
         }
         
     }
