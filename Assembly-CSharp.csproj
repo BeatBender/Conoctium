@@ -140,16 +140,19 @@
      <Compile Include="Assets\Script\Serialize\Checkpoint.cs" />
      <Compile Include="Assets\Script\Serialize\Cube.cs" />
      <Compile Include="Assets\Script\Serialize\EditorObject.cs" />
+     <Compile Include="Assets\Script\Serialize\Elevator.cs" />
      <Compile Include="Assets\Script\Serialize\Loadinginformations.cs" />
      <Compile Include="Assets\Script\Serialize\Pique.cs" />
      <Compile Include="Assets\Script\Serialize\Player.cs" />
      <Compile Include="Assets\Script\Serialize\Portal.cs" />
      <Compile Include="Assets\Script\Serialize\SaveManager.cs" />
+     <Compile Include="Assets\Script\Serialize\Saw.cs" />
      <Compile Include="Assets\Script\Serialize\SceneSerializer.cs" />
      <Compile Include="Assets\Script\Serialize\testingSerialize.cs" />
      <Compile Include="Assets\Script\SoundManager.cs" />
      <Compile Include="Assets\Script\TextScript.cs" />
      <Compile Include="Assets\Script\UILevel.cs" />
+     <Compile Include="Assets\SoundManagerDeleted.cs" />
      <Compile Include="Assets\SupprEditorLevel.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Resources\Saves\SaveFile.txt" />
@@ -178,6 +181,7 @@
      <None Include="Assets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\Materials\Phantom.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
+     <None Include="Assets\Resources\Saves\2.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
      <None Include="Assets\PostProcessing\Editor Resources\UI\Trackball.shader" />
@@ -192,6 +196,7 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+     <None Include="Assets\Resources\Saves\1.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
@@ -201,7 +206,7 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/mpolo/Documents/Conoctium1.5/Conoctium/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/mpolo/Documents/Conoctium1.9/Conoctium/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -279,7 +284,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/Facebook/UnityEditor.Facebook.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/mpolo/Documents/Conoctium1.5/Conoctium/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/mpolo/Documents/Conoctium1.9/Conoctium/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/mpolo/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
