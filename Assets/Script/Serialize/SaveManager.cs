@@ -68,8 +68,10 @@ void Update()
                 case "Portal":
                     scene.AddPortal(new serialize.Portal(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale, child.GetChild(1).localScale));
                     break;
+                case "Saw":
+                    scene.AddSaw(new serialize.Saw(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale));
+                    break;
                 default:
-
                     break;
             }
 
@@ -156,6 +158,14 @@ void Update()
             port.GetComponent<Transform>().GetChild(1).position = porti.position2;
             port.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
+        foreach (serialize.Saw sawi in scene.saws)
+        {
+            GameObject saw = Instantiate(Resources.Load("Saw") as GameObject);
+            saw.GetComponent<Transform>().GetChild(0).position = sawi.position;
+            saw.GetComponent<Transform>().GetChild(2).localScale = sawi.scale;
+            saw.GetComponent<Transform>().GetChild(1).position = sawi.position2;
+            saw.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+        }
         bool p1Present = false;
         bool p2Present = false;
         GameObject p1 = null;
@@ -186,11 +196,11 @@ void Update()
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
 
-        if(!isEditor)
+        /*if(!isEditor)
         {
             p1.AddComponent<Player>();
             p2.AddComponent<Player>();
-        }
+        }*/
 
     }
 }

@@ -28,6 +28,7 @@ TagManager:
   - soundManager
   - ToggleSound
   - OptionsMenu
+  - Saw
   layers:
   - Default
   - TransparentFX
