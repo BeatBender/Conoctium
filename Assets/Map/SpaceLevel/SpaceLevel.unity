@@ -1416,6 +1416,10 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
   m_IsPrefabParent: 0
@@ -4569,6 +4573,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fd5d0310633dc0419c3278c0c6a0d99, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &894650289 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1873244123275914, guid: 8fd5d0310633dc0419c3278c0c6a0d99,
+    type: 2}
+  m_PrefabInternal: {fileID: 894650288}
 --- !u!1001 &976039567
 Prefab:
   m_ObjectHideFlags: 0
@@ -6933,6 +6942,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27d3fe03a1ce84c48852ec3516aee8af, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1809579386 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1286963032502300, guid: 27d3fe03a1ce84c48852ec3516aee8af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1809579385}
 --- !u!114 &1836018161 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114372243676940110, guid: 587552121fd16854b9f7da316893b5ee,
@@ -8034,6 +8048,10 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
   m_IsPrefabParent: 0
@@ -8355,8 +8373,8 @@ MonoBehaviour:
     - "Euuuh je vous avoue que je n'avais pas pr\xE9vu cette \xE9ventualit\xE9..."
     - "J'ai bien l'impression que ces noyaux magn\xE9tique se jouent de nous"
     - Courage, il doit bien avoir une solution !
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  player1: {fileID: 894650289}
+  player2: {fileID: 1809579386}
 --- !u!4 &1963211091
 Transform:
   m_ObjectHideFlags: 0
