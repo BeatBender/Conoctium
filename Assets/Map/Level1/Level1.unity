@@ -14566,16 +14566,16 @@ MonoBehaviour:
   dialogue:
     name: Docteur Rapperschwyll
     sentences:
-    - "Hey toi !! Tu tombes plut\xF4t bien !\nBienvenue dans mon laboratoire"
-    - Il faut que tu m'aides, ton cerveau fera l'affaire !
+    - "Hey vous !! Vous tombez plut\xF4t bien !\nBienvenue dans mon laboratoire"
+    - Il faut que vous m'aidez, vos cerveaux feront l'affaire !
     - "J'ai cr\xE9er des noyaux de champs magn\xE9tique \xE0 impulsion ionique\nMOUAHAHAHAHAHA "
-    - "J'ai besoin de toi pour contr\xF4ler les noyaux pour qu'ils fusionnent "
+    - "J'ai besoin de vous pour contr\xF4ler les noyaux pour qu'ils fusionnent "
     - "Ainsi l'\xE9nergie d\xE9gag\xE9 d\xE9formera l'espace-temps... BOUM une autre
       dimmension"
     - "je n'ai pas de cerveau alors ils sont insensibles \xE0 ma pr\xE9sence..."
     - "Aucun RESPECT pour leur cr\xE9ateur !!!"
-    - "Je te laisse avec ces choses, de toute fa\xE7on tu n'as pas le choix, tu as
-      achet\xE9 le jeu, alors VAS-Y !!"
+    - "Je vous laisse avec ces choses, de toute fa\xE7on vous n'avez pas le choix,
+      vous avez achet\xE9 le jeu, alors ALLEZ-Y !!"
   player1: {fileID: 203506269}
   player2: {fileID: 1449219311}
 --- !u!4 &2147168199
