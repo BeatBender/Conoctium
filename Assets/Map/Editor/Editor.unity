@@ -8501,7 +8501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1318009044
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12358,8 +12358,11 @@ MonoBehaviour:
   cursor: {fileID: 1241146101}
   linker: {fileID: 1538735446}
   sourceAudio: {fileID: 1318009044}
-  backgroundMusic: {fileID: 8300000, guid: 678ccf6a6df5b924eb6598a84581e50d, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 8a2eb9b21043b4742bb65f8b5725ba34, type: 3}
   moveClip: {fileID: 8300000, guid: f5be47b71c449714d8c1a0b911ce2294, type: 3}
+  placeClip: {fileID: 8300000, guid: 392bc304b0ec2f949974270d4f27b06f, type: 3}
+  deleteClip: {fileID: 8300000, guid: 921ccf8471d5ac842901fefdd5b1e182, type: 3}
+  duplicateClip: {fileID: 8300000, guid: 8132be57f91e1c14ebb621001df4d715, type: 3}
 --- !u!224 &1937019152
 RectTransform:
   m_ObjectHideFlags: 0

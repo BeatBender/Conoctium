@@ -26,6 +26,9 @@ public class EditorBehavior : MonoBehaviour {
 	public AudioSource sourceAudio;
 	public AudioClip backgroundMusic;
 	public AudioClip moveClip;
+	public AudioClip placeClip;
+	public AudioClip deleteClip;
+	public AudioClip duplicateClip;
 
 	//Cooldown
 	float actionTime = 0.0f;
@@ -54,12 +57,14 @@ public class EditorBehavior : MonoBehaviour {
 					showCursor (true);
 
 					currentObj = null;
+					sourceAudio.PlayOneShot (placeClip);
 				} else {
 					//Selection
 					GameObject selected = selectWithCursor();
 					if (selected) {
 						currentObj = selected;
 						showCursor (false);
+						sourceAudio.PlayOneShot (placeClip);
 					}
 				}
 			} else {
@@ -79,6 +84,7 @@ public class EditorBehavior : MonoBehaviour {
 					}
 					showCursor(true);
 					currentObj = null;
+					sourceAudio.PlayOneShot (deleteClip);
 				} else {
 					//Selection
 					GameObject selected = selectWithCursor();
@@ -88,6 +94,7 @@ public class EditorBehavior : MonoBehaviour {
 						} else {
 							Destroy (selected.GetComponent<Transform> ().parent.gameObject);
 						}
+						sourceAudio.PlayOneShot (deleteClip);
 					}
 				}
 			}
@@ -102,6 +109,7 @@ public class EditorBehavior : MonoBehaviour {
 					} else {
 						selectPrefab (currentObj.GetComponent<Transform> ().parent.gameObject);
 					}
+					sourceAudio.PlayOneShot (duplicateClip);
 				} else {
 					GameObject selected = selectWithCursor ();
 					if (selected && selected.layer != LayerMask.NameToLayer("Player")) {
@@ -111,6 +119,7 @@ public class EditorBehavior : MonoBehaviour {
 							selectPrefab (selected.GetComponent<Transform> ().parent.gameObject);
 						}
 						showCursor (false);
+						sourceAudio.PlayOneShot (duplicateClip);
 					}
 				}
 			}
@@ -173,11 +182,11 @@ public class EditorBehavior : MonoBehaviour {
 		currentGridPosition = temp;
 		if (currentObj) {
 			currentObj.GetComponent <Transform> ().position = currentGridPosition;
+			sourceAudio.PlayOneShot (moveClip);
 		} else {
 			showCursor (true);
 		}
 		linkObjects ();
-		sourceAudio.PlayOneShot (moveClip);
 	}
 
     void scaleObject(float x, float y) {
