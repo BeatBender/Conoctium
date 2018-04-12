@@ -191,6 +191,23 @@ public class ButtonManager : MonoBehaviour {
         var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/Saves");
     }
 
+    public void EditorPlayBtn(int numLevel)
+    {
+        //creer objet
+        GameObject LevelInfos;
+        LevelInfos = new GameObject();
+        LevelInfos.tag = "LevelInfos";
+        LevelInfos.name = "LevelInfos";
+        LevelInfos.AddComponent<Loadinginformations>();
+        LevelInfos.GetComponent<Loadinginformations>().LevelLoad = numLevel;
+        LevelInfos.GetComponent<Loadinginformations>().dontDestruct();
+
+        //Load la scene editor
+        SceneManager.LoadScene("EditorPlayer");
+
+        var folder = Directory.CreateDirectory(Application.dataPath + "/Resources/Saves");
+    }
+
     public void EditorSupprBtn()
     {
         if(isSupp)
