@@ -677,13 +677,15 @@ MonoBehaviour:
   dialogue:
     name: Docteur Rapperschwyll
     sentences:
-    - "WAOUH c'est pas tr\xE8s gay ici, je ne sais pas o\xF9 vous m'avez emmen\xE9s.."
-    - '.. Mais on y voit que dalle
-
-      Heureusement que ces noyaux sont fluorescent !'
-    - "Me demandez pas pourquoi j'ai fait \xE7a, je trouve \xE7a styl\xE9 "
+    - "WAOUH ce n'est pas tr\xE8s gay ici, je ne sais pas o\xF9 vous m'avez emmen\xE9s..On
+      y voit que dalle."
+    - "C'est incroyable !! Les noyaux se sont adapt\xE9s \xE0 l'environnement sombre
+      de cette dimension."
+    - "Ils sont d\xE9sormais fluorescents, ce qui est plut\xF4t styl\xE9, avouons-le
+      !"
     - "Maintenant d\xE9brouillez vous pour nous faire sortir d'ici !"
   player1: {fileID: 463724322}
+  light: {fileID: 1903184771}
   player2: {fileID: 544959689}
 --- !u!4 &329268256
 Transform:

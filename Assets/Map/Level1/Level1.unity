@@ -14596,6 +14596,7 @@ MonoBehaviour:
     - "Je vous laisse avec ces choses, de toute fa\xE7on, vous n'avez pas le choix,
       vous avez achet\xE9 le jeu, alors ALLEZ-Y !!"
   player1: {fileID: 203506269}
+  light: {fileID: 1903184771}
   player2: {fileID: 1449219311}
 --- !u!4 &2147168199
 Transform:
