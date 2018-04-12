@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip RepulsionSound;
     public AudioClip PortalSound;
 
+    public AudioClip musicLevel0;
     public AudioClip musicLevel1;
     public AudioClip musicLevel2;
     public AudioClip musicLevel3;
@@ -140,19 +141,22 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundLevel()
     {
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 5);
         switch (rand)
         {
             case 0:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel1, soundLevel);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel0, soundLevel);
                 break;
             case 1:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel2, soundLevel);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel1, soundLevel);
                 break;
             case 2:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel3, soundLevel);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel2, soundLevel);
                 break;
             case 3:
+                GetComponent<AudioSource>().PlayOneShot(musicLevel3, soundLevel);
+                break;
+            case 4:
                 GetComponent<AudioSource>().PlayOneShot(musicLevel4, soundLevel);
                 break;
         }
