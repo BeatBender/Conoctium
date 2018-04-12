@@ -7,13 +7,23 @@ using UnityEngine.UI;
 public class UILevel : MonoBehaviour {
 
     // Use this for initialization
-    public Text nameLevel; 
+    public Text nameLevel;
+    public GameObject level;
 	void Start () {
         nameLevel.text = SceneManager.GetActiveScene().name;
+        StartCoroutine(enleverUi());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
+
+    IEnumerator enleverUi()
+    {
+    
+        yield return new WaitForSeconds(3);
+    
+        Destroy(level);
+
+    }
+
+
 }
