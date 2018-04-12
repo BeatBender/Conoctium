@@ -685,6 +685,7 @@ MonoBehaviour:
       !"
     - "Maintenant d\xE9brouillez vous pour nous faire sortir d'ici !"
   player1: {fileID: 463724322}
+  light: {fileID: 1903184771}
   player2: {fileID: 544959689}
 --- !u!4 &329268256
 Transform:

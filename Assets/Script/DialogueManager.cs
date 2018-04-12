@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour {
     public Dialogue dialogue;
     private bool isPaused;
     public GameObject player1;
+    public Light light;
     public GameObject player2;
 
     // Use this for initialization
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour {
             player2.SetActive(false);
             player1.SetActive(false);
             Cursor.visible = true;
+            light.color = Color.grey;
         
             
         } else Time.timeScale = 1f;
@@ -80,6 +82,7 @@ public class DialogueManager : MonoBehaviour {
         Cursor.visible = false;
         player2.SetActive(true);
         player1.SetActive(true);
+        light.color = Color.white;
     }
 
 }

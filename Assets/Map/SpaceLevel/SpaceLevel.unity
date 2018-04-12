@@ -1546,6 +1546,10 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
   m_IsPrefabParent: 0
@@ -6354,6 +6358,7 @@ MonoBehaviour:
     - Bon, il doit bien avoir une solution.
     - Courage, sortez nous d'ici !!
   player1: {fileID: 894650289}
+  light: {fileID: 1903184771}
   player2: {fileID: 1809579386}
 --- !u!4 &1651342975
 Transform:
@@ -7365,6 +7370,10 @@ Prefab:
     - target: {fileID: 400004, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.9985157
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: a506d2bcf97fd454ea93ff0904014456, type: 2}
       propertyPath: ShapeModule.radiusThickness

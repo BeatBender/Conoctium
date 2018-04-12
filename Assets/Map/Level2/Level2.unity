@@ -5148,6 +5148,7 @@ MonoBehaviour:
     - "LT vous permet de vous attirer \xE0 l'autre noyau."
     - "RT vous permet de vous \xE9loigner de l'autre noyau."
   player1: {fileID: 881784630}
+  light: {fileID: 1903184771}
   player2: {fileID: 1038454766}
 --- !u!4 &584156707
 Transform:
