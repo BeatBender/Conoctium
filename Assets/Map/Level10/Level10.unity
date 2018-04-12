@@ -1207,7 +1207,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   serialize: {fileID: 0}
   editorController: {fileID: 0}
-  firstButton: {fileID: 0}
+  firstButton: {fileID: 621032904}
 --- !u!114 &176368161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4435,6 +4435,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1035506923470500, guid: b1dd2573e3174574da3bdb7bc7ff86fe,
     type: 2}
   m_PrefabInternal: {fileID: 621032902}
+--- !u!114 &621032904 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114275139339007352, guid: b1dd2573e3174574da3bdb7bc7ff86fe,
+    type: 2}
+  m_PrefabInternal: {fileID: 621032902}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &621952887
 Prefab:
   m_ObjectHideFlags: 0
