@@ -77,11 +77,12 @@ public class PauseMenu : MonoBehaviour {
         int numSave = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
         if (numSave == 0)
         {
-
             Int32.TryParse(System.IO.File.ReadAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt"), out numSave);
             Debug.Log("Nouvelle save : " + numSave);
             serialize.GetComponent<SaveManager>().Save(numSave + 1);
             System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt", (numSave + 1).ToString());
+
+            GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad = numSave;
         }
         else
         {
