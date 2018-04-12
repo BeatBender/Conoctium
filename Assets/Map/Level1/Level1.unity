@@ -14572,15 +14572,15 @@ MonoBehaviour:
   dialogue:
     name: Docteur Rapperschwyll
     sentences:
-    - "Hey vous !! Vous tombez plut\xF4t bien !\nBienvenue dans mon laboratoire"
+    - "H\xE9 vous !! Vous tombez plut\xF4t bien !\nBienvenue dans mon laboratoire"
     - Il faut que vous m'aidez, vos cerveaux feront l'affaire !
-    - "J'ai cr\xE9er des noyaux de champs magn\xE9tique \xE0 impulsion ionique\nMOUAHAHAHAHAHA "
-    - "J'ai besoin de vous pour contr\xF4ler les noyaux pour qu'ils fusionnent "
-    - "Ainsi l'\xE9nergie d\xE9gag\xE9 d\xE9formera l'espace-temps... BOUM une autre
-      dimmension"
-    - "je n'ai pas de cerveau alors ils sont insensibles \xE0 ma pr\xE9sence..."
+    - "J'ai cr\xE9\xE9 des noyaux de champs magn\xE9tiques \xE0 impulsion ionique\nMOUAHAHAHAHAHA "
+    - "J'ai besoin de vous pour contr\xF4ler les noyaux pour qu'ils fusionnent. "
+    - "Ainsi, l'\xE9nergie d\xE9gag\xE9 d\xE9formera l'espace-temps... BOUM une autre
+      dimension."
+    - "Je n'ai pas de cerveau alors ils sont insensibles \xE0 ma pr\xE9sence..."
     - "Aucun RESPECT pour leur cr\xE9ateur !!!"
-    - "Je vous laisse avec ces choses, de toute fa\xE7on vous n'avez pas le choix,
+    - "Je vous laisse avec ces choses, de toute fa\xE7on, vous n'avez pas le choix,
       vous avez achet\xE9 le jeu, alors ALLEZ-Y !!"
   player1: {fileID: 203506269}
   player2: {fileID: 1449219311}
