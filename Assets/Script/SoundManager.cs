@@ -7,12 +7,18 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
 
-    private float SOUND_FEEDBACK = 0.4f;
+    private float SOUND_FEEDBACK_SAUT = 0.5f;
+    private float SOUND_FEEDBACK_ATTRACT = 0.3f;
+    private float SOUND_FEEDBACK_REPULSE = 0.3f;
+    private float SOUND_FEEDBACK_PORTAL = 0.4f;
     private float SOUND_LEVEL = 0.3f;
     private float SOUND_MIN = 0f;
 
-    public float soundFeedBack;
-    public float soundLevel;
+    private float soundFeedBackSaut;
+    private float soundFeedBackAttract;
+    private float soundFeedBackRepulse;
+    private float soundFeedBackPortal;
+    private float soundLevel;
 
     private AudioSource musicSource;
     public static SoundManager instance = null;
@@ -80,12 +86,18 @@ public class SoundManager : MonoBehaviour
         {
             if (m_Toggle.isOn)
             {
-                soundFeedBack = SOUND_FEEDBACK;
+                soundFeedBackSaut = SOUND_FEEDBACK_SAUT;
+                soundFeedBackAttract = SOUND_FEEDBACK_ATTRACT;
+                soundFeedBackRepulse = SOUND_FEEDBACK_REPULSE;
+                soundFeedBackPortal = SOUND_FEEDBACK_PORTAL;
                 soundLevel = SOUND_LEVEL;
             }
             if (!m_Toggle.isOn)
             {
-                soundFeedBack = SOUND_MIN;
+                soundFeedBackSaut = SOUND_MIN;
+                soundFeedBackAttract = SOUND_MIN;
+                soundFeedBackRepulse = SOUND_MIN;
+                soundFeedBackPortal = SOUND_MIN;
                 soundLevel = SOUND_MIN;
             }
         }
@@ -111,16 +123,16 @@ public class SoundManager : MonoBehaviour
         switch (choix)
         {
             case "jumpSound":
-                GetComponent<AudioSource>().PlayOneShot(JumpSound, soundFeedBack);
+                GetComponent<AudioSource>().PlayOneShot(JumpSound, soundFeedBackSaut);
                 break;
             case "attiranceSound":
-                GetComponent<AudioSource>().PlayOneShot(AttiranceSound, soundFeedBack);
+                GetComponent<AudioSource>().PlayOneShot(AttiranceSound, soundFeedBackAttract);
                 break;
             case "repulsionSound":
-                GetComponent<AudioSource>().PlayOneShot(RepulsionSound, soundFeedBack);
+                GetComponent<AudioSource>().PlayOneShot(RepulsionSound, soundFeedBackRepulse);
                 break;
             case "portalSound":
-                GetComponent<AudioSource>().PlayOneShot(PortalSound, soundFeedBack);
+                GetComponent<AudioSource>().PlayOneShot(PortalSound, soundFeedBackPortal);
                 break;
         }
 
@@ -152,33 +164,23 @@ public class SoundManager : MonoBehaviour
         soundLevelStart = false;
     }
 
-    public void SoundOnOff()
-    {
-        if (onOff)
-        {
-            soundFeedBack = SOUND_FEEDBACK;
-            soundLevel = SOUND_LEVEL;
-            onOff = false;
-        }
-        else
-        {
-            soundFeedBack = SOUND_MIN;
-            soundLevel = SOUND_MIN;
-            onOff = true;
-        }
-    }
-
     public void ToggleValueChanged(Toggle change)
     {
         if (change.isOn)
         {
-            soundFeedBack = SOUND_FEEDBACK;
+            soundFeedBackSaut = SOUND_FEEDBACK_SAUT;
+            soundFeedBackAttract = SOUND_FEEDBACK_ATTRACT;
+            soundFeedBackRepulse = SOUND_FEEDBACK_REPULSE;
+            soundFeedBackPortal = SOUND_FEEDBACK_PORTAL;
             soundLevel = SOUND_LEVEL;
             onOff = true;
         }
         else
         {
-            soundFeedBack = SOUND_MIN;
+            soundFeedBackSaut = SOUND_MIN;
+            soundFeedBackAttract = SOUND_MIN;
+            soundFeedBackRepulse = SOUND_MIN;
+            soundFeedBackPortal = SOUND_MIN;
             soundLevel = SOUND_MIN;
             onOff = false;
         }
