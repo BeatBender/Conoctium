@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class ElevatorMove : MonoBehaviour {
 
@@ -15,7 +15,13 @@ public class ElevatorMove : MonoBehaviour {
 	void Start () {
         StartTime = Time.time;
         JourneyLength = Vector3.Distance(StartPos.position, EndPos.position);
-	}
+        if (SceneManager.GetActiveScene().name != "Editor")
+        {
+            StartPos.gameObject.SetActive(false);
+            EndPos.gameObject.SetActive(false);
+            //this.gameObject.tag = "Radioactive";
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

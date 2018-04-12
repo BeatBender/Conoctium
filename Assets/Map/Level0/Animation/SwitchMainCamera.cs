@@ -10,6 +10,5 @@ public class SwitchMainCamera : MonoBehaviour {
     {
         IntroCamera.enabled = false;
         MainCamera.enabled = true;
-        Debug.Log("Switch to main camera with a value of" + TheValue);
     }
 }

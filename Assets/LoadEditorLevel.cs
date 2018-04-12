@@ -17,16 +17,11 @@ public class LoadEditorLevel : MonoBehaviour {
             this.GetComponent<Button>().onClick.AddListener(LoadLeveltn);
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void LoadLeveltn()
     {
         ButtonManager btn = Camera.main.GetComponent<ButtonManager>();
         int i = ParamArrayAttribute;
-        Debug.Log("Je charge le niveau " + i);
         if(!playable)
             btn.EditorBtn(i);
         else
@@ -36,8 +31,13 @@ public class LoadEditorLevel : MonoBehaviour {
     private void SupprLeveltn()
     {
         int i = ParamArrayAttribute;
-        Debug.Log("Je Supprime le niveau " + i);
         SaveManager.Delete(i);
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Level1btn");
+        foreach (GameObject game in list)
+            Destroy(game);
+        GameObject.FindGameObjectWithTag("LoadButtonEditor").GetComponent<LoadButtonEditor>().SpawnLoadButtons();
+        Camera.main.GetComponent<ButtonManager>().EditorSupprBtn();
+        Camera.main.GetComponent<ButtonManager>().EditorSupprBtn();
     }
 
     public int GetParamArrayAttribute()

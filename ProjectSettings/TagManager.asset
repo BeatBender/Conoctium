@@ -25,6 +25,11 @@ TagManager:
   - checkpoint
   - LoadButtonEditor
   - SupprButtonEditor
+  - soundManager
+  - ToggleSound
+  - OptionsMenu
+  - Saw
+  - Elevator
   layers:
   - Default
   - TransparentFX

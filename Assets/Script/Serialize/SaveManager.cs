@@ -68,14 +68,18 @@ void Update()
                 case "Portal":
                     scene.AddPortal(new serialize.Portal(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale, child.GetChild(1).localScale));
                     break;
+                case "Saw":
+                    scene.AddSaw(new serialize.Saw(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(2).localScale));
+                    break;
+                case "Elevator":
+                    scene.AddElevator(new serialize.Elevator(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(2).localScale));
+                    break;
                 default:
-
                     break;
             }
 
         }
         var jsonString = JsonConvert.SerializeObject(scene);
-        Debug.Log(jsonString);
 
         System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\" + i + ".txt", jsonString);
 
@@ -101,7 +105,6 @@ void Update()
 
     static public void Delete(int deleteFile)
     {
-        Debug.Log("Suppression du fichier" + deleteFile);
 
         int nbFiles;
         if (!System.Int32.TryParse(System.IO.File.ReadAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt"), out nbFiles))
@@ -113,7 +116,7 @@ void Update()
         for (int i = deleteFile + 1; i <= nbFiles; i++)
         {
             System.IO.File.Move(Application.dataPath + @"\Resources\Saves\" + i + ".txt", Application.dataPath + @"\Resources\Saves\" + (i - 1) + ".txt");
-            System.IO.File.Move(Application.dataPath + @"\Resources\Saves\" + i + ".txt", Application.dataPath + @"\Resources\SavesMap\map" + (i - 1) + ".png");
+            System.IO.File.Move(Application.dataPath + @"\Resources\SavesMap\map" + i + ".png", Application.dataPath + @"\Resources\SavesMap\map" + (i - 1) + ".png");
         }
         System.IO.File.WriteAllText(Application.dataPath + @"\Resources\Saves\SaveFile.txt", (nbFiles - 1).ToString());
     }
@@ -144,7 +147,7 @@ void Update()
         }
         foreach (Checkpoint checki in scene.checkpoints)
         {
-            GameObject check = Instantiate(Resources.Load("prefabCheckpoint") as GameObject);
+            GameObject check = Instantiate(Resources.Load("flag") as GameObject);
             check.GetComponent<Transform>().position = checki.position;
             check.GetComponent<Transform>().localScale = checki.scale;
             check.GetComponent<Transform>().parent = this.GetComponent<Transform>();
@@ -157,6 +160,22 @@ void Update()
             port.GetComponent<Transform>().GetChild(1).localScale = porti.scale2;
             port.GetComponent<Transform>().GetChild(1).position = porti.position2;
             port.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+        }
+        foreach (serialize.Saw sawi in scene.saws)
+        {
+            GameObject saw = Instantiate(Resources.Load("Saw") as GameObject);
+            saw.GetComponent<Transform>().GetChild(0).position = sawi.position;
+            saw.GetComponent<Transform>().GetChild(2).localScale = sawi.scale;
+            saw.GetComponent<Transform>().GetChild(1).position = sawi.position2;
+            saw.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+        }
+        foreach (serialize.Elevator elevi in scene.elevators)
+        {
+            GameObject elev = Instantiate(Resources.Load("Elevator") as GameObject);
+            elev.GetComponent<Transform>().GetChild(0).position = elevi.position;
+            elev.GetComponent<Transform>().GetChild(2).localScale = elevi.scale;
+            elev.GetComponent<Transform>().GetChild(1).position = elevi.position2;
+            elev.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         bool p1Present = false;
         bool p2Present = false;
@@ -188,11 +207,11 @@ void Update()
         p1.GetComponent<Transform>().position = scene.player1.position;
         p2.GetComponent<Transform>().position = scene.player2.position;
 
-        if(isEditor)
+        /*if(!isEditor)
         {
             p1.AddComponent<Player>();
             p2.AddComponent<Player>();
-        }
+        }*/
 
     }
 }

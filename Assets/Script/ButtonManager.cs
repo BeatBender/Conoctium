@@ -14,17 +14,16 @@ public class ButtonManager : MonoBehaviour {
 	bool inoptionsmenu =false;
     bool inleveleditormenu = false;
     bool isSupp = false;
-    public  List<GameObject> ListLevel; 
-	void Awake()
+    public  List<GameObject> ListLevel;
+    public Toggle m_Toggle;
+    void Awake()
 	{
 		animator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
 	}
 
-	void Start () {
-		
-	}
+    
 
-	void OnEnable()
+    void OnEnable()
 	{
 		Time.timeScale = 1;
 	}
@@ -33,6 +32,7 @@ public class ButtonManager : MonoBehaviour {
 		inlevelmenu = true;
 		animator.SetTrigger("MoveMenuRight");
 		StartCoroutine(toright());
+
 	}
 
 	public void goBackMenu () {
@@ -57,11 +57,10 @@ public class ButtonManager : MonoBehaviour {
     }
 
 	public void goOptionsMenu () {
-		Debug.Log ("Options menu");
 		inoptionsmenu = true;
 		animator.SetTrigger("MoveToOptions");
 		StartCoroutine(todownoptions());
-	}
+    }
 
     public void goLevelEditorMenu()
     {

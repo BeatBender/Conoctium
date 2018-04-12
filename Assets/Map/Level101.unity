@@ -2615,6 +2615,7 @@ GameObject:
   - component: {fileID: 176368156}
   - component: {fileID: 176368155}
   - component: {fileID: 176368160}
+  - component: {fileID: 176368161}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2690,7 +2691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.9134235, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &176368160
 MonoBehaviour:
@@ -2704,14 +2705,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuObject: {fileID: 1100022663}
-  ceiling: {fileID: 0}
-  ground: {fileID: 0}
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
-  grid: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   serialize: {fileID: 0}
+  editorController: {fileID: 0}
+  firstButton: {fileID: 0}
+--- !u!114 &176368161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176368154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 45d33fb9847376a44b773d415c367c20, type: 2}
 --- !u!1001 &208589399
 Prefab:
   m_ObjectHideFlags: 0

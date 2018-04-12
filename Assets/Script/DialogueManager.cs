@@ -1,27 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DialogueManager : MonoBehaviour {
 
 	public Text nameText;
 	public Text dialogueText;
-
-	public Animator animator;
-
-	private Queue<string> sentences;
+    public GameObject image;
+    public Animator animator;
+    private Queue<string> sentences;
     public Dialogue dialogue;
+    private bool isPaused;
+    public GameObject player1;
+    public GameObject player2;
 
     // Use this for initialization
+    private void Update()
+    {
+        if (isPaused)
+        {
+            player2.SetActive(false);
+            player1.SetActive(false);
+            Cursor.visible = true;
+        
+            
+        } else Time.timeScale = 1f;
+        if (Input.GetButtonDown("FireA")){
+            DisplayNextSentence();
+        }
+    }
     void Start () {
 		sentences = new Queue<string>();
-
-		animator.SetBool("IsOpen", true);
-
+        
+        animator.SetBool("IsOpen", true);
 		nameText.text = dialogue.name;
-
-		sentences.Clear();
+        
+        sentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
 		{
@@ -29,7 +46,8 @@ public class DialogueManager : MonoBehaviour {
 		}
 
 		DisplayNextSentence();
-	}
+        isPaused = true;
+    }
 
 	public void DisplayNextSentence ()
 	{
@@ -38,8 +56,8 @@ public class DialogueManager : MonoBehaviour {
 			EndDialogue();
 			return;
 		}
-
-		string sentence = sentences.Dequeue();
+        
+        string sentence = sentences.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
 	}
@@ -57,6 +75,11 @@ public class DialogueManager : MonoBehaviour {
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
-	}
+        image.SetActive(false);
+        isPaused = false;
+        Cursor.visible = false;
+        player2.SetActive(true);
+        player1.SetActive(true);
+    }
 
 }

@@ -48,7 +48,6 @@ public class GameObjectSpawner:MonoBehaviour{
     public void Start(){
     	//Calculate number of pages
     	pages = (int)Mathf.Ceil((float)((particles.Length -1 )/ maxButtons));
-    	//Debug.Log(pages);
     	if(spawnOnAwake){
     		counter=0;
     		ReplaceGO(particles[counter]);
@@ -146,7 +145,6 @@ public class GameObjectSpawner:MonoBehaviour{
     	
     	//Calculate how many buttons on current page (last page might have less)
     	int pageButtonCount = particles.Length - (page*maxButtons);
-    	//Debug.Log(pageButtonCount);
     	if(pageButtonCount > maxButtons)pageButtonCount = maxButtons;
     	
     	//Adds buttons based on how many particle systems on page

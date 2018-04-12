@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4072091951803114}
   m_Layer: 0
   m_Name: Elevator
-  m_TagString: Sol
+  m_TagString: Elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114663893968031844}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Sol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
