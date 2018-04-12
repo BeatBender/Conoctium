@@ -677,9 +677,12 @@ MonoBehaviour:
   dialogue:
     name: Docteur Rapperschwyll
     sentences:
-    - "\xE7a marche oklm"
-    - "Maintenant \xE7a part sur l'image et le fond"
-    - En plus j'aime la bite, c'est super
+    - "WAOUH c'est pas tr\xE8s gay ici, je ne sais pas o\xF9 vous m'avez emmen\xE9s.."
+    - '.. Mais on y voit que dalle
+
+      Heureusement que ces noyaux sont fluorescent !'
+    - "Me demandez pas pourquoi j'ai fait \xE7a, je trouve \xE7a styl\xE9 "
+    - "Maintenant d\xE9brouillez vous pour nous faire sortir d'ici !"
   player1: {fileID: 463724322}
   player2: {fileID: 544959689}
 --- !u!4 &329268256
