@@ -163,13 +163,14 @@ public class EditorBehavior : MonoBehaviour {
 
 	void moveObject(float x, float y){
 		//Reset to center if the cursor is outside the box (When scaling box)
-		if (!boundingBox.bounds.Contains (currentGridPosition))
-			currentGridPosition = new Vector3 (0, -8f, -0.9f);
+//		if (!boundingBox.bounds.Contains (currentGridPosition))
+//			currentGridPosition = new Vector3 (0, -8f, -0.9f);
+
 		Vector3 temp = currentGridPosition;
 		temp.x += x;
 		temp.y += y;
-		if (boundingBox.bounds.Contains (temp))
-			currentGridPosition = temp;
+		//if (boundingBox.bounds.Contains (temp)) //Limits movement to the bounds of the box
+		currentGridPosition = temp;
 		if (currentObj) {
 			currentObj.GetComponent <Transform> ().position = currentGridPosition;
 		} else {

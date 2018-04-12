@@ -68,6 +68,10 @@ public class PauseMenu : MonoBehaviour {
     }
 
 
+	public void playEditor(){
+		SceneManager.LoadScene("EditorPlayer", LoadSceneMode.Single);
+	}
+
     public void LaunchSave()
     {
         int numSave = GameObject.FindGameObjectWithTag("LevelInfos").GetComponent<Loadinginformations>().LevelLoad;
