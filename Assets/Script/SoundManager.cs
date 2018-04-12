@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
 
-    private float SOUND_FEEDBACK = 0.5f;
-    private float SOUND_LEVEL = 0.05f;
+    private float SOUND_FEEDBACK = 0.4f;
+    private float SOUND_LEVEL = 0.3f;
     private float SOUND_MIN = 0f;
 
     public float soundFeedBack;
