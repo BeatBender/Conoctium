@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2301,7 +2301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &253705446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2326,7 +2326,7 @@ MonoBehaviour:
     - "Je ne sais pas combien de temps \xE7a va encore durer..."
     - "D\xE9p\xEAchez-vous d'en finir !!! Cette dimension me donne la naus\xE9e."
   player1: {fileID: 1137474870}
-  light: {fileID: 0}
+  light: {fileID: 740740219}
   player2: {fileID: 1965095966}
 --- !u!4 &253705447
 Transform:
@@ -5704,6 +5704,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1384474702875060, guid: 587552121fd16854b9f7da316893b5ee, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 587552121fd16854b9f7da316893b5ee, type: 2}
   m_IsPrefabParent: 0
@@ -7292,6 +7296,11 @@ Prefab:
       propertyPath: level
       value: 
       objectReference: {fileID: 1001837309}
+    - target: {fileID: 114620952986712950, guid: d1df2c55a85f2d94980e6bcb60c4bfbb,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1df2c55a85f2d94980e6bcb60c4bfbb, type: 2}
   m_IsPrefabParent: 0
@@ -14675,6 +14684,10 @@ Prefab:
     - target: {fileID: 4792240828126430, guid: 9780730077b318a42a032f9378a569c5, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132689535253062, guid: 9780730077b318a42a032f9378a569c5, type: 2}
+      propertyPath: m_Name
+      value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9780730077b318a42a032f9378a569c5, type: 2}

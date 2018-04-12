@@ -5316,11 +5316,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4250087201790006, guid: 5a23ee214b2547a47ac4e49d6b0c7dee,
     type: 2}
   m_PrefabInternal: {fileID: 778859359}
---- !u!1 &782550299 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1727719698897436, guid: d1df2c55a85f2d94980e6bcb60c4bfbb,
-    type: 2}
-  m_PrefabInternal: {fileID: 1676261933}
 --- !u!1001 &792502491
 Prefab:
   m_ObjectHideFlags: 0
@@ -11899,11 +11894,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114908205096242566, guid: d1df2c55a85f2d94980e6bcb60c4bfbb,
-        type: 2}
-      propertyPath: level
-      value: 
-      objectReference: {fileID: 782550299}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1df2c55a85f2d94980e6bcb60c4bfbb, type: 2}
   m_IsPrefabParent: 0

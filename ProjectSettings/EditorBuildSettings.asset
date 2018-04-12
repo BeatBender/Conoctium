@@ -68,3 +68,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Map/LevelRotating/LevelRotating4.unity
     guid: 5d5f6d615b759e741a89371b8f110d95
+  - enabled: 1
+    path: Assets/Map/LevelRotating/LevelRotating5.unity
+    guid: 13575b95ed5630c4ebe5cc78c66417c6
+  - enabled: 1
+    path: Assets/Map/LevelRotating/LevelRotating6.unity
+    guid: 07792e122c58ea943becd506b3982932
+  - enabled: 1
+    path: Assets/Map/LevelRotating/LevelRotating7.unity
+    guid: 9e2e41c2593c1f94480fdb476725bb8d
