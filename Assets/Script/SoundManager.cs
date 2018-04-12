@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     private float SOUND_FEEDBACK_ATTRACT = 0.3f;
     private float SOUND_FEEDBACK_REPULSE = 0.3f;
     private float SOUND_FEEDBACK_PORTAL = 0.4f;
-    private float SOUND_LEVEL = 0.3f;
+    private float SOUND_LEVEL = 0.2f;
     private float SOUND_MIN = 0f;
 
     private float soundFeedBackSaut;
@@ -28,10 +28,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip RepulsionSound;
     public AudioClip PortalSound;
 
+    public AudioClip musicLevel0;
     public AudioClip musicLevel1;
     public AudioClip musicLevel2;
     public AudioClip musicLevel3;
     public AudioClip musicLevel4;
+    public AudioClip musicLevel5;
+
 
     public Toggle m_Toggle;
     bool onOff=true;
@@ -123,15 +126,19 @@ public class SoundManager : MonoBehaviour
         switch (choix)
         {
             case "jumpSound":
+                GetComponent<AudioSource>().loop = false;
                 GetComponent<AudioSource>().PlayOneShot(JumpSound, soundFeedBackSaut);
                 break;
             case "attiranceSound":
+                GetComponent<AudioSource>().loop = true;
                 GetComponent<AudioSource>().PlayOneShot(AttiranceSound, soundFeedBackAttract);
                 break;
             case "repulsionSound":
+                GetComponent<AudioSource>().loop = false;
                 GetComponent<AudioSource>().PlayOneShot(RepulsionSound, soundFeedBackRepulse);
                 break;
             case "portalSound":
+                GetComponent<AudioSource>().loop = false;
                 GetComponent<AudioSource>().PlayOneShot(PortalSound, soundFeedBackPortal);
                 break;
         }
@@ -140,20 +147,26 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundLevel()
     {
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 6);
         switch (rand)
         {
             case 0:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel1, soundLevel);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel0, soundLevel);
                 break;
             case 1:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel2, soundLevel);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel1, soundLevel);
                 break;
             case 2:
-                GetComponent<AudioSource>().PlayOneShot(musicLevel3, soundLevel);
+                GetComponent<AudioSource>().PlayOneShot(musicLevel2, soundLevel);
                 break;
             case 3:
+                GetComponent<AudioSource>().PlayOneShot(musicLevel3, soundLevel);
+                break;
+            case 4:
                 GetComponent<AudioSource>().PlayOneShot(musicLevel4, soundLevel);
+                break;
+            case 5:
+                GetComponent<AudioSource>().PlayOneShot(musicLevel5, soundLevel);
                 break;
         }
     }
