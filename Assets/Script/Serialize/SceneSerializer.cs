@@ -13,6 +13,7 @@ namespace serialize
         public List<Pique> piques;
         public List<Portal> portals;
         public List<Saw> saws;
+        public List<Elevator> elevators;
 
         public SceneSerializer()
         {
@@ -23,6 +24,8 @@ namespace serialize
             piques = new List<Pique>();
             portals = new List<Portal>();
             saws = new List<Saw>();
+            elevators = new List<Elevator>();
+
         }
     
         public void SetP1(Player p1)
@@ -53,6 +56,11 @@ namespace serialize
         public void AddSaw(Saw saw)
         {
             saws.Add(saw);
+        }
+
+        public void AddElevator(Elevator elevator)
+        {
+            elevators.Add(elevator);
         }
 
     }

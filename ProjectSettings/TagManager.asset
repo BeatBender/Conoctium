@@ -29,6 +29,7 @@ TagManager:
   - ToggleSound
   - OptionsMenu
   - Saw
+  - Elevator
   layers:
   - Default
   - TransparentFX

@@ -69,7 +69,10 @@ void Update()
                     scene.AddPortal(new serialize.Portal(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale, child.GetChild(1).localScale));
                     break;
                 case "Saw":
-                    scene.AddSaw(new serialize.Saw(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(0).localScale));
+                    scene.AddSaw(new serialize.Saw(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(2).localScale));
+                    break;
+                case "Elevator":
+                    scene.AddElevator(new serialize.Elevator(child.GetChild(0).position, child.GetChild(1).position, child.GetChild(2).localScale));
                     break;
                 default:
                     break;
@@ -165,6 +168,14 @@ void Update()
             saw.GetComponent<Transform>().GetChild(2).localScale = sawi.scale;
             saw.GetComponent<Transform>().GetChild(1).position = sawi.position2;
             saw.GetComponent<Transform>().parent = this.GetComponent<Transform>();
+        }
+        foreach (serialize.Elevator elevi in scene.elevators)
+        {
+            GameObject elev = Instantiate(Resources.Load("Elevator") as GameObject);
+            elev.GetComponent<Transform>().GetChild(0).position = elevi.position;
+            elev.GetComponent<Transform>().GetChild(2).localScale = elevi.scale;
+            elev.GetComponent<Transform>().GetChild(1).position = elevi.position2;
+            elev.GetComponent<Transform>().parent = this.GetComponent<Transform>();
         }
         bool p1Present = false;
         bool p2Present = false;
